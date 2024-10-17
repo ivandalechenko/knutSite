@@ -15,6 +15,8 @@ const Window = ({ children, type }) => {
                     <img src={`/img/links/${type}Link.png`} alt='decor' />
                     {type === 'state' && '$knut State'}
                     {type === 'roadmap' && 'Roadmap'}
+                    {type === 'whitepaper' && 'Whitepaper'}
+
                 </div>
                 <div className="title-bar-controls">
                     <button aria-label="Minimize" onClick={() => {

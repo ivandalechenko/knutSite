@@ -1,0 +1,35 @@
+.Whitepaper {
+    width: 700px;
+    background-color: #fff;
+    padding: 16px;
+    max-height: 300px;
+    overflow-y: scroll;
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    &_header {
+        font-size: 36px;
+        color: #000;
+        font-weight: 700;
+    }
+
+    &_subheader {
+        margin-top: 24px;
+        color: #000;
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    &_p {
+        margin-top: 8px;
+        color: #000;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        line-height: 26px;
+    }
+}

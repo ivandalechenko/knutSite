@@ -15,8 +15,8 @@ function App() {
     <div className='App'>
       <Desctop></Desctop>
       {windowStore.getWindowStatus('state') === 'opened' && <State />}
+      {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
-      {/* {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />} */}
       {/* {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />} */}
       {/* {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />} */}
       <TaskPanel></TaskPanel>
