@@ -45,13 +45,13 @@ const TaskPanel = (props) => {
                     </div>
                     <div className='TaskPanel_right'>
                         <div className='TaskPanel_media'>
-                            <a href="https://telegram.org/" target='_blank'>
+                            <a href="https://x.com/knutfanpage?s=21&t=H7dk8e7qY0TSyg4v3SbSFw" target='_blank'>
                                 <img src='/img/media/x.png' alt='decor' />
                             </a>
-                            <a href="https://telegram.org/" target='_blank'>
+                            <a href="https://t.me/knutonsol" target='_blank'>
                                 <img src='/img/media/tg.png' alt='decor' />
                             </a>
-                            <a href="https://telegram.org/" target='_blank'>
+                            <a href="https://dexscreener.com/solana/8ztb9xdw33yjhfwlxc9u9jox6sbd4x2rzsxm5g1z78e3" target='_blank'>
                                 <img src='/img/media/bird.png' alt='decor' />
                             </a>
                         </div>
