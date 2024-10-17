@@ -26,8 +26,8 @@ jobs:
             cd /home/knutSite
             
             echo "Pulling the latest code from the repository"
-            git checkout $BRANCH_NAME
-            git pull origin $BRANCH_NAME
+            git checkout master
+            git pull origin master
             
             echo "Installing dependencies"
             npm install
