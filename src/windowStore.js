@@ -22,7 +22,7 @@ class WindowStore {
         return this.windows[window];
     }
     getOpenedWindows() {
-        console.log('1234');
+        console.log('1234123');
 
         // тут мне нужно получить массив тех элементов объектов windows которые не равны closed
     }
