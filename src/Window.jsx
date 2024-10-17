@@ -14,10 +14,10 @@ const Window = ({ children, type }) => {
                 <div className="title-bar-text"><img src='/img/links/stateLink.png' alt='decor' /> $knut State</div>
                 <div className="title-bar-controls">
                     <button aria-label="Minimize" onClick={() => {
-                        windowStore.setWindowStatus(type, 'min');
+                        windowStore.setWindowStatus(type, 'minimized');
                     }}></button>
                     <button aria-label="Maximize"></button>
-                    <button aria-label="Close" onClick={() => { windowStore.setWindowStatus(type, 'close') }}></button>
+                    <button aria-label="Close" onClick={() => { windowStore.setWindowStatus(type, 'closed') }}></button>
                 </div>
             </div>
             {/* Остальная часть окна */}

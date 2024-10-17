@@ -21,12 +21,14 @@ class WindowStore {
     getWindowStatus(window) {
         return this.windows[window];
     }
+
     getOpenedWindows() {
-        console.log('1234112323');
-
-        // тут мне нужно получить массив тех элементов объектов windows которые не равны closed
+        const windows = Object.entries(this.windows)
+            .filter(([key, value]) => value !== 'closed') // фильтруем окна, которые не 'closed'
+            .map(([key]) => key); // возвращаем только ключи
+        console.log(windows);
+        return windows
     }
-
 
 }
 
