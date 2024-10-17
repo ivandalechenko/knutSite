@@ -9,10 +9,16 @@ import Milestones from './Milestones'
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
 import windowStore from './windowStore'
+import bearStore from './bearStore'
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App' onClick={() => {
+      if (windowStore.getWindowStatus('state') === 'opened') {
+        console.log('meow');
+        bearStore.incBear()
+      }
+    }}>
       <Desctop />
       {windowStore.getWindowStatus('state') === 'opened' && <State />}
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
