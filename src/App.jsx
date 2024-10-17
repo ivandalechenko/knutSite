@@ -18,7 +18,7 @@ function App() {
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
       {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />}
-      {/* {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />} */}
+      {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />}
       <TaskPanel />
     </div>
   )

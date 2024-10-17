@@ -17,6 +17,7 @@ const Window = ({ children, type }) => {
                     {type === 'roadmap' && 'Roadmap'}
                     {type === 'whitepaper' && 'Whitepaper'}
                     {type === 'tokenomics' && 'Tokenomics'}
+                    {type === 'milestones' && 'Milestones'}
 
 
                 </div>

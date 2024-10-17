@@ -1,0 +1,41 @@
+.Milestones {
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    gap: 24px;
+    max-width: 500px;
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    &_row {
+        width: 100%;
+        display: flex;
+        gap: 24px;
+    }
+
+    &_el {
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        align-content: baseline;
+        flex-wrap: wrap;
+
+        img {
+            width: 48px;
+            height: 48px;
+        }
+
+        &_text {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #000;
+            margin-top: 8px;
+        }
+    }
+}
