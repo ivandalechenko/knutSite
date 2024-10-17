@@ -18,6 +18,8 @@ const Window = ({ children, type }) => {
                     {type === 'whitepaper' && 'Whitepaper'}
                     {type === 'tokenomics' && 'Tokenomics'}
                     {type === 'milestones' && 'Milestones'}
+                    {type === 'memes' && 'Memes'}
+                    {type === 'shutdown' && 'Shut Down'}
 
 
                 </div>

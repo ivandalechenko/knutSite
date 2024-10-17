@@ -41,7 +41,7 @@ const Pusk = (props) => {
                     <div className='Pusk_hr'></div>
                     <div className='Pusk_link'>
                         <div className='Pusk_link_img'>
-                            <img src='/img/myComp.png' alt='decor' />
+                            <img src='/img/links/shutdownLink.png' alt='decor' />
                         </div>
                         Shut Down
                     </div>

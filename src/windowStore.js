@@ -2,11 +2,13 @@ import { makeAutoObservable, observable } from 'mobx';
 
 class WindowStore {
     windows = {
-        state: 'opened',
+        state: 'closer',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
-        milestones: 'closed'
+        milestones: 'closed',
+        memes: 'opened',
+        shutdown: 'opened'
     }
 
     constructor() {

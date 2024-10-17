@@ -5,6 +5,7 @@ import Roadmap from './Roadmap'
 import Whitepaper from './Whitepaper'
 import Tokenomics from './Tokenomics'
 import Milestones from './Milestones'
+import Memes from './Memes'
 
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
@@ -25,6 +26,7 @@ function App() {
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
       {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />}
       {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />}
+      {windowStore.getWindowStatus('memes') === 'opened' && <Memes />}
       <TaskPanel />
     </div>
   )

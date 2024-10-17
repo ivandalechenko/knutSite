@@ -7,7 +7,7 @@ const Whitepaper = (props) => {
         <Window type='whitepaper'>
             <div className='Whitepaper'>
                 <div className='Whitepaper_header'>
-                    Whitepaper
+                    Whitepaper: PERFECT
                 </div>
                 <div className='Whitepaper_subheader'>
                     Knut Stealth Launch
@@ -37,10 +37,12 @@ const Whitepaper = (props) => {
                     Tenth OTC: October 5, 4:30 PM CEST <br />
                     Eleventh OTC: October 6, 11:30 PM CEST <br />
                     Twelfth OTC: October 8, 5:00 AM CEST <br />
-                    Thirteenth OTC: October 10, 10:30 AM CEST <br />
-                    Total OTCs: 13<br /><br />
+                    Thirteenth OTC: October 10, 10:30 AM CEST <br /><br />
+                    Total open-market OTCs - 13<br /><br />
 
-                    Additional private OTC's : 5<br /><br />
+                    Additional private OTC's : 10<br /><br />
+
+                    OTC's ready for execution : 12 <br /><br />
 
                     Full whitepaper will be provided during phase 2
                 </div>

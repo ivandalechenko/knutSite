@@ -27,7 +27,10 @@ const Milestones = (props) => {
                     <div className='Milestones_el'>
                         <img src='/img/milestones/window.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            $500.000 MCAP
+                            $500.000
+                            MCAP CAME
+                            TOO HARD ..
+                            uhh... fast
                         </div>
                     </div>
                 </div>
@@ -35,30 +38,32 @@ const Milestones = (props) => {
                     <div className='Milestones_el'>
                         <img src='/img/milestones/planet.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            Backer #1
-                            $600.000
+                            Backer #1 $750.000
                         </div>
                     </div>
                     <div className='Milestones_el'>
                         <img src='/img/milestones/planet.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            Backer #2
-                            $700.000
+                            Backer #2 $1.000.000
                         </div>
                     </div>
                     <div className='Milestones_el'>
                         <img src='/img/milestones/planet.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            Backer #3
-                            $800.000
+                            Backer #3 $1.500.000
                         </div>
                     </div>
 
                     <div className='Milestones_el'>
                         <img src='/img/milestones/planet.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            Backer #5 + KOL #1
-                            $1.000.000
+                            Backer #4 $2.500.000
+                        </div>
+                    </div>
+                    <div className='Milestones_el'>
+                        <img src='/img/milestones/planet.png' alt='decor' />
+                        <div className='Milestones_el_text'>
+                            Backer #5 $5.000.000
                         </div>
                     </div>
 
@@ -66,31 +71,33 @@ const Milestones = (props) => {
                 </div>
                 <div className='Milestones_row'>
                     <div className='Milestones_el'>
-                        <img src='/img/milestones/persons.png' alt='decor' />
+                        <img src='/img/logo.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            KOL #2
-                            $2.000.000
+                            KOL #1 $1.000.000
                         </div>
                     </div>
                     <div className='Milestones_el'>
-                        <img src='/img/milestones/persons.png' alt='decor' />
+                        <img src='/img/logo.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            KOL #3
-                            $3.000.000
+                            KOL #2 $2.000.000
                         </div>
                     </div>
                     <div className='Milestones_el'>
-                        <img src='/img/milestones/persons.png' alt='decor' />
+                        <img src='/img/logo.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            KOL #4
-                            $4.000.000
+                            KOL #3 $3.000.000
                         </div>
                     </div>
                     <div className='Milestones_el'>
-                        <img src='/img/milestones/persons.png' alt='decor' />
+                        <img src='/img/logo.png' alt='decor' />
                         <div className='Milestones_el_text'>
-                            KOL #5
-                            $5.000.000
+                            KOL #4 $4.000.000
+                        </div>
+                    </div>
+                    <div className='Milestones_el'>
+                        <img src='/img/logo.png' alt='decor' />
+                        <div className='Milestones_el_text'>
+                            KOL #5 $5.000.000
                         </div>
                     </div>
                 </div>

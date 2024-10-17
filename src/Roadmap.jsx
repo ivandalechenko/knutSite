@@ -42,6 +42,8 @@ const Roadmap = (props) => {
                 <div className='Roadmap_step'><img src='/img/unsuccess.png' alt='decor' />KEY PARTNERS START OTC'S</div>
                 <div className='Roadmap_step'><img src='/img/unsuccess.png' alt='decor' />FIAT ON / OFF RAMP</div>
                 <div className='Roadmap_step'><img src='/img/unsuccess.png' alt='decor' />1000 Holders</div>
+                <div className='Roadmap_phase'>PHASE 3</div>
+                <div className='Roadmap_step'>*CUMMING...</div>
             </div>
         </Window>
     )

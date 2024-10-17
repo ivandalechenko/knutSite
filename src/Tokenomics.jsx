@@ -8,7 +8,7 @@ const Tokenomics = (props) => {
             <div className='Tokenomics'>
                 <div className='Tokenomics_header'>
                     <img src='/img/links/tokenomicsLink.png' alt='decor' />
-                    Tokenomisc
+                    Tokenomics
                 </div>
                 <div className='Tokenomics_block'>
                     <div className='Tokenomics_el'>

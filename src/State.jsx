@@ -17,7 +17,7 @@ const State = (props) => {
                         <button onClick={() => {
                             window.open('https://dexscreener.com/solana/8ztb9xdw33yjhfwlxc9u9jox6sbd4x2rzsxm5g1z78e3', '_blank');
                         }}>
-                            Explore DEXscanner
+                            Explore DEXscreener
                         </button>
                     </div>
                 }

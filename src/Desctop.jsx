@@ -52,6 +52,15 @@ const Desctop = (props) => {
                         Milestones
                     </div>
                 </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('memes', 'opened') }}>
+                    <img src='/img/links/memesLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Memes
+                    </div>
+                </div>
             </div>
         </div>
     )
