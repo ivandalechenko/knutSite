@@ -28,10 +28,10 @@
 
     &_el {
         display: flex;
-        align-items: center;
+        align-items: baseline;
 
         &_name {
-            width: 320px;
+            min-width: 320px;
         }
 
         &_name,

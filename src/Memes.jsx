@@ -3,7 +3,7 @@ import './scss/Memes.scss';
 import Window from './Window'
 import { useState } from 'react';
 const MEMES_PER_PAGE = 4;
-const TOTAL_MEMES_COUNT = 50;
+const TOTAL_MEMES_COUNT = 49;
 
 const Memes = (props) => {
     const [page, setpage] = useState(0);
@@ -30,7 +30,6 @@ const Memes = (props) => {
                 </div>
                 <div className='Memes_list window'>
                     <div className='Memes_list_content'>
-
                         {
                             Array.from({ length: MEMES_PER_PAGE }, (_, index) => {
                                 if (page * MEMES_PER_PAGE + index < TOTAL_MEMES_COUNT) {

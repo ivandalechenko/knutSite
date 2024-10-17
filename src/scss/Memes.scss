@@ -12,13 +12,14 @@
             width: 100%;
             max-width: 300px;
             max-height: 292px;
+            object-fit: contain;
         }
     }
 
     &_list {
         display: flex;
         flex-wrap: wrap;
-        max-width: 68px;
+        max-width: 70px;
         justify-content: space-between;
         align-content: space-between;
         height: 300px;
@@ -37,13 +38,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 62px;
-            height: 62px;
+            width: 63px;
+            height: 63px;
 
             img {
                 width: 100%;
                 max-width: 62px;
                 max-height: 62px;
+                object-fit: contain;
             }
         }
     }

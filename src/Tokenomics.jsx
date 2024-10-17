@@ -13,11 +13,7 @@ const Tokenomics = (props) => {
                 <div className='Tokenomics_block'>
                     <div className='Tokenomics_el'>
                         <div className='Tokenomics_el_name'>DEV WALLET DOXXED</div>
-                        <div className='Tokenomics_el_perc'>:4%</div>
-                    </div>
-                    <div className='Tokenomics_el'>
-                        <div className='Tokenomics_el_name'>DEV WALLET</div>
-                        <div className='Tokenomics_el_perc'>:8.64%</div>
+                        <div className='Tokenomics_el_perc'>:>4%</div>
                     </div>
                     <div className='Tokenomics_el'>
                         <div className='Tokenomics_el_name'>ADDITIONAL TEAM</div>
@@ -37,6 +33,14 @@ const Tokenomics = (props) => {
                         <div className='Tokenomics_el_name'>PARTNER #3</div>
                         <div className='Tokenomics_el_perc'>:3.38%</div>
                     </div>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name'>PARTNER #4</div>
+                        <div className='Tokenomics_el_perc'>:2.25%</div>
+                    </div>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name'>??? #5</div>
+                        <div className='Tokenomics_el_perc'>:8.64%</div>
+                    </div>
                 </div>
                 <div className='Tokenomics_block'>
                     <div className='Tokenomics_el'>
@@ -45,11 +49,26 @@ const Tokenomics = (props) => {
                     </div>
                     <div className='Tokenomics_el'>
                         <div className='Tokenomics_el_name'>BACKER #2</div>
-                        <div className='Tokenomics_el_perc'>:1,75% 1,75% 1,5%</div>
+                        <div className='Tokenomics_el_perc'>:1.75% (+1.75%, +1.75%)</div>
+                    </div>
+                </div>
+                <div className='Tokenomics_block'>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name'>BACKER WEB2 #1</div>
+                        <div className='Tokenomics_el_perc'>:TBA</div>
                     </div>
                     <div className='Tokenomics_el'>
-                        <div className='Tokenomics_el_name'>TOTAL</div>
-                        <div className='Tokenomics_el_perc'>:5%</div>
+                        <div className='Tokenomics_el_name'>BACKER WEB2 #2</div>
+                        <div className='Tokenomics_el_perc'>:TBA</div>
+                    </div>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name'>BACKER WEB2 #3</div>
+                        <div className='Tokenomics_el_perc'>:TBA</div>
+                    </div>
+                </div>
+                <div className='Tokenomics_block'>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name'>More details once we cum.</div>
                     </div>
                 </div>
             </div>
