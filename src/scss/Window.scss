@@ -1,0 +1,19 @@
+.Window {
+    position: absolute;
+
+    &_state {
+        left: 200px;
+        top: 100px;
+    }
+
+    .title-bar-text {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

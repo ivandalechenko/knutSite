@@ -1,0 +1,107 @@
+.TaskPanel {
+    width: 100%;
+    // height: 30px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    &_wrapper {
+        position: fixed !important;
+        align-items: end !important;
+        bottom: 0px;
+        left: 0px;
+        width: 100% !important;
+        z-index: 99;
+    }
+
+    button:not(:disabled):active {
+        text-shadow: 1px 1px #2220;
+
+        img,
+        .TaskPanel_tab_text {
+            transform: translate(1px, 1px);
+        }
+    }
+
+    &_left,
+    &_right {
+        display: flex;
+        column-gap: 4px;
+
+    }
+
+
+    &_tab {
+        width: 240px;
+        height: 38px;
+        padding: 0px 8px;
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        img {
+            width: 100px;
+            max-width: 24px;
+            max-height: 24px;
+        }
+
+        &_text {
+            color: #000;
+            font-size: 17px;
+        }
+    }
+
+    &_win {
+        margin-right: 5px;
+        width: 95px;
+
+        .TaskPanel_tab_text {
+            font-weight: 700;
+        }
+    }
+
+    &_vl {
+        width: 0px;
+        height: 38px;
+        border-left: 1px solid rgba(#000000, .05);
+        border-right: 1px solid rgba(#fff, 1);
+        margin-left: 8px;
+    }
+
+    &_media {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+
+        img {
+            width: 18px;
+        }
+    }
+
+    &_stat {
+        display: flex;
+        align-items: center;
+        padding: 0px 8px;
+        column-gap: 8px;
+    }
+
+    &_vol {
+        img {
+            width: 24px;
+        }
+    }
+
+    &_time {
+        font-size: 17px;
+        color: black;
+    }
+
+    .buttonPressed {
+        text-shadow: none !important;
+    }
+}
