@@ -9,6 +9,18 @@ const State = (props) => {
         <Window type="state">
             <div className='State'>
                 <img src={`/img/bears/${bearStore.currentBear}.svg`} alt='decor' />
+                {
+                    bearStore.currentBear === 9 && <div className='State_explore'>
+                        <div className='State_explore_large'>
+                            RIP :(
+                        </div>
+                        <button onClick={() => {
+                            window.open('https://dexscreener.com/solana/8ztb9xdw33yjhfwlxc9u9jox6sbd4x2rzsxm5g1z78e3', '_blank');
+                        }}>
+                            Explore DEXscanner
+                        </button>
+                    </div>
+                }
             </div>
         </Window>
     )

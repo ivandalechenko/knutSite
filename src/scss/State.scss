@@ -9,4 +9,19 @@
     img {
         width: 200px;
     }
+
+
+    &_explore {
+        &_large {
+            font-size: 17px;
+            font-weight: 700;
+            color: #000;
+            text-align: center;
+        }
+
+        button {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+    }
 }
