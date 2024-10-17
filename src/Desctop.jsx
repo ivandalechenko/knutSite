@@ -16,7 +16,7 @@ const Desctop = (props) => {
                         $knut State
                     </div>
                 </div>
-                <div className='Desctop_link'>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('roadmap', 'opened') }}>
                     <img src='/img/links/roadmapLink.png' className='Desctop_link_img' alt='decor' />
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
@@ -25,7 +25,7 @@ const Desctop = (props) => {
                         Roadmap
                     </div>
                 </div>
-                <div className='Desctop_link'>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('whitepaper', 'opened') }}>
                     <img src='/img/links/whitepaperLink.png' className='Desctop_link_img' alt='decor' />
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
@@ -34,7 +34,7 @@ const Desctop = (props) => {
                         Whitepaper
                     </div>
                 </div>
-                <div className='Desctop_link'>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('tokenomics', 'opened') }}>
                     <img src='/img/links/tokenomicsLink.png' className='Desctop_link_img' alt='decor' />
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
@@ -43,7 +43,7 @@ const Desctop = (props) => {
                         Tokenomics
                     </div>
                 </div>
-                <div className='Desctop_link'>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('milestones', 'opened') }}>
                     <img src='/img/links/milestonesLink.png' className='Desctop_link_img' alt='decor' />
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />

@@ -33,8 +33,8 @@ const TaskPanel = (props) => {
                             </div>
                         </button>
                         {
-                            windowStore.getOpenedWindows().map((window) => {
-                                return <button className='TaskPanel_tab' onClick={() => { windowStore.setWindowStatus(window, windowStore.getWindowStatus(window) === 'opened' ? 'minimized' : 'opened') }}>
+                            windowStore.getOpenedWindows().map((window, key) => {
+                                return <button className='TaskPanel_tab' key={`tab-${key}`} onClick={() => { windowStore.setWindowStatus(window, windowStore.getWindowStatus(window) === 'opened' ? 'minimized' : 'opened') }}>
                                     <img src={`/img/links/${window}Link.png`} alt='decor' />
                                     <div className='TaskPanel_tab_text'>
                                         {capitalizeFirstLetter(window)}

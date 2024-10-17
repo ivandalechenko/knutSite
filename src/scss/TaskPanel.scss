@@ -32,17 +32,26 @@
     &_right {
         display: flex;
         column-gap: 4px;
+    }
 
+    &_left {
+        width: 100%;
+    }
+
+    &_right {
+        width: 290px;
+        justify-content: right;
     }
 
 
     &_tab {
-        width: 240px;
         height: 38px;
         padding: 0px 8px;
         display: flex;
         align-items: center;
         column-gap: 6px;
+        width: 100%;
+        max-width: 240px;
 
         img {
             width: 100px;
@@ -58,7 +67,7 @@
 
     &_win {
         margin-right: 5px;
-        width: 95px;
+        min-width: 95px;
 
         .TaskPanel_tab_text {
             font-weight: 700;

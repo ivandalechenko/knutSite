@@ -11,7 +11,11 @@ const Window = ({ children, type }) => {
             <div
                 className="title-bar"
             >
-                <div className="title-bar-text"><img src='/img/links/stateLink.png' alt='decor' /> $knut State</div>
+                <div className="title-bar-text">
+                    <img src={`/img/links/${type}Link.png`} alt='decor' />
+                    {type === 'state' && '$knut State'}
+                    {type === 'roadmap' && 'Roadmap'}
+                </div>
                 <div className="title-bar-controls">
                     <button aria-label="Minimize" onClick={() => {
                         windowStore.setWindowStatus(type, 'minimized');
