@@ -16,6 +16,8 @@ const Window = ({ children, type }) => {
                     {type === 'state' && '$knut State'}
                     {type === 'roadmap' && 'Roadmap'}
                     {type === 'whitepaper' && 'Whitepaper'}
+                    {type === 'tokenomics' && 'Tokenomics'}
+
 
                 </div>
                 <div className="title-bar-controls">

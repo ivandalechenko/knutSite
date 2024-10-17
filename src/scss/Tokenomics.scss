@@ -1,0 +1,45 @@
+.Tokenomics {
+    width: 700px;
+    background-color: #000;
+    padding: 16px;
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    // overflow-y: scroll;
+    &_header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        font-size: 32px;
+        font-weight: 700;
+
+        img {
+            width: 44px;
+        }
+    }
+
+    &_block {
+        margin-top: 24px;
+    }
+
+    &_el {
+        display: flex;
+        align-items: center;
+
+        &_name {
+            width: 320px;
+        }
+
+        &_name,
+        &_perc {
+            font-family: 'DOS';
+            font-weight: 700;
+            font-size: 32px;
+            color: #808080;
+        }
+    }
+}

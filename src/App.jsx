@@ -13,13 +13,13 @@ import windowStore from './windowStore'
 function App() {
   return (
     <div className='App'>
-      <Desctop></Desctop>
+      <Desctop />
       {windowStore.getWindowStatus('state') === 'opened' && <State />}
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
-      {/* {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />} */}
+      {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />}
       {/* {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />} */}
-      <TaskPanel></TaskPanel>
+      <TaskPanel />
     </div>
   )
 }

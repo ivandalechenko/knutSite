@@ -15,6 +15,14 @@
     src: url("/fonts/ms_sans_serif_bold.woff2") format("woff2")
 }
 
+@font-face {
+    font-family: "DOS";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/Perfect DOS VGA 437.ttf") format("truetype");
+}
+
+
 body {
     color: #222;
     font-family: Arial;
