@@ -6,6 +6,9 @@ import Whitepaper from './Whitepaper'
 import Tokenomics from './Tokenomics'
 import Milestones from './Milestones'
 import Memes from './Memes'
+import CantClose from './CantClose'
+import Player from './Player'
+
 
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
@@ -16,17 +19,18 @@ function App() {
   return (
     <div className='App' onClick={() => {
       if (windowStore.getWindowStatus('state') === 'opened') {
-        console.log('meow');
         bearStore.incBear()
       }
     }}>
       <Desctop />
-      {windowStore.getWindowStatus('state') === 'opened' && <State />}
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
       {windowStore.getWindowStatus('tokenomics') === 'opened' && <Tokenomics />}
       {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />}
       {windowStore.getWindowStatus('memes') === 'opened' && <Memes />}
+      {windowStore.getWindowStatus('state') === 'opened' && <State />}
+      {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
+      {windowStore.getWindowStatus('player') === 'opened' && <Player />}
       <TaskPanel />
     </div>
   )

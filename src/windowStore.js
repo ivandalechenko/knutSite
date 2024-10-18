@@ -2,13 +2,15 @@ import { makeAutoObservable, observable } from 'mobx';
 
 class WindowStore {
     windows = {
-        state: 'closer',
+        state: 'opened',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
         milestones: 'closed',
-        memes: 'opened',
-        shutdown: 'opened'
+        memes: 'closed',
+        shutdown: 'closed',
+        cantClose: 'closed',
+        player: 'opened',
     }
 
     constructor() {
@@ -18,7 +20,11 @@ class WindowStore {
     }
 
     setWindowStatus(window, status) {
-        this.windows[window] = status;
+        if (window !== 'state') {
+            this.windows[window] = status;
+        } else {
+            this.windows['cantClose'] = 'opened';
+        }
     }
     getWindowStatus(window) {
         return this.windows[window];
@@ -26,7 +32,7 @@ class WindowStore {
 
     getOpenedWindows() {
         const windows = Object.entries(this.windows)
-            .filter(([key, value]) => value !== 'closed') // фильтруем окна, которые не 'closed'
+            .filter(([key, value]) => value !== 'closed' && !['cantClose', 'player'].includes(key)) // фильтруем окна, которые не 'closed'
             .map(([key]) => key); // возвращаем только ключи
         console.log(windows);
         return windows

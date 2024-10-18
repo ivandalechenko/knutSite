@@ -12,11 +12,11 @@
         display: flex;
         flex-wrap: wrap;
         width: 130px;
-        margin-top: 60px;
-        margin-left: 50px;
+        margin-top: 30px;
+        margin-left: 10px;
         gap: 28px;
 
-        @media(max-height: 580px) {
+        @media(max-height: 600px) {
             width: 300px;
         }
     }

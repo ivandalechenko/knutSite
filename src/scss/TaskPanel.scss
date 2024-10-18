@@ -39,7 +39,7 @@
     }
 
     &_right {
-        width: 290px;
+        min-width: 225px;
         justify-content: right;
     }
 
@@ -101,6 +101,8 @@
     }
 
     &_vol {
+        cursor: pointer;
+
         img {
             width: 24px;
         }

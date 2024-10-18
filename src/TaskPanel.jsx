@@ -57,7 +57,7 @@ const TaskPanel = (props) => {
                         </div>
                         <div className='TaskPanel_vl'></div>
                         <div className='TaskPanel_stat likeButton'>
-                            <div className='TaskPanel_vol'>
+                            <div className='TaskPanel_vol' onClick={() => { windowStore.setWindowStatus('player', 'opened') }}>
                                 <img src='/img/volume.png' alt='decor' />
                             </div>
                             <div className='TaskPanel_time'>
