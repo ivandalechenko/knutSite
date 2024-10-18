@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 600px;
     flex-wrap: wrap;
 
     &_decor {
@@ -22,7 +22,7 @@
         text-align: center;
         font-weight: 700;
         color: #000;
-        font-size: 42px;
+        font-size: 48px;
     }
 
     &_buttons {
@@ -33,6 +33,6 @@
 
     button {
 
-        font-size: 14px;
+        font-size: 18px;
     }
 }

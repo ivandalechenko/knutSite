@@ -9,8 +9,8 @@ class WindowStore {
         milestones: 'closed',
         memes: 'closed',
         cantClose: 'closed',
-        player: 'closed',
-        shutdown: 'opened',
+        player: 'opened',
+        shutdown: 'closed',
     }
 
     constructor() {
@@ -32,7 +32,7 @@ class WindowStore {
 
     getOpenedWindows() {
         const windows = Object.entries(this.windows)
-            .filter(([key, value]) => value !== 'closed' && !['cantClose', 'player'].includes(key)) // фильтруем окна, которые не 'closed'
+            .filter(([key, value]) => value !== 'closed' && !['', ''].includes(key)) // фильтруем окна, которые не 'closed'
             .map(([key]) => key); // возвращаем только ключи
         console.log(windows);
         return windows

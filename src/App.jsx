@@ -30,9 +30,9 @@ function App() {
       {windowStore.getWindowStatus('milestones') === 'opened' && <Milestones />}
       {windowStore.getWindowStatus('memes') === 'opened' && <Memes />}
       {windowStore.getWindowStatus('state') === 'opened' && <State />}
-      {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
       {windowStore.getWindowStatus('player') === 'opened' && <Player />}
       {windowStore.getWindowStatus('shutdown') === 'opened' && <Shutdown />}
+      {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
       <TaskPanel />
     </div>
   )
