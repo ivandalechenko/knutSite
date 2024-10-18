@@ -87,6 +87,10 @@
             align-items: center;
             column-gap: 2px;
             cursor: pointer;
+
+            img:active {
+                filter: brightness(0.8);
+            }
         }
 
         &_vol {
