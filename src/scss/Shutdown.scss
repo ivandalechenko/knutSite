@@ -4,8 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 600px;
     flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 600px;
+
+    @media(max-width: 800px) {
+        max-width: 800px;
+    }
 
     &_decor {
         width: 100%;

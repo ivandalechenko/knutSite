@@ -88,6 +88,10 @@ const Player = (props) => {
                                     {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {audioStore.songs[audioStore.currentSongIndex].slice(7)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div className='Player_controls'>

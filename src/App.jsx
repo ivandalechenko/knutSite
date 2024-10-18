@@ -14,11 +14,21 @@ import Shutdown from './Shutdown'
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
 import windowStore from './windowStore'
+import audioStore from './audioStore'
 import bearStore from './bearStore'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
+  const [firstClicked, setfirstClicked] = useState(false);
+  useEffect(() => {
+    if (firstClicked) {
+      audioStore.play = true;
+    }
+  }, [firstClicked])
   return (
     <div className='App' onClick={() => {
+      setfirstClicked(true)
       if (windowStore.getWindowStatus('state') === 'opened') {
         bearStore.incBear()
       }

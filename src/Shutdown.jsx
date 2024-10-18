@@ -2,8 +2,13 @@ import React from 'react';
 import './scss/Shutdown.scss';
 import Window from './Window'
 import windowStore from './windowStore'
+import { useEffect } from 'react';
+import bearStore from './bearStore'
 
 const Shutdown = (props) => {
+    useEffect(() => {
+        bearStore.killBear()
+    }, [])
     return (
         <Window type='shutdown'>
             <div className='Shutdown'>

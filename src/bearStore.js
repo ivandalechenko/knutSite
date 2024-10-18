@@ -12,6 +12,9 @@ class BearStore {
             this.currentBear = this.currentBear + 1
         }
     }
+    killBear() {
+        this.currentBear = 9
+    }
 }
 
 const bearStore = new BearStore();

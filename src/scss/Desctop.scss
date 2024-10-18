@@ -16,8 +16,14 @@
         margin-left: 10px;
         gap: 28px;
 
-        @media(max-height: 600px) {
+        @media(max-height: 650px) {
             width: 300px;
+        }
+
+        @media(max-width: 800px) {
+
+            margin-top: 60px;
+            margin-left: 0px;
         }
     }
 

@@ -49,22 +49,25 @@ const PlayerVolume = (props) => {
     }, [isDragging]);
 
     return (
-        <div
-            className='Player_controls_vol_bar'
-            ref={sliderRef}
-            onMouseDown={handleMouseDown} // Начинаем перетаскивание при нажатии
-        >
+        <div className='Player_controls_vol'>
+            <img src='/img/music/volume.png' alt='decor' />
             <div
-                className="free_img Player_controls_vol_bar_polz"
-                style={{ left: `${audioStore.volume * .9}%` }}
-                onMouseDown={handleMouseDown}
+                className='Player_controls_vol_bar'
+                ref={sliderRef}
+                onMouseDown={handleMouseDown} // Начинаем перетаскивание при нажатии
             >
-                <img src='/img/music/volumeChanger.svg' alt='decor' />
-            </div>
-            <div
-                className='Player_controls_vol_bar_inner'
-                style={{ width: `${audioStore.volume}%` }} // Отображение текущей громкости
-            >
+                <div
+                    className="free_img Player_controls_vol_bar_polz"
+                    style={{ left: `${audioStore.volume * .9}%` }}
+                    onMouseDown={handleMouseDown}
+                >
+                    <img src='/img/music/volumeChanger.svg' alt='decor' />
+                </div>
+                <div
+                    className='Player_controls_vol_bar_inner'
+                    style={{ width: `${audioStore.volume}%` }} // Отображение текущей громкости
+                >
+                </div>
             </div>
         </div>
     );

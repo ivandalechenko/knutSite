@@ -22,12 +22,17 @@ const TaskPanel = (props) => {
 
     return (
         <>
-            {puskOpened && <Pusk></Pusk>}
+            {puskOpened && <Pusk onClick={() => { setpuskOpened(false) }} />}
             <div className='TaskPanel_wrapper free_img'>
                 <div className='TaskPanel window'>
                     <div className='TaskPanel_left'>
                         <button className={`TaskPanel_tab TaskPanel_win ${puskOpened && 'buttonPressed'}`} onClick={() => { setpuskOpened(!puskOpened) }}>
-                            <img src='/img/logo.png' alt='decor' />
+                            <div className='TaskPanel_win_img_pc'>
+                                <img src='/img/logo.png' alt='decor' />
+                            </div>
+                            <div className='TaskPanel_win_img_mob'>
+                                <img src='/img/burger.png' alt='decor' />
+                            </div>
                             <div className='TaskPanel_tab_text'>
                                 $Knut
                             </div>
