@@ -3,7 +3,7 @@ import './scss/Memes.scss';
 import Window from './Window'
 import { useState } from 'react';
 const MEMES_PER_PAGE = 4;
-const TOTAL_MEMES_COUNT = 49;
+const TOTAL_MEMES_COUNT = 76;
 
 const Memes = (props) => {
     const [page, setpage] = useState(0);
