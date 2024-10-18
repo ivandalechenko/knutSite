@@ -3,14 +3,14 @@ import { makeAutoObservable, observable } from 'mobx';
 class WindowStore {
     z = 0
     windows = {
-        state: 'opened',
+        state: window.innerWidth <= 800 ? 'closed' : 'opened',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
         milestones: 'closed',
         memes: 'closed',
         cantClose: 'closed',
-        player: 'opened',
+        player: window.innerWidth <= 800 ? 'closed' : 'opened',
         shutdown: 'closed',
     }
 

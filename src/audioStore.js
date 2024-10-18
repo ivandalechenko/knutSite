@@ -84,7 +84,7 @@ class AudioStore {
         if (this.currentSongIndex - 1 > 0) {
             this.currentSongIndex = this.currentSongIndex - 1
         } else {
-            this.currentSongIndex = this.songs.length
+            this.currentSongIndex = this.songs.length - 1
         }
         this.newPos = 0 + Math.random() / 10
 
