@@ -1,6 +1,7 @@
 import { makeAutoObservable, observable } from 'mobx';
 
 class WindowStore {
+    z = 0
     windows = {
         state: 'opened',
         roadmap: 'closed',
@@ -19,6 +20,11 @@ class WindowStore {
         });
     }
 
+
+    getMaxZ() {
+        this.z = this.z + 1;
+        return this.z;
+    }
     setWindowStatus(window, status) {
         if (window !== 'state') {
             this.windows[window] = status;

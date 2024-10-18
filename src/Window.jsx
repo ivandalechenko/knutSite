@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import './scss/Window.scss';
 import windowStore from './windowStore';
 import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
 
 const Window = ({ children, type }) => {
     const [x, setX] = useState(0);
@@ -9,11 +10,20 @@ const Window = ({ children, type }) => {
     const [isDragging, setIsDragging] = useState(false);
     const winRef = useRef(null);
     const dragStartRef = useRef({ offsetX: 0, offsetY: 0 });
+    const [currentZ, setcurrentZ] = useState(0);
+    useEffect(() => {
+        updateMyZ()
+    }, [])
+
+    const updateMyZ = () => {
+        setcurrentZ(windowStore.getMaxZ())
+    }
 
     const handleMouseDown = (e) => {
         setIsDragging(true);
         dragStartRef.current.offsetX = e.clientX - x;
         dragStartRef.current.offsetY = e.clientY - y;
+        updateMyZ()
     };
 
     const handleMouseMove = (e) => {
@@ -47,7 +57,7 @@ const Window = ({ children, type }) => {
         <div
             className={`Window window Window_${type}`}
             ref={winRef}
-            style={{ transform: `translate(${x}px, ${y}px)` }} // Исправлено на translate
+            style={{ transform: `translate(${x}px, ${y}px)`, zIndex: currentZ }} // Исправлено на translate
             onMouseDown={handleMouseDown} // Перетаскивание при нажатии на окно
         >
             <div className="title-bar">
@@ -76,7 +86,7 @@ const Window = ({ children, type }) => {
                 </div>
             </div>
             {/* Остальная часть окна */}
-            <div>{children}</div>
+            <div onMouseDown={(e) => { updateMyZ(); e.stopPropagation() }}>{children}</div>
         </div>
     );
 };
