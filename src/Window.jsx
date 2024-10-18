@@ -26,7 +26,7 @@ const Window = ({ children, type }) => {
 
                 <div className="title-bar-controls">
 
-                    {!['cantClose', 'player'].includes(type) && <>
+                    {!['cantClose', 'player', 'shutdown'].includes(type) && <>
                         <button aria-label="Minimize" onClick={() => {
                             windowStore.setWindowStatus(type, 'minimized');
                         }}></button>

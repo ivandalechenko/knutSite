@@ -32,11 +32,13 @@
 
         &:hover {
             text-decoration: underline;
+            cursor: pointer;
         }
 
         &_header {
             &:hover {
                 text-decoration: none;
+                cursor: default;
 
             }
         }

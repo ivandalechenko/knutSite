@@ -1,5 +1,6 @@
 import React from 'react';
 import './scss/Pusk.scss';
+import windowStore from './windowStore'
 
 const Pusk = (props) => {
     return (
@@ -39,7 +40,7 @@ const Pusk = (props) => {
                         DEXscreener
                     </a>
                     <div className='Pusk_hr'></div>
-                    <div className='Pusk_link'>
+                    <div className='Pusk_link' onClick={() => { windowStore.setWindowStatus('shutdown', 'opened') }}>
                         <div className='Pusk_link_img'>
                             <img src='/img/links/shutdownLink.png' alt='decor' />
                         </div>

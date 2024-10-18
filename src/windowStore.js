@@ -8,9 +8,9 @@ class WindowStore {
         tokenomics: 'closed',
         milestones: 'closed',
         memes: 'closed',
-        shutdown: 'closed',
         cantClose: 'closed',
-        player: 'opened',
+        player: 'closed',
+        shutdown: 'opened',
     }
 
     constructor() {

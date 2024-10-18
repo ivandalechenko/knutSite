@@ -1,0 +1,38 @@
+.Shutdown {
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    flex-wrap: wrap;
+
+    &_decor {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 200px;
+        }
+    }
+
+    &_header {
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        color: #000;
+        font-size: 42px;
+    }
+
+    &_buttons {
+        margin-top: 16px;
+        display: flex;
+        column-gap: 8px;
+    }
+
+    button {
+
+        font-size: 14px;
+    }
+}

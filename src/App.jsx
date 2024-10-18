@@ -8,6 +8,7 @@ import Milestones from './Milestones'
 import Memes from './Memes'
 import CantClose from './CantClose'
 import Player from './Player'
+import Shutdown from './Shutdown'
 
 
 import './scss/App.scss';
@@ -31,6 +32,7 @@ function App() {
       {windowStore.getWindowStatus('state') === 'opened' && <State />}
       {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
       {windowStore.getWindowStatus('player') === 'opened' && <Player />}
+      {windowStore.getWindowStatus('shutdown') === 'opened' && <Shutdown />}
       <TaskPanel />
     </div>
   )
