@@ -13,7 +13,7 @@ const Tokenomics = (props) => {
                 <div className='Tokenomics_block'>
                     <div className='Tokenomics_el'>
                         <div className='Tokenomics_el_name'>DEV WALLET DOXXED</div>
-                        <div className='Tokenomics_el_perc'>:>4%</div>
+                        <div className='Tokenomics_el_perc'>:&gt;4%</div>
                     </div>
                     <div className='Tokenomics_el'>
                         <div className='Tokenomics_el_name'>ADDITIONAL TEAM</div>
