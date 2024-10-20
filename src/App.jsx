@@ -43,6 +43,7 @@ function App() {
       {windowStore.getWindowStatus('player') === 'opened' && <Player />}
       {windowStore.getWindowStatus('shutdown') === 'opened' && <Shutdown />}
       {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
+
       <TaskPanel />
     </div>
   )
