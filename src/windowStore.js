@@ -12,7 +12,8 @@ class WindowStore {
         cantClose: 'closed',
         player: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         shutdown: 'closed',
-        TTT: 'opened',
+        TTT: 'closed',
+        paint: 'opened',
     }
 
     constructor() {

@@ -10,20 +10,18 @@
 
     &_links {
         display: flex;
-        flex-wrap: wrap;
-        width: 130px;
         margin-top: 30px;
-        margin-left: 10px;
+        margin-left: 30px;
         gap: 28px;
-
-        @media(max-height: 650px) {
-            width: 300px;
-        }
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: calc(100dvh - 100px);
+        align-items: flex-start;
+        align-content: baseline;
 
         @media(max-width: 800px) {
-
             margin-top: 60px;
-            margin-left: 0px;
+            margin-left: 10px;
         }
     }
 
@@ -31,7 +29,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        width: 130px;
+        width: 100px;
 
 
         &_img {

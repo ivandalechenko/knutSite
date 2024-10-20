@@ -73,6 +73,9 @@ const Window = ({ children, type }) => {
                     {type === 'cantClose' && 'Error'}
                     {type === 'player' && '$knut player'}
                     {type === 'TTT' && 'Tic-tac-toe'}
+                    {type === 'paint' && 'knutPaint'}
+
+
                 </div>
                 <div className="title-bar-controls">
                     {!['cantClose', 'player', 'shutdown'].includes(type) && (
