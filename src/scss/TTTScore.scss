@@ -6,4 +6,8 @@
     align-items: center;
     background-color: #000 !important;
     column-gap: 4px;
+
+    &_wrapper {
+        width: 100%;
+    }
 }

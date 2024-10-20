@@ -15,10 +15,12 @@ const TTTScore = ({ score }) => {
         }, 3000);
     }, [score])
     return (
-        <div className='TTTScore window'>
-            {numberToArray(score).map((el) => {
-                return <img src={`/img/ttt/${updated ? 'green' : 'red'}/${el}.svg`} alt='decor' />
-            })}
+        <div className='TTTScore_wrapper'>
+            <div className='TTTScore window'>
+                {numberToArray(score).map((el) => {
+                    return <img src={`/img/ttt/${updated ? 'green' : 'red'}/${el}.svg`} alt='decor' />
+                })}
+            </div>
         </div>
     )
 }
