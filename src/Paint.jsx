@@ -8,6 +8,7 @@ const Paint = (props) => {
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
+    const [brushSize, setbrushSize] = useState(5);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -43,7 +44,7 @@ const Paint = (props) => {
         const y = event.clientY ? event.clientY - rect.top : getTouchPosition(event).y; // Используем клиентские координаты или координаты касания
 
         contextRef.current.strokeStyle = `#${selectedColor}`;
-        contextRef.current.lineWidth = tool === 'brush' ? 10 : 2; // Разная ширина для кисти и карандаша
+        contextRef.current.lineWidth = tool === 'brush' ? brushSize : 2; // Разная ширина для кисти и карандаша
         contextRef.current.lineCap = 'round';
 
         if (tool === 'eraser') {
@@ -102,6 +103,20 @@ const Paint = (props) => {
                         <div className={`Paint_tool window ${tool === 'brush' && 'Paint_tool_selected'}`} onClick={() => { setTool('brush') }}>
                             <img src='/img/paint/b.png' alt='decor' />
                         </div>
+                        {
+                            tool === 'brush' &&
+                            <div className='Paint_bs'>
+                                <img src='/img/paint/large.png' className='Paint_bs_large' alt='decor' />
+                                <div class="is-vertical">
+                                    <input id="range28" class="has-box-indicator" type="range" min="2" max="20" step="1"
+                                        onChange={(e) => setbrushSize(e.target.value)} value={brushSize} />
+                                </div>
+                                <img src='/img/paint/large.png' className='Paint_bs_small' alt='decor' />
+                            </div>
+                            // <div className='Paint_sizeSelector'>
+                            //     Meow
+                            // </div>
+                        }
                     </div>
                     <div className='Paint_field'>
                         <canvas

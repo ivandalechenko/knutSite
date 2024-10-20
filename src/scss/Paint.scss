@@ -26,6 +26,28 @@
         }
     }
 
+    &_bs {
+        display: flex;
+        flex-direction: column;
+        width: 34px;
+        align-items: center;
+        row-gap: 8px;
+        margin-top: 16px;
+
+        .is-vertical>input[type=range] {
+            margin: 0px 2px !important;
+        }
+
+        &_small {
+            width: 6px;
+        }
+
+        &_large {
+            width: 18px;
+        }
+    }
+
+
     &_tools {
         width: 40px;
     }
