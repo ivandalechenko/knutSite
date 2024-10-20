@@ -2,7 +2,6 @@ import { makeAutoObservable, observable } from 'mobx';
 
 class WindowStore {
     z = 0;
-    zrada = 'total22';
     windows = {
         state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         roadmap: 'closed',
@@ -13,6 +12,7 @@ class WindowStore {
         cantClose: 'closed',
         player: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         shutdown: 'closed',
+        TTT: 'opened',
     }
 
     constructor() {

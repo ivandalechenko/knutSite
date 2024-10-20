@@ -9,7 +9,7 @@ import Memes from './Memes'
 import CantClose from './CantClose'
 import Player from './Player'
 import Shutdown from './Shutdown'
-
+import TTT from './TTT'
 
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
@@ -43,6 +43,7 @@ function App() {
       {windowStore.getWindowStatus('player') === 'opened' && <Player />}
       {windowStore.getWindowStatus('shutdown') === 'opened' && <Shutdown />}
       {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
+      {windowStore.getWindowStatus('TTT') === 'opened' && <TTT />}
 
       <TaskPanel />
     </div>

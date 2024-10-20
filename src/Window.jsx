@@ -62,7 +62,7 @@ const Window = ({ children, type }) => {
         >
             <div className="title-bar">
                 <div className="title-bar-text">
-                    {type !== 'cantClose' && <img src={`/img/links/${type}Link.png`} alt='decor' />}
+                    <img src={`/img/links/${type}Link.${type === 'TTT' ? 'svg' : 'png'}`} alt='decor' />
                     {type === 'state' && '$knut State'}
                     {type === 'roadmap' && 'Roadmap'}
                     {type === 'whitepaper' && 'Whitepaper'}
@@ -72,6 +72,7 @@ const Window = ({ children, type }) => {
                     {type === 'shutdown' && 'Shut Down'}
                     {type === 'cantClose' && 'Error'}
                     {type === 'player' && '$knut player'}
+                    {type === 'TTT' && 'Tic-tac-toe'}
                 </div>
                 <div className="title-bar-controls">
                     {!['cantClose', 'player', 'shutdown'].includes(type) && (
