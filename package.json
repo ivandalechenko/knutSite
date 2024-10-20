@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "html-to-image": "^1.11.11",
     "mobx": "^6.13.5",
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",

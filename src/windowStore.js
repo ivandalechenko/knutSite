@@ -13,7 +13,8 @@ class WindowStore {
         player: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         shutdown: 'closed',
         TTT: 'closed',
-        paint: 'opened',
+        paint: 'closed',
+        memeGen: 'opened'
     }
 
     constructor() {
