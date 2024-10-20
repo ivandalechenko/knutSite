@@ -70,7 +70,7 @@ const Desctop = (props) => {
                         Tic-tac-toe
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('TTT', 'opened') }}>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('paint', 'opened') }}>
                     <img src='/img/links/paintLink.png' className='Desctop_link_img' alt='decor' />
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
