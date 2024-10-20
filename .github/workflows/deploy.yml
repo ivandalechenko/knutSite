@@ -17,10 +17,10 @@ jobs:
       - name: Define deployment variables
         run: |
           if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
-            echo "TARGET_DIR=/home/knutSite/dev" >> $GITHUB_ENV
+            echo "TARGET_DIR=/home/knut/dev" >> $GITHUB_ENV
             echo "BRANCH=dev" >> $GITHUB_ENV
           else
-            echo "TARGET_DIR=/home/knutSite/prod" >> $GITHUB_ENV
+            echo "TARGET_DIR=/home/knut/prod" >> $GITHUB_ENV
             echo "BRANCH=master" >> $GITHUB_ENV
           fi
 
