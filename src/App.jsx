@@ -12,6 +12,8 @@ import Shutdown from './Shutdown'
 import TTT from './TTT'
 import Paint from './Paint'
 import MemeGen from './MemeGen'
+import Airdrop from './Airdrop'
+
 
 import './scss/App.scss';
 import { observer } from 'mobx-react-lite';
@@ -48,6 +50,7 @@ function App() {
       {windowStore.getWindowStatus('TTT') === 'opened' && <TTT />}
       {windowStore.getWindowStatus('paint') === 'opened' && <Paint />}
       {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
+      {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
 
 
       <TaskPanel />

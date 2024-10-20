@@ -34,6 +34,13 @@
 
         &_img {
             width: 48px;
+
+            &_wrapper {
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
         img {

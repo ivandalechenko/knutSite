@@ -14,7 +14,8 @@ class WindowStore {
         shutdown: 'closed',
         TTT: 'closed',
         paint: 'closed',
-        memeGen: 'opened'
+        memeGen: 'closed',
+        airdrop: 'closed'
     }
 
     constructor() {

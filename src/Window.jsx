@@ -75,6 +75,7 @@ const Window = ({ children, type }) => {
                     {type === 'TTT' && 'Tic-tac-toe'}
                     {type === 'paint' && 'knutPaint'}
                     {type === 'memeGen' && 'Meme Generator'}
+                    {type === 'airdrop' && 'Airdrop'}
 
 
                 </div>
