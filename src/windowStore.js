@@ -1,7 +1,8 @@
 import { makeAutoObservable, observable } from 'mobx';
 
 class WindowStore {
-    z = 0
+    z = 0;
+    zrada = 'total';
     windows = {
         state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         roadmap: 'closed',
