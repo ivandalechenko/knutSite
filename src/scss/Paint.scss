@@ -129,10 +129,12 @@
             }
 
             &_inner {
-                width: 50px;
+                width: 20px;
                 height: 20px;
 
-                @media(max-width: 800px) {}
+                @media(max-width: 800px) {
+                    width: 20px;
+                }
             }
         }
 
