@@ -3,13 +3,27 @@ name: Backend deployment to server
 on:
   push:
     branches:
-      - '*'
+      - 'dev'
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Define deployment variables
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
+            echo "TARGET_DIR=/home/knut/dev" >> $GITHUB_ENV
+            echo "BRANCH=dev" >> $GITHUB_ENV
+          else
+            echo "TARGET_DIR=/home/knut/prod" >> $GITHUB_ENV
+            echo "BRANCH=master" >> $GITHUB_ENV
+          fi
+
       - name: Deployment
         id: deploy
         uses: appleboy/ssh-action@master
@@ -23,11 +37,11 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             
-            cd /home/knutSite
+            cd ${{ env.TARGET_DIR }}
             
             echo "Pulling the latest code from the repository"
-            git checkout master
-            git pull origin master
+            git checkout ${{ env.BRANCH }}
+            git pull origin ${{ env.BRANCH }}
             
             echo "Installing dependencies"
             npm install
