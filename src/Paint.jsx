@@ -43,15 +43,15 @@ const Paint = (props) => {
         const x = event.clientX ? event.clientX - rect.left : getTouchPosition(event).x; // Используем клиентские координаты или координаты касания
         const y = event.clientY ? event.clientY - rect.top : getTouchPosition(event).y; // Используем клиентские координаты или координаты касания
 
-        contextRef.current.strokeStyle = `#${selectedColor}`;
-        contextRef.current.lineWidth = tool === 'brush' ? brushSize : 2; // Разная ширина для кисти и карандаша
+        contextRef.current.strokeStyle = `#${tool === 'eraser' ? 'fff' : selectedColor}`;
+        contextRef.current.lineWidth = (tool === 'brush' || tool === 'eraser') ? brushSize : 1; // Разная ширина для кисти и карандаша
         contextRef.current.lineCap = 'round';
 
-        if (tool === 'eraser') {
-            contextRef.current.globalCompositeOperation = 'destination-out';
-        } else {
-            contextRef.current.globalCompositeOperation = 'source-over';
-        }
+        // if (tool === 'eraser') {
+        //     contextRef.current.globalCompositeOperation = 'destination-out';
+        // } else {
+        // }
+        contextRef.current.globalCompositeOperation = 'source-over';
 
         contextRef.current.lineTo(x, y);
         contextRef.current.stroke();
@@ -104,11 +104,11 @@ const Paint = (props) => {
                             <img src='/img/paint/b.png' alt='decor' />
                         </div>
                         {
-                            tool === 'brush' &&
+                            (tool === 'brush' || tool === 'eraser') &&
                             <div className='Paint_bs'>
                                 <img src='/img/paint/large.png' className='Paint_bs_large' alt='decor' />
-                                <div class="is-vertical">
-                                    <input id="range28" class="has-box-indicator" type="range" min="2" max="20" step="1"
+                                <div className="is-vertical">
+                                    <input id="range28" className="has-box-indicator" type="range" min="2" max="20" step="1"
                                         onChange={(e) => setbrushSize(e.target.value)} value={brushSize} />
                                 </div>
                                 <img src='/img/paint/large.png' className='Paint_bs_small' alt='decor' />

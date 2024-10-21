@@ -33,12 +33,12 @@ const AttributesNames = {
 const MemeGen = (props) => {
     const [tab, settab] = useState('Body');
     const [bear, setbear] = useState({
-        Body: -1,
-        Accessory: -1,
-        Clothes: -1,
-        Hat: -1,
-        Sunglasses: -1,
-        BG: -1,
+        Body: 0,
+        Accessory: 0,
+        Clothes: 0,
+        Hat: 0,
+        Sunglasses: 0,
+        BG: 0,
     });
 
     const randomise = () => {
@@ -53,12 +53,12 @@ const MemeGen = (props) => {
     }
     const reset = () => {
         setbear({
-            Body: -1,
-            Accessory: -1,
-            Clothes: -1,
-            Hat: -1,
-            Sunglasses: -1,
-            BG: -1,
+            Body: 0,
+            Accessory: 0,
+            Clothes: 0,
+            Hat: 0,
+            Sunglasses: 0,
+            BG: 0,
         })
     }
     const downloadMeme = () => {
@@ -93,38 +93,38 @@ const MemeGen = (props) => {
                     <div className='MemeGen_content window'>
                         <div className='MemeGen_bear window' id="meme-bear">
                             {
-                                bear.BG !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.BG !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/BG/${bear.BG}.png`} alt='decor' />
                                 </div>
                             }
                             {
-                                bear.Body === -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Body === 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src='/img/memGen/knut.svg' alt='decor' />
                                 </div>
                             }
 
                             {
-                                bear.Body !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Body !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/Body/${bear.Body}.png`} alt='decor' />
                                 </div>
                             }
                             {
-                                bear.Clothes !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Clothes !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/Clothes/${bear.Clothes}.png`} alt='decor' />
                                 </div>
                             }
                             {
-                                bear.Accessory !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Accessory !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/Accessory/${bear.Accessory}.png`} alt='decor' />
                                 </div>
                             }
                             {
-                                bear.Sunglasses !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Sunglasses !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/Sunglasses/${bear.Sunglasses}.png`} alt='decor' />
                                 </div>
                             }
                             {
-                                bear.Hat !== -1 && <div className='MemeGen_bear_el free_img'>
+                                bear.Hat !== 0 && <div className='MemeGen_bear_el free_img'>
                                     <img src={`/img/memGen/Hat/${bear.Hat}.png`} alt='decor' />
                                 </div>
                             }
@@ -144,10 +144,10 @@ const MemeGen = (props) => {
                         </div>
                         <div class="window MemeGen_castomize_content">
                             {
-                                Array.from({ length: AttributesCount[Attributes.indexOf(tab)] }, (_, ind) => {
-                                    return <div key={`attr-${tab}-${ind}`} className={`MemeGen_castomize_content_element window ${bear[tab] === ind + 1 && "MemeGen_castomize_content_element_selected"}`} onClick={() => {
+                                Array.from({ length: AttributesCount[Attributes.indexOf(tab)] + 1 }, (_, ind) => {
+                                    return <div key={`attr-${tab}-${ind}`} className={`MemeGen_castomize_content_element window ${bear[tab] === ind && "MemeGen_castomize_content_element_selected"}`} onClick={() => {
                                         const newBear = JSON.parse(JSON.stringify(bear));
-                                        newBear[tab] = ind + 1;
+                                        newBear[tab] = ind;
                                         setbear(newBear);
                                     }}>
                                         <div className='MemeGen_castomize_content_element_decor window'>
@@ -160,29 +160,30 @@ const MemeGen = (props) => {
                                                 <div className={`MemeGen_castomize_content_element_decor_el 
                                                 ${tab === 'Clothes' && "MemeGen_castomize_content_element_decor_el_l"} 
                                                 ${tab === 'Accessory' && "MemeGen_castomize_content_element_decor_el_xl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 1 && "MemeGen_castomize_content_element_decor_el_bot"} 
-                                                ${tab === 'Accessory' && ind + 1 === 2 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_xl MemeGen_castomize_content_element_decor_el_xxxl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 3 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 4 && "MemeGen_castomize_content_element_decor_el_top_xl MemeGen_castomize_content_element_decor_el_right_s MemeGen_castomize_content_element_decor_el_xl "} 
-                                                ${tab === 'Accessory' && ind + 1 === 5 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_right_xl MemeGen_castomize_content_element_decor_el_xxxl "} 
-                                                ${tab === 'Accessory' && ind + 1 === 6 && "MemeGen_castomize_content_element_decor_el_top_s MemeGen_castomize_content_element_decor_el_right_l MemeGen_castomize_content_element_decor_el_xxl "} 
-                                                ${tab === 'Accessory' && ind + 1 === 7 && "MemeGen_castomize_content_element_decor_el_bot_s"} 
-                                                ${tab === 'Accessory' && ind + 1 === 8 && "MemeGen_castomize_content_element_decor_el_bot"} 
-                                                ${tab === 'Accessory' && ind + 1 === 9 && "MemeGen_castomize_content_element_decor_el_bot MemeGen_castomize_content_element_decor_el_xxl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 10 && "MemeGen_castomize_content_element_decor_el_bot_xl MemeGen_castomize_content_element_decor_el_left_xs MemeGen_castomize_content_element_decor_el_xxxl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 11 && "MemeGen_castomize_content_element_decor_el_top_s MemeGen_castomize_content_element_decor_el_right_s MemeGen_castomize_content_element_decor_el_l"} 
-                                                ${tab === 'Accessory' && ind + 1 === 12 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_xs"} 
-                                                ${tab === 'Accessory' && ind + 1 === 13 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_s"} 
-                                                ${tab === 'Accessory' && ind + 1 === 14 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_xxxl MemeGen_castomize_content_element_decor_el_right_s"} 
-                                                ${tab === 'Accessory' && ind + 1 === 15 && "MemeGen_castomize_content_element_decor_el_top_s  MemeGen_castomize_content_element_decor_el_right_s"} 
-                                                ${tab === 'Accessory' && ind + 1 === 16 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 17 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 18 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
-                                                ${tab === 'Accessory' && ind + 1 === 19 && "MemeGen_castomize_content_element_decor_el_bot_s MemeGen_castomize_content_element_decor_el_l "} 
+                                                ${tab === 'Accessory' && ind === 1 && "MemeGen_castomize_content_element_decor_el_bot"} 
+                                                ${tab === 'Accessory' && ind === 2 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_xl MemeGen_castomize_content_element_decor_el_xxxl"} 
+                                                ${tab === 'Accessory' && ind === 3 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl"} 
+                                                ${tab === 'Accessory' && ind === 4 && "MemeGen_castomize_content_element_decor_el_top_xl MemeGen_castomize_content_element_decor_el_right_s MemeGen_castomize_content_element_decor_el_xl "} 
+                                                ${tab === 'Accessory' && ind === 5 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_right_xl MemeGen_castomize_content_element_decor_el_xxxl "} 
+                                                ${tab === 'Accessory' && ind === 6 && "MemeGen_castomize_content_element_decor_el_top_s MemeGen_castomize_content_element_decor_el_right_l MemeGen_castomize_content_element_decor_el_xxl "} 
+                                                ${tab === 'Accessory' && ind === 7 && "MemeGen_castomize_content_element_decor_el_bot_s"} 
+                                                ${tab === 'Accessory' && ind === 8 && "MemeGen_castomize_content_element_decor_el_bot"} 
+                                                ${tab === 'Accessory' && ind === 9 && "MemeGen_castomize_content_element_decor_el_bot MemeGen_castomize_content_element_decor_el_xxl"} 
+                                                ${tab === 'Accessory' && ind === 10 && "MemeGen_castomize_content_element_decor_el_bot_xl MemeGen_castomize_content_element_decor_el_left_xs MemeGen_castomize_content_element_decor_el_xxxl"} 
+                                                ${tab === 'Accessory' && ind === 11 && "MemeGen_castomize_content_element_decor_el_top_s MemeGen_castomize_content_element_decor_el_right_s MemeGen_castomize_content_element_decor_el_l"} 
+                                                ${tab === 'Accessory' && ind === 12 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_xs"} 
+                                                ${tab === 'Accessory' && ind === 13 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_right_s"} 
+                                                ${tab === 'Accessory' && ind === 14 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_xxxl MemeGen_castomize_content_element_decor_el_right_s"} 
+                                                ${tab === 'Accessory' && ind === 15 && "MemeGen_castomize_content_element_decor_el_top_s  MemeGen_castomize_content_element_decor_el_right_s"} 
+                                                ${tab === 'Accessory' && ind === 16 && "MemeGen_castomize_content_element_decor_el_top_l MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
+                                                ${tab === 'Accessory' && ind === 17 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
+                                                ${tab === 'Accessory' && ind === 18 && "MemeGen_castomize_content_element_decor_el_top MemeGen_castomize_content_element_decor_el_xxxl  MemeGen_castomize_content_element_decor_el_right_xl"} 
+                                                ${tab === 'Accessory' && ind === 19 && "MemeGen_castomize_content_element_decor_el_bot_s MemeGen_castomize_content_element_decor_el_l "} 
                                                 ${tab === 'Hat' && "MemeGen_castomize_content_element_decor_el_bot_xxl MemeGen_castomize_content_element_decor_el_xxl "} 
                                                 ${tab === 'Sunglasses' && "MemeGen_castomize_content_element_decor_el_bot_xxl MemeGen_castomize_content_element_decor_el_left_xs MemeGen_castomize_content_element_decor_el_xxl "} 
+                                                ${ind === 0 && "MemeGen_castomize_content_element_decor_el_no"} 
                                                 free_img`}>
-                                                    <img src={`/img/memGen/${tab}/${ind + 1}.png`} alt='decor' />
+                                                    <img src={ind > 0 ? `/img/memGen/${tab}/${ind}.png` : '/img/no.png'} alt='decor' />
                                                 </div>
                                             }
                                             {/* {
@@ -193,7 +194,7 @@ const MemeGen = (props) => {
 
                                         </div>
                                         <div className='MemeGen_castomize_content_element_name'>
-                                            #{ind + 1}
+                                            {ind > 0 ? `#${ind}` : 'No'}
                                         </div>
                                     </div>
                                 })
