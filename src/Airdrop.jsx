@@ -29,7 +29,7 @@ const Airdrop = (props) => {
                 </div>
                 <div className='Airdrop_dateAndCopy'>
                     <button>
-                        25 October
+                        SOON...
                     </button>
                     {copied && <div className='Airdrop_copy'>
                         <img src='/img/success.png' alt='decor' />Address successfully copied!</div>}

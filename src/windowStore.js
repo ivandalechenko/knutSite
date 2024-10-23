@@ -3,14 +3,15 @@ import { makeAutoObservable, observable } from 'mobx';
 class WindowStore {
     z = 0;
     windows = {
-        state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
+        // state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
+        state: 'opened',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
         milestones: 'closed',
         memes: 'closed',
         cantClose: 'closed',
-        player: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
+        player: 'opened',
         shutdown: 'closed',
         TTT: 'closed',
         paint: 'closed',
