@@ -9,6 +9,10 @@ import Memes from './Memes'
 import CantClose from './CantClose'
 import Player from './Player'
 import Shutdown from './Shutdown'
+import TTT from './TTT'
+import Paint from './Paint'
+import MemeGen from './MemeGen'
+import Airdrop from './Airdrop'
 
 
 import './scss/App.scss';
@@ -43,6 +47,11 @@ function App() {
       {windowStore.getWindowStatus('player') === 'opened' && <Player />}
       {windowStore.getWindowStatus('shutdown') === 'opened' && <Shutdown />}
       {windowStore.getWindowStatus('cantClose') === 'opened' && <CantClose />}
+      {windowStore.getWindowStatus('TTT') === 'opened' && <TTT />}
+      {windowStore.getWindowStatus('paint') === 'opened' && <Paint />}
+      {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
+      {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
+
 
       <TaskPanel />
     </div>

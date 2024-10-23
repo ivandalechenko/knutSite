@@ -36,6 +36,25 @@
         top: 200px;
     }
 
+    &_TTT {
+        left: 330px;
+        top: 20px;
+    }
+
+    &_paint {
+        left: 200px;
+        top: 100px;
+    }
+
+    &_memeGen {
+        left: 180px;
+        top: 30px;
+    }
+
+    &_airdrop {
+        left: 30px;
+        top: 50px;
+    }
 
 
     &_player {
@@ -79,6 +98,7 @@
         display: flex;
         align-items: center;
         column-gap: 6px;
+        font-size: 12px;
 
         img {
             width: 18px;

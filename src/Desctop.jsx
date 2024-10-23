@@ -8,7 +8,10 @@ const Desctop = (props) => {
         <div className='Desctop'>
             <div className='Desctop_links'>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('state', 'opened') }}>
-                    <img src='/img/links/stateLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/stateLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
@@ -17,7 +20,10 @@ const Desctop = (props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('roadmap', 'opened') }}>
-                    <img src='/img/links/roadmapLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/roadmapLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
@@ -26,7 +32,10 @@ const Desctop = (props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('whitepaper', 'opened') }}>
-                    <img src='/img/links/whitepaperLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/whitepaperLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
@@ -35,7 +44,10 @@ const Desctop = (props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('tokenomics', 'opened') }}>
-                    <img src='/img/links/tokenomicsLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/tokenomicsLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
@@ -44,7 +56,10 @@ const Desctop = (props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('milestones', 'opened') }}>
-                    <img src='/img/links/milestonesLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/milestonesLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
@@ -53,12 +68,62 @@ const Desctop = (props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('memes', 'opened') }}>
-                    <img src='/img/links/memesLink.png' className='Desctop_link_img' alt='decor' />
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/memesLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
                     <div className='Desctop_link_text'>
                         Memes
+                    </div>
+                </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('TTT', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/TTTLink.svg' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Tic-tac-toe
+                    </div>
+                </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('paint', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/paintLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        knutPaint
+                    </div>
+                </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('airdrop', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/airdropLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Airdrop
+                    </div>
+                </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('memeGen', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+
+                        <img src='/img/links/memeGenLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Meme Generator
                     </div>
                 </div>
             </div>
