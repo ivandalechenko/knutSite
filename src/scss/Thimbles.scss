@@ -1,0 +1,84 @@
+.Thimbles {
+    &_game {
+        background-color: #006968;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    &_thimble {
+
+        top: 30px;
+
+        &_1 {
+            left: -100px;
+            // top: -30px;
+        }
+
+        &_3 {
+            left: 100px;
+        }
+
+        img {
+            height: 100px;
+
+            &:hover {
+                animation: dribble .1s infinite linear alternate;
+                transform-origin: bottom;
+                cursor: pointer;
+
+                @keyframes dribble {
+                    0% {
+                        transform: rotate(-2deg);
+                    }
+
+                    100% {
+                        transform: rotate(2deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &_ball {
+        left: -100px;
+        top: 50px;
+
+        img {
+            opacity: 0;
+            height: 40px;
+        }
+    }
+
+    &_bid {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 8px;
+        padding: 20px !important;
+
+        &_value {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 8px;
+            font-size: 16px;
+            color: #000;
+        }
+
+        input {
+            font-size: 16px !important;
+            height: 28px;
+            width: 100px;
+        }
+
+        button {
+            font-size: 18px;
+            height: 40px !important;
+        }
+    }
+}

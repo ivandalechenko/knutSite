@@ -3,20 +3,21 @@ import { makeAutoObservable, observable } from 'mobx';
 class WindowStore {
     z = 0;
     windows = {
-        // state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
-        state: 'opened',
+        state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
         milestones: 'closed',
         memes: 'closed',
         cantClose: 'closed',
-        player: 'opened',
+        player: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
         shutdown: 'closed',
         TTT: 'closed',
         paint: 'closed',
         memeGen: 'closed',
-        airdrop: 'closed'
+        airdrop: 'closed',
+
+        thimbles: 'opened'
     }
 
     constructor() {

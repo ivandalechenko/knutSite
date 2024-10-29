@@ -13,6 +13,8 @@ import TTT from './TTT'
 import Paint from './Paint'
 import MemeGen from './MemeGen'
 import Airdrop from './Airdrop'
+import Thimbles from './Thimbles.jsx'
+
 
 
 import './scss/App.scss';
@@ -51,7 +53,7 @@ function App() {
       {windowStore.getWindowStatus('paint') === 'opened' && <Paint />}
       {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
-
+      {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
 
       <TaskPanel />
     </div>
