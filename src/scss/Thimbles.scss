@@ -11,6 +11,28 @@
         max-height: calc(100dvh - 120px);
     }
 
+    &_soon {
+        padding: 12px !important;
+
+        &_bid {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            opacity: .1;
+            column-gap: 12px;
+            pointer-events: none;
+        }
+
+        &_text {
+            height: 0px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+            position: relative;
+            top: -22px;
+        }
+    }
 
     &_game {
         background-color: #006968;
