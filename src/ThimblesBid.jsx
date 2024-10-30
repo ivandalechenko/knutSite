@@ -43,13 +43,23 @@ const ThimblesBid = (props) => {
             return 0
         }
 
+        const getProvider = () => {
+            if ('phantom' in window) {
+                const provider = window.phantom?.solana;
+
+                if (provider?.isPhantom) {
+                    return provider;
+                }
+            }
+        }
+
 
         if (!window.solana || !window.solana.isPhantom) {
             alert("Phantom wallet не найден");
             return;
         }
 
-        const provider = window.solana;
+        const provider = getProvider();
         const connection = new Connection(DEVNET_URL, "confirmed");
         if (!provider.isConnected) {
             await connectWallet();
