@@ -2,6 +2,7 @@ import React from 'react';
 import './scss/Pusk.scss';
 import windowStore from './windowStore'
 
+
 const Pusk = ({ onClick }) => {
     return (
         <div className='Pusk_wrapper free_img' onClick={onClick}>
@@ -10,7 +11,7 @@ const Pusk = ({ onClick }) => {
                     <div className='Pusk_name_decor free_img'>
                         <div className='Pusk_name_decor_inner'></div>
                     </div>
-                    <div className='Pusk_name_text free_img'>
+                    <div className='Pusk_name_text free_img' onClick={() => { windowStore.setWindowStatus('thimbleswm', 'opened') }}>
                         $knut
                     </div>
                 </div>

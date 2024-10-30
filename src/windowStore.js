@@ -17,7 +17,8 @@ class WindowStore {
         memeGen: 'closed',
         airdrop: 'closed',
 
-        thimbles: 'opened'
+        thimbles: 'closed',
+        thimbleswm: 'closed'
     }
 
     constructor() {
