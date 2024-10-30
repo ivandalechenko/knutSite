@@ -38,7 +38,6 @@ const ThimblesBid = (props) => {
         }
     }
 
-
     const handlePlaceABid = async () => {
         if (gameStore.thimblePlaying) {
             return 0
@@ -52,7 +51,10 @@ const ThimblesBid = (props) => {
 
         const provider = window.solana;
         const connection = new Connection(DEVNET_URL, "confirmed");
-        await provider.connect();
+        if (!provider.isConnected) {
+            await connectWallet();
+            return 0;
+        }
 
         // Получение публичного ключа пользователя
         const userPublicKey = provider.publicKey;
