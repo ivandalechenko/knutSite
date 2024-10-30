@@ -1,4 +1,17 @@
 .Thimbles {
+
+    width: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
+
+    @media(max-width: 800px) {
+        max-width: 100%;
+        width: 100%;
+        height: calc(100dvh - 120px);
+        max-height: calc(100dvh - 120px);
+    }
+
+
     &_game {
         background-color: #006968;
         height: 200px;
@@ -8,8 +21,72 @@
         overflow: hidden;
     }
 
-    &_thimble {
+    &_lastGames {
+        padding: 12px !important;
 
+        &_header {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+        }
+
+        &_element {
+            display: flex;
+            width: 100%;
+            margin-top: 8px;
+
+            &:not(:last-child) {
+                padding-bottom: 4px;
+                border-bottom: 1px solid #fff8;
+            }
+
+            div,
+            a {
+                width: 100%;
+                overflow: hidden;
+                padding: 0px 4px;
+                color: #000;
+            }
+
+            div:last-child {
+                text-align: right;
+            }
+
+            &_date {
+                width: 120% !important;
+            }
+
+            &_date {
+                width: 120% !important;
+            }
+
+            &_sign {
+                // user-select: all;
+                text-decoration: underline;
+            }
+
+            &_header {
+                margin-top: 16px;
+                padding-bottom: 4px;
+                border-bottom: 1px solid #fff !important;
+                // box-shadow: 0px 1px #808080;
+
+                div {
+                    font-size: 12px;
+
+                    color: #000;
+                    user-select: none;
+                    text-decoration: none;
+                }
+            }
+
+
+        }
+    }
+
+    &_thimble {
+        // opacity: .2;
         top: 30px;
 
         &_1 {
@@ -24,6 +101,9 @@
         img {
             height: 100px;
 
+        }
+
+        .canBeShaked {
             &:hover {
                 animation: dribble .1s infinite linear alternate;
                 transform-origin: bottom;
@@ -43,22 +123,51 @@
     }
 
     &_ball {
-        left: -100px;
         top: 50px;
 
+        &_1 {
+            left: -100px;
+        }
+
+        &_2 {
+            left: 100px;
+        }
+
         img {
-            opacity: 0;
             height: 40px;
+        }
+
+
+        &s {
+            opacity: 0;
+
+            &_show {
+                opacity: 1;
+            }
         }
     }
 
+
     &_bid {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        row-gap: 8px;
-        padding: 20px !important;
+        &_inner {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 8px;
+            padding: 12px !important;
+
+            &_hide {
+                opacity: .2;
+            }
+        }
+
+        &_last {
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            color: #000;
+        }
 
         &_value {
             width: 100%;
