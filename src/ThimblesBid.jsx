@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import gameStore from './gameStore'
 import api from './api';
+import { useEffect } from 'react';
 
 import { Buffer } from 'buffer/';
 window.Buffer = Buffer;
@@ -16,6 +17,28 @@ const DEVNET_URL = "https://sly-indulgent-wave.solana-mainnet.quiknode.pro/77387
 
 const ThimblesBid = (props) => {
     const [bid, setBid] = useState(10);
+    const [walletConnected, setwalletConnected] = useState(false);
+    useEffect(() => {
+        const checkWallet = async () => {
+            const provider = window.solana;
+            // Проверка подключения
+            if (provider.isConnected) {
+                setwalletConnected(true)
+                // await provider.connect();
+            }
+        }
+        checkWallet()
+    }, [])
+
+    const connectWallet = async () => {
+        const provider = window.solana;
+        if (!provider.isConnected) {
+            await provider.connect();
+            setwalletConnected(true)
+        }
+    }
+
+
     const handlePlaceABid = async () => {
         if (gameStore.thimblePlaying) {
             return 0
@@ -91,19 +114,27 @@ const ThimblesBid = (props) => {
         <div className='Thimbles_bid window'>
             <div className={`Thimbles_bid_inner ${gameStore.thimblePlaying && 'Thimbles_bid_inner_hide'}`}>
 
-                <div className='Thimbles_bid_value'>
-                    Enter your bid:
-                    <input
-                        type="number"
-                        value={bid}
-                        onChange={(e) => { setBid(e.target.value); }}
-                    />
-                    $KNUT
-                </div>
-                <button onClick={handlePlaceABid}>
-                    {/* <button onClick={play}> */}
-                    Place bid
-                </button>
+                {
+                    walletConnected ? <>
+                        <div className='Thimbles_bid_value'>
+                            Enter your bid:
+                            <input
+                                type="number"
+                                value={bid}
+                                onChange={(e) => { setBid(e.target.value); }}
+                            />
+                            $KNUT
+                        </div>
+                        <button onClick={handlePlaceABid}>
+                            {/* <button onClick={play}> */}
+                            Place bid
+                        </button>
+                    </>
+                        : <button onClick={connectWallet}>
+                            Connect Phantom wallet
+                        </button>
+                }
+
             </div>
         </div>
     )
