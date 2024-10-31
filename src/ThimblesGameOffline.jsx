@@ -13,6 +13,7 @@ const ThimblesGameOffline = (props) => {
     const [canPlay, setcanPlay] = useState(false);
     const [showBalls, setshowBalls] = useState(true);
     const [openedThimble, setopenedThimble] = useState(0);
+    const [win, setwin] = useState(false);
     useEffect(() => {
         if (gameStore.thimblesStatus !== 'wait') {
             shuffle()
@@ -21,8 +22,8 @@ const ThimblesGameOffline = (props) => {
 
     const th = [useRef(null), useRef(null), useRef(null)]
     const shuffle = () => {
-        const moves = createUniquePairs(50);
-        // const moves = createUniquePairs(11);
+        // const moves = createUniquePairs(50);
+        const moves = createUniquePairs(11);
         const STEP_SWAP_DUR = (FIRST_SWAP_DUR - LAST_SWAP_DUR) / (moves.length - 10);
         setTimeout(() => {
             setopenedThimble(-1);
@@ -92,10 +93,14 @@ const ThimblesGameOffline = (props) => {
     const play = async (num) => {
         if (canPlay) {
             gameStore.thimblePlay()
-            const win = Math.random() > .6
+            const win = Math.random() > .5
             setopenedThimble(num)
             if (win) {
                 setshowBalls(true)
+                setwin(true)
+                setTimeout(() => {
+                    setwin(false)
+                }, 2000);
             } else {
                 setTimeout(() => {
                     setopenedThimble(-1)
@@ -127,14 +132,15 @@ const ThimblesGameOffline = (props) => {
                     <img src='/img/games/thimbles/ball.png' alt='decor' />
                 </div>
             </div>
+
             <div ref={th[0]} onClick={() => { play(0) }} className="Thimbles_thimble Thimbles_thimble_1 free_img">
-                <img src='/img/games/thimbles/thimble.png' className={`${canPlay && 'canBeShaked'}`} alt='decor' />
+                <img src={`/img/games/thimbles/${win ? 'w' : 'thimble'}.png`} className={`${canPlay && 'canBeShaked'}`} alt='decor' />
             </div>
             <div ref={th[1]} onClick={() => { play(1) }} className="Thimbles_thimble Thimbles_thimble_2 free_img">
-                <img src='/img/games/thimbles/thimble.png' className={`${canPlay && 'canBeShaked'}`} alt='decor' />
+                <img src={`/img/games/thimbles/${win ? 'i' : 'thimble'}.png`} className={`${canPlay && 'canBeShaked'}`} alt='decor' />
             </div>
             <div ref={th[2]} onClick={() => { play(2) }} className="Thimbles_thimble Thimbles_thimble_3 free_img">
-                <img src='/img/games/thimbles/thimble.png' className={`${canPlay && 'canBeShaked'}`} alt='decor' />
+                <img src={`/img/games/thimbles/${win ? 'n' : 'thimble'}.png`} className={`${canPlay && 'canBeShaked'}`} alt='decor' />
             </div>
         </div>
     )

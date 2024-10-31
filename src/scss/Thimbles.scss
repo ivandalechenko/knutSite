@@ -110,6 +110,8 @@
     &_thimble {
         // opacity: .2;
         top: 30px;
+        position: relative;
+        z-index: 2;
 
         &_1 {
             left: -100px;
@@ -124,6 +126,33 @@
             height: 100px;
 
         }
+
+        &_confetti {
+            top: 0px;
+            transform: translate(0px, 0px) !important;
+            position: relative;
+            z-index: 0;
+            opacity: .2;
+            left: -100px;
+            // top: 40px;
+
+            img {
+                image-rendering: pixelated;
+                image-rendering: crisp-edges;
+                height: 200px;
+
+            }
+
+            &2 {
+                left: 100px;
+
+                img {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+
+
 
         .canBeShaked {
             &:hover {
@@ -162,6 +191,8 @@
 
         &s {
             opacity: 0;
+            position: relative;
+            z-index: 2;
 
             &_show {
                 opacity: 1;
