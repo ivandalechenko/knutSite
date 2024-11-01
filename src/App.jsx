@@ -28,6 +28,9 @@ import { useState } from 'react';
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
+  if (localStorage.getItem('thimblesStatus') === undefined || localStorage.getItem('thimblesStatus') === 'undefined') {
+    localStorage.removeItem('thimblesStatus')
+  }
   useEffect(() => {
     if (firstClicked) {
       audioStore.play = true;
@@ -55,7 +58,7 @@ function App() {
       {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
       {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
-      {windowStore.getWindowStatus('thimbleswm') === 'opened' && <ThimblesWithMoney />}
+      {/* {windowStore.getWindowStatus('thimbleswm') === 'opened' && <ThimblesWithMoney />} */}
 
       <TaskPanel />
     </div>

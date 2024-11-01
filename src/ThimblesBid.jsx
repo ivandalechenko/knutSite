@@ -10,14 +10,18 @@ import { useEffect } from 'react';
 import { Buffer } from 'buffer/';
 window.Buffer = Buffer;
 
+
+const MIN_BID = 100;
+const MAX_BID = 50_000;
 const TOKEN_ADDRESS = "Gw9saRvRTQUyMmYBabsGibceFaFe4RKK18nrbWYZpump";
 const BANK = "FG9UsNBpP57sWJBMya8TiMe1Xe6RuiQdWWL2Mmt6izkJ";
 // const DEVNET_URL = "https://api.mainnet-beta.solana.com";
 const DEVNET_URL = "https://sly-indulgent-wave.solana-mainnet.quiknode.pro/7738767fc1e78d5157e8c6fa4450d9abe43d5127";
 
 const ThimblesBid = (props) => {
-    const [bid, setBid] = useState(10);
+    const [bid, setBid] = useState(200);
     const [walletConnected, setwalletConnected] = useState(false);
+    const [waiting, setwaiting] = useState(false);
     useEffect(() => {
         const checkWallet = async () => {
             const provider = window.solana;
@@ -110,42 +114,106 @@ const ThimblesBid = (props) => {
         // Подписываем транзакцию с помощью Phantom Wallet
         try {
             const { signature } = await provider.signAndSendTransaction(transaction, {});
+            setwaiting(signature)
             console.log("Transaction successful with signature:", signature);
             const result = await api.post('/game/bid', {
                 signature, player: userPublicKey, amount: bid * 1e6,
             })
             gameStore.thibleBid(result.data.gameId)
+            setwaiting(false)
         } catch (error) {
+            setwaiting(false)
             console.error("Transaction failed:", error);
             alert("Ошибка при выполнении транзакции.");
         }
+
+
     }
+    const incBid = (value) => {
+        const oldBid = +bid;
+        setBid(oldBid + value)
+    }
+
+    useEffect(() => {
+        if (bid < MIN_BID) {
+            setBid(MIN_BID)
+        }
+        if (bid > MAX_BID) {
+            setBid(MAX_BID)
+        }
+    }, [bid])
 
 
     return (
         <div className='Thimbles_bid window'>
             <div className={`Thimbles_bid_inner ${gameStore.thimblePlaying && 'Thimbles_bid_inner_hide'}`}>
-
                 {
-                    walletConnected ? <>
-                        <div className='Thimbles_bid_value'>
-                            Enter your bid:
-                            <input
-                                type="number"
-                                value={bid}
-                                onChange={(e) => { setBid(e.target.value); }}
-                            />
-                            $KNUT
+                    waiting ? <div className='Thimbles_bid_confirmation'>
+                        <div className='Thimbles_bid_confirmation_header'>
+                            Waiting for transaction confirmation...
                         </div>
-                        <button onClick={handlePlaceABid}>
-                            {/* <button onClick={play}> */}
-                            Place bid
-                        </button>
-                    </>
-                        : <button onClick={connectWallet}>
-                            Connect Phantom wallet
-                        </button>
+                        <div className='Thimbles_bid_confirmation_tx'>
+                            tx: <a href={`https://solscan.io/tx/${waiting}`}>{waiting}</a>
+                        </div>
+                    </div>
+                        : <>
+
+                            {
+                                walletConnected ? <>
+                                    <div className='Thimbles_bid_value'>
+                                        <div className="Thimbles_bid_value_header">
+                                            Enter your bid - min {MIN_BID} - max {MAX_BID}
+                                        </div>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(-5000) }}>
+                                            - 5k
+                                        </button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(-1000) }}>
+                                            - 1k
+                                        </button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(-100) }}>
+                                            - 100
+                                        </button>
+
+                                        <input
+                                            type="number"
+                                            value={bid}
+                                            onChange={(e) => { setBid(e.target.value); }}
+                                        />
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(+100) }}>
+                                            + 100
+                                        </button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(+1000) }}>
+                                            + 1k
+                                        </button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { incBid(+5000) }}>
+                                            + 5k
+                                        </button>
+                                    </div>
+                                    <div className="Thimbles_bid_buttons">
+
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { setBid(MIN_BID) }}>MIN</button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => {
+                                            const oldBid = bid
+                                            setBid(oldBid / 2)
+                                        }}>/ 2</button>
+                                        <button onClick={handlePlaceABid} className='Thimbles_bid_btn'>
+                                            {/* <button onClick={play}> */}
+                                            Place bid
+                                        </button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => {
+                                            const oldBid = bid
+                                            setBid(oldBid * 2)
+                                        }}>* 2</button>
+                                        <button className='Thimbles_bid_value_bb' onClick={() => { setBid(MAX_BID) }}>MAX</button>
+                                    </div>
+                                </>
+                                    : <button className='Thimbles_bid_btn' onClick={connectWallet}>
+                                        Connect Phantom wallet
+                                    </button>
+                            }
+                        </>
                 }
+
 
             </div>
         </div>
