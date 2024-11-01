@@ -10,7 +10,7 @@ const ThimblesLastGames = (props) => {
         getGames()
         interval = setInterval(() => {
             getGames()
-        }, 30 * 1000);
+        }, 1 * 1000);
         return () => {
             clearInterval(interval)
         }
