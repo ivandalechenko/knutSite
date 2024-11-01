@@ -153,7 +153,7 @@ const ThimblesBid = (props) => {
                             Waiting for transaction confirmation...
                         </div>
                         <div className='Thimbles_bid_confirmation_tx'>
-                            tx: <a href={`https://solscan.io/tx/${waiting}`}>{waiting}</a>
+                            tx: <a href={`https://solscan.io/tx/${waiting}`} target='_blank'>{waiting}</a>
                         </div>
                     </div>
                         : <>
