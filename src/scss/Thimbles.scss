@@ -35,7 +35,8 @@
     }
 
     &_game {
-        background-color: #006968;
+        // background-color: #006968;
+        background-color: #71b8d5;
         height: 200px;
         display: flex;
         justify-content: center;
@@ -125,6 +126,7 @@
         img {
             height: 100px;
 
+            filter: hue-rotate(294deg);
         }
 
         &_confetti {
@@ -185,6 +187,7 @@
         }
 
         img {
+            filter: hue-rotate(294deg);
             height: 40px;
         }
 

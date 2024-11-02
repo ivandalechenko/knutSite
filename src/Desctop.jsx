@@ -117,7 +117,7 @@ const Desctop = (props) => {
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('thimbles', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
 
-                        <img src='/img/links/thimblesLink.png' className='Desctop_link_img' alt='decor' />
+                        <img src='/img/links/thimblesLink.png' className='Desctop_link_img Desctop_link_img_ball' alt='decor' />
                     </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
@@ -128,7 +128,6 @@ const Desctop = (props) => {
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('memeGen', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
-
                         <img src='/img/links/memeGenLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
                     <div className='Desctop_link_arrow free_img'>

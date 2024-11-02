@@ -34,6 +34,7 @@ const ThimblesBid = (props) => {
         checkWallet()
     }, [])
 
+
     const connectWallet = async () => {
         const provider = window.solana;
         if (!provider.isConnected) {
@@ -162,7 +163,14 @@ const ThimblesBid = (props) => {
                                 walletConnected ? <>
                                     <div className='Thimbles_bid_value'>
                                         <div className="Thimbles_bid_value_header">
-                                            Enter your bid - min {MIN_BID} - max {MAX_BID}
+                                            {
+                                                gameStore.thimblesLastResult ?
+                                                    <>
+                                                        {
+                                                            gameStore.thimblesLastResult === 'win' ? <>You win!</> : <>You loose!</>
+                                                        }
+                                                    </> : <>Enter your bid - min {MIN_BID} - max {MAX_BID}</>
+                                            }
                                         </div>
                                         <button className='Thimbles_bid_value_bb' onClick={() => { incBid(-5000) }}>
                                             - 5k

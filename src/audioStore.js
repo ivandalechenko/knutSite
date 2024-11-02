@@ -44,7 +44,7 @@ class AudioStore {
         "/music/Waka Waka (This Time for Africa) (feat. Freshlyground) - Shakira.mp3",
         "/music/When Love Takes Over (feat. Kelly Rowland) - David Guetta.mp3",
         "/music/Without Me - Eminem.mp3"
-    ]
+    ].sort(() => Math.random() - 0.5)
     constructor() {
         makeAutoObservable(this);
     }
