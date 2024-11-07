@@ -27,7 +27,7 @@ class FlappyStore {
         this.position = this.position + this.speed;
 
         this.bearSpeed = this.bearSpeed - bearAcceleration;
-        this.bearPosition = this.bearPosition - this.bearSpeed;
+        // this.bearPosition = this.bearPosition - this.bearSpeed;
 
         if (this.bearPosition > 100 || this.bearPosition < (h * -1) - 100) {
             this.play = false;
@@ -58,7 +58,7 @@ class FlappyStore {
                 console.log(`topWall: ${topWall}`);
                 console.log(`botWall: ${botWall}`);
                 if (bearPos < topWall || bearPos > botWall) {
-                    this.play = false;
+                    // this.play = false;
                 }
 
             }
