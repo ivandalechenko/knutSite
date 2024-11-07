@@ -78,6 +78,7 @@ const Window = ({ children, type }) => {
                     {type === 'airdrop' && 'Airdrop'}
                     {type === 'thimbles' && 'Thimbles'}
                     {type === 'thimbleswm' && 'Thimbles'}
+                    {type === 'flappy' && 'Flappy Knut'}
 
 
 

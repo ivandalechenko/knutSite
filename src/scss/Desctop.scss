@@ -31,9 +31,13 @@
         flex-wrap: wrap;
         width: 100px;
 
+        @media(max-width: 400px) {
+            width: 80px;
+        }
 
         &_img {
             width: 48px;
+
 
             &_wrapper {
                 height: 50px;
@@ -64,6 +68,11 @@
             font-weight: 700;
             text-shadow: 0.5px 1.25px 0px rgba(#000, 1);
             font-size: 17px;
+            min-height: 37px;
+
+            @media(max-width: 400px) {
+                font-size: 12px;
+            }
         }
 
         &:hover {
