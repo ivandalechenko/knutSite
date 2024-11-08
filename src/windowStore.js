@@ -51,7 +51,7 @@ class WindowStore {
         const windows = Object.entries(this.windows)
             .filter(([key, value]) => value !== 'closed' && !['', ''].includes(key)) // фильтруем окна, которые не 'closed'
             .map(([key]) => key); // возвращаем только ключи
-        console.log(windows);
+        // console.log(windows);
         return windows
     }
 

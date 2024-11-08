@@ -10,10 +10,10 @@ class FlappyStore {
 
     speed = .5;
     position = 0;
-    bearPosition = -100;
+    bearPosition = 100;
     bearSpeed = 1;
     lastwallnum = 0;
-    play = true;
+    play = false;
     walls = []
 
     constructor() {
@@ -27,9 +27,10 @@ class FlappyStore {
         this.position = this.position + this.speed;
 
         this.bearSpeed = this.bearSpeed - bearAcceleration;
-        // this.bearPosition = this.bearPosition - this.bearSpeed;
+        this.bearPosition = this.bearPosition - this.bearSpeed;
 
-        if (this.bearPosition > 100 || this.bearPosition < (h * -1) - 100) {
+        // Обработка выхода вверх или вниз
+        if (this.bearPosition < -100 || this.bearPosition > (h) + 100) {
             this.play = false;
         }
 
@@ -48,15 +49,15 @@ class FlappyStore {
             if (wall) {
                 const wallCenter = h / 2 + wall.pos;
                 const bearPos = h + this.bearPosition
-                console.log(wall);
-                console.log(`h: ${h}`);
-                console.log(`bearpos: ${bearPos}`);
-                console.log(`wallcenter: ${wallCenter}`);
+                // console.log(wall);
+                // console.log(`h: ${h}`);
+                // console.log(`bearpos: ${bearPos}`);
+                // console.log(`wallcenter: ${wallCenter}`);
 
                 const topWall = wallCenter - wall.distance / 2
                 const botWall = wallCenter + wall.distance / 2
-                console.log(`topWall: ${topWall}`);
-                console.log(`botWall: ${botWall}`);
+                // console.log(`topWall: ${topWall}`);
+                // console.log(`botWall: ${botWall}`);
                 if (bearPos < topWall || bearPos > botWall) {
                     // this.play = false;
                 }
@@ -66,17 +67,14 @@ class FlappyStore {
 
     }
 
-    init() {
+    newGame() {
+        this.play = true;
         this.speed = 1;
         this.position = 0;
-        this.bearPosition = -300;
+        this.bearPosition = 200;
         this.bearSpeed = 5;
         this.lastwallnum = 0;
         this.walls = []
-    }
-
-    newGame() {
-        this.play = true;
     }
 
     fly() {
