@@ -79,7 +79,7 @@ const Window = ({ children, type }) => {
                     {type === 'thimbles' && 'Thimbles'}
                     {type === 'thimbleswm' && 'Thimbles'}
                     {type === 'flappy' && 'Flappy Knut'}
-
+                    {type === 'flappyLeaderboard' && 'Leaderboard'}
 
 
                 </div>

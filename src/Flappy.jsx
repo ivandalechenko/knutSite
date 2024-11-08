@@ -18,10 +18,12 @@ import { useRef } from 'react';
 import loadTextures from './FlappyTextures'
 import { Application, Container, Sprite, ColorMatrixFilter } from './pixi';
 import walletStore from './walletStore.js';
+import windowStore from './windowStore.js';
 
 
 const Flappy = (props) => {
     const pixiScene = useRef(null);
+
     useEffect(() => {
         if (flappyStore.play) {
             let app;
@@ -71,7 +73,7 @@ const Flappy = (props) => {
             }
         }
     }, [flappyStore.play])
-    https://x.com/intent/post?hashtags=PAWS+CULT%21+%F0%9F%90%BE&text=JOIN
+    // https://x.com/intent/post?hashtags=PAWS+CULT%21+%F0%9F%90%BE&text=JOIN
 
     return (
         <Window type='flappy'>
@@ -108,9 +110,10 @@ const Flappy = (props) => {
                                 <button className='Flappy_play_btn' onClick={() => { flappyStore.newGame(walletStore.wallet) }}>Play</button>
                                 <button className='Flappy_play_btn'>Share</button>
                             </div>
-                            <button className='Flappy_play_btn'>Leaderboard</button>
+                            <button className='Flappy_play_btn' onClick={() => {
+                                windowStore.setWindowStatus('flappyLeaderboard', '')
+                            }}>Leaderboard</button>
                         </div>
-
                 }
             </div>
         </Window>

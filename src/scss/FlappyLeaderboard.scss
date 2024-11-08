@@ -1,0 +1,89 @@
+.FlappyLeaderboard {
+
+    width: 400px;
+    height: 500px;
+    padding: 4px 4px;
+    display: flex;
+    row-gap: 4px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    align-items: start;
+
+    @media(max-width: 800px) {
+        width: calc(100vw - 6px);
+        height: calc(100dvh - 122px);
+    }
+
+    &_element {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px !important;
+        column-gap: 16px;
+
+        &_name {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+        }
+
+        &_decor {
+            display: flex;
+            align-items: center;
+            column-gap: 4px;
+
+            img {
+                width: 24px;
+            }
+        }
+
+        &_right {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            font-size: 13px;
+            color: #000;
+        }
+
+        &_info {
+            &_name {
+                font-size: 14px;
+                color: #000;
+            }
+
+            &_value {
+                font-size: 12px;
+                color: #111111;
+                margin-top: 2px;
+            }
+        }
+
+        &_value {
+            font-size: 16px;
+            color: #000;
+            font-weight: 900;
+            padding-left: 8px;
+            height: 32px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            border-left: 2px solid #808080;
+            width: 80px;
+
+            @media(max-width: 380px) {
+                width: fit-content;
+            }
+
+            &_wrapper {
+                border-left: 2px solid #FFFFFF;
+            }
+
+            button {
+                width: fit-content !important;
+                min-width: fit-content !important;
+                padding: 8px !important;
+            }
+        }
+    }
+}

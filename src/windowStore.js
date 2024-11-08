@@ -18,7 +18,9 @@ class WindowStore {
         airdrop: 'closed',
 
         thimbles: 'closed',
-        thimbleswm: 'closed'
+        // thimbleswm: 'closed'
+        flappy: 'closed',
+        flappyLeaderboard: 'closed'
     }
 
     constructor() {

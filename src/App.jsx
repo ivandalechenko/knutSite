@@ -14,6 +14,7 @@ import Paint from './Paint'
 import MemeGen from './MemeGen'
 import Airdrop from './Airdrop'
 import Thimbles from './Thimbles.jsx'
+import FlappyLeaderboard from './FlappyLeaderboard.jsx'
 import ThimblesWithMoney from './ThimblesWithMoney.jsx'
 import Flappy from './Flappy.jsx'
 
@@ -61,7 +62,8 @@ function App() {
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
       {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
       {windowStore.getWindowStatus('flappy') === 'opened' && <Flappy />}
-      {/* {windowStore.getWindowStatus('thimbleswm') === 'opened' && <ThimblesWithMoney />} */}
+      {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard />}
+
 
       <TaskPanel />
     </div>

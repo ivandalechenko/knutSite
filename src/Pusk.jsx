@@ -11,7 +11,8 @@ const Pusk = ({ onClick }) => {
                     <div className='Pusk_name_decor free_img'>
                         <div className='Pusk_name_decor_inner'></div>
                     </div>
-                    <div className='Pusk_name_text free_img' onClick={() => { windowStore.setWindowStatus('thimbleswm', 'opened') }}>
+                    {/* <div className='Pusk_name_text free_img' onClick={() => { windowStore.setWindowStatus('thimbleswm', 'opened') }}> */}
+                    <div className='Pusk_name_text free_img'>
                         $knut
                     </div>
                 </div>
