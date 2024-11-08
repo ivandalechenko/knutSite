@@ -6,6 +6,7 @@ import flappyBgInit from './FlappyBg'
 import flappyBgMove from './FlappyBgMove'
 import flappyBearInit from './FlappyBearInit'
 import flappyBearMove from './FlappyBearMove.js'
+import flappyWalls from './FlappyWalls.js'
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -37,11 +38,10 @@ const Flappy = (props) => {
                 app.canvas.style.imageRendering = 'pixelated';
 
                 app.ticker.add((delta) => {
-                    console.log(delta);
-
                     flappyStore.tik(w, h)
                     flappyBgMove(app, flappyStore.position)
                     flappyBearMove(app, textures, flappyStore.bearPosition, delta.lastTime)
+                    flappyWalls(app, textures, flappyStore.walls, flappyStore.position, flappyStore.betweenWalls, w, h)
                 })
 
 
@@ -63,7 +63,6 @@ const Flappy = (props) => {
                 }
             }
         }
-        console.log(flappyStore.play);
     }, [flappyStore.play])
 
 

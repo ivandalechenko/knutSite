@@ -1,5 +1,5 @@
 import { makeAutoObservable, observable } from 'mobx';
-const acceleration = 0.001
+const acceleration = 0.0001
 const bearAcceleration = 10 / 60
 const distanseBetweenWallsX = 200
 const distanseBetweenWalsY = 140
@@ -48,18 +48,19 @@ class FlappyStore {
             const wall = walls.find(item => item.num === numOfWallToCheck);
             if (wall) {
                 const wallCenter = h / 2 + wall.pos;
-                const bearPos = h + this.bearPosition
-                // console.log(wall);
-                // console.log(`h: ${h}`);
-                // console.log(`bearpos: ${bearPos}`);
-                // console.log(`wallcenter: ${wallCenter}`);
+                const bearPos = this.bearPosition
+                console.log(wall);
+                console.log(`h: ${h}`);
+                console.log(`bearpos: ${bearPos}`);
+                console.log(`wallcenter: ${wallCenter}`);
 
                 const topWall = wallCenter - wall.distance / 2
                 const botWall = wallCenter + wall.distance / 2
-                // console.log(`topWall: ${topWall}`);
-                // console.log(`botWall: ${botWall}`);
+                console.log(`topWall: ${topWall}`);
+                console.log(`botWall: ${botWall}`);
+
                 if (bearPos < topWall || bearPos > botWall) {
-                    // this.play = false;
+                    this.play = false;
                 }
 
             }

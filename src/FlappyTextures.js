@@ -5,6 +5,7 @@ const loadTextures = async () => {
     textures.bg = await Assets.load(`/img/flappy/bg.png`);
     textures.bearUp = await Assets.load(`/img/flappy/bearUp.png`);
     textures.bearDown = await Assets.load(`/img/flappy/bearDown.png`);
+    textures.wall = await Assets.load(`/img/flappy/wall.png`);
 
 
     return textures
