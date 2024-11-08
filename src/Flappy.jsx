@@ -111,7 +111,7 @@ const Flappy = (props) => {
                                 <button className='Flappy_play_btn'>Share</button>
                             </div>
                             <button className='Flappy_play_btn' onClick={() => {
-                                windowStore.setWindowStatus('flappyLeaderboard', '')
+                                windowStore.setWindowStatus('flappyLeaderboard', 'opened')
                             }}>Leaderboard</button>
                         </div>
                 }

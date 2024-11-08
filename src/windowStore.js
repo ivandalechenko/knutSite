@@ -41,7 +41,6 @@ class WindowStore {
             if (win !== 'state') {
                 this.windows[win] = status;
             } else {
-
                 this.windows['cantClose'] = 'opened';
             }
         }
