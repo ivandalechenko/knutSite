@@ -32,13 +32,14 @@ class WindowStore {
         this.z = this.z + 1;
         return this.z;
     }
-    setWindowStatus(win, status) {
+    async setWindowStatus(win, status) {
         if (window.innerWidth <= 800) {
             this.windows[win] = status;
         } else {
             if (win !== 'state') {
                 this.windows[win] = status;
             } else {
+
                 this.windows['cantClose'] = 'opened';
             }
         }

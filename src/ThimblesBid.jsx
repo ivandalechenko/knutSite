@@ -22,13 +22,28 @@ const ThimblesBid = (props) => {
     const [bid, setBid] = useState(200);
     const [walletConnected, setwalletConnected] = useState(false);
     const [waiting, setwaiting] = useState(false);
+
+    const getProvider = () => {
+        if ('phantom' in window) {
+            const provider = window.phantom?.solana;
+
+            if (provider?.isPhantom) {
+                return provider;
+            }
+        }
+
+        window.open('https://phantom.app/', '_blank');
+    };
+
     useEffect(() => {
         const checkWallet = async () => {
-            const provider = window.solana;
-            // Проверка подключения
-            if (provider.isConnected) {
+            const provider = getProvider(); // see "Detecting the Provider"
+            try {
+                const resp = await provider.connect();
+                console.log(resp.publicKey.toString());
                 setwalletConnected(true)
-                // await provider.connect();
+            } catch (error) {
+                console.log(`Error ${error}`);
             }
         }
         checkWallet()

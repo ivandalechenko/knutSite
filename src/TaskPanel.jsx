@@ -5,6 +5,7 @@ import Pusk from './Pusk'
 import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import windowStore from './windowStore'
+import walletStore from './walletStore'
 
 const TaskPanel = (props) => {
     const [puskOpened, setpuskOpened] = useState(false);
@@ -20,33 +21,49 @@ const TaskPanel = (props) => {
     }, [])
 
 
+
     return (
         <>
             {puskOpened && <Pusk onClick={() => { setpuskOpened(false) }} />}
             <div className='TaskPanel_wrapper free_img'>
                 <div className='TaskPanel window'>
                     <div className='TaskPanel_left'>
-                        <button className={`TaskPanel_tab TaskPanel_win ${puskOpened && 'buttonPressed'}`} onClick={() => { setpuskOpened(!puskOpened) }}>
-                            <div className='TaskPanel_win_img_pc'>
-                                <img src='/img/logo.png' alt='decor' />
-                            </div>
-                            <div className='TaskPanel_win_img_mob'>
-                                <img src='/img/burger.png' alt='decor' />
-                            </div>
-                            <div className='TaskPanel_tab_text'>
-                                $Knut
-                            </div>
-                        </button>
-                        {
-                            windowStore.getOpenedWindows().map((window, key) => {
-                                return <button className='TaskPanel_tab' key={`tab-${key}`} onClick={() => { windowStore.setWindowStatus(window, windowStore.getWindowStatus(window) === 'opened' ? 'minimized' : 'opened') }}>
-                                    <img src={`/img/links/${window}Link.${window === 'TTT' ? "svg" : "png"}`} alt='decor' />
-                                    <div className='TaskPanel_tab_text'>
-                                        {capitalizeFirstLetter(window)}
-                                    </div>
-                                </button>
-                            })
-                        }
+                        <div className='TaskPanel_left_left'>
+                            <button className={`TaskPanel_tab TaskPanel_win ${puskOpened && 'buttonPressed'}`} onClick={() => { setpuskOpened(!puskOpened) }}>
+                                <div className='TaskPanel_win_img_pc'>
+                                    <img src='/img/logo.png' alt='decor' />
+                                </div>
+                                <div className='TaskPanel_win_img_mob'>
+                                    <img src='/img/burger.png' alt='decor' />
+                                </div>
+                                <div className='TaskPanel_tab_text'>
+                                    $Knut
+                                </div>
+                            </button>
+                            {
+                                windowStore.getOpenedWindows().map((window, key) => {
+                                    return <button className='TaskPanel_tab' key={`tab-${key}`} onClick={() => { windowStore.setWindowStatus(window, windowStore.getWindowStatus(window) === 'opened' ? 'minimized' : 'opened') }}>
+                                        <img src={`/img/links/${window}Link.${window === 'TTT' ? "svg" : "png"}`} alt='decor' />
+                                        <div className='TaskPanel_tab_text'>
+                                            {capitalizeFirstLetter(window)}
+                                        </div>
+                                    </button>
+                                })
+                            }
+                        </div>
+                        <div className='TaskPanel_left_right'>
+                            <button className='TaskPanel_tab' onClick={() => { walletStore.connectWallet() }}>
+                                <img src={`/img/phantom.png`} alt='decor' />
+                                <div className='TaskPanel_tab_text TaskPanel_tab_text'>
+                                    {
+                                        walletStore.wallet ? <>
+                                            {walletStore.wallet.slice(0, 4)}...
+                                            {walletStore.wallet.slice(-4)}
+                                        </> : <>Connect Phantom</>
+                                    }
+                                </div>
+                            </button>
+                        </div>
                     </div>
                     <div className='TaskPanel_right'>
                         <div className='TaskPanel_media'>

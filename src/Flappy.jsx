@@ -7,12 +7,17 @@ import flappyBgMove from './FlappyBgMove'
 import flappyBearInit from './FlappyBearInit'
 import flappyBearMove from './FlappyBearMove.js'
 import flappyWalls from './FlappyWalls.js'
+import flappyCloudsInit from './FlappyCloudsInit.js'
+import flappyCloudsMove from './FlappyCloudsMove.js'
+
+
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import loadTextures from './FlappyTextures'
 import { Application, Container, Sprite, ColorMatrixFilter } from './pixi';
+import walletStore from './walletStore.js';
 
 
 const Flappy = (props) => {
@@ -39,13 +44,15 @@ const Flappy = (props) => {
 
                 app.ticker.add((delta) => {
                     flappyStore.tik(w, h)
-                    flappyBgMove(app, flappyStore.position)
+                    flappyBgMove(app, flappyStore.position / 2)
                     flappyBearMove(app, textures, flappyStore.bearPosition, delta.lastTime)
+                    flappyCloudsMove(app, flappyStore.position, w)
                     flappyWalls(app, textures, flappyStore.walls, flappyStore.position, flappyStore.betweenWalls, w, h)
                 })
 
 
                 flappyBgInit(app, textures, h)
+                flappyCloudsInit(app, textures, w, h)
                 flappyBearInit(app, textures, w, flappyStore.bearPosition)
                 const scene = new Container();
                 scene.label = 'scene';
@@ -64,24 +71,48 @@ const Flappy = (props) => {
             }
         }
     }, [flappyStore.play])
-
-
-    const getNow = () => {
-        const currentTime = new Date();
-        const seconds = String(currentTime.getSeconds()).padStart(2, '0');
-        const milliseconds = String(currentTime.getMilliseconds()).padStart(3, '0');
-
-        return `${seconds}:${milliseconds}`;
-    }
+    https://x.com/intent/post?hashtags=PAWS+CULT%21+%F0%9F%90%BE&text=JOIN
 
     return (
         <Window type='flappy'>
+            <div className='Flappy'>
+                {
+                    flappyStore.play ?
+                        <div>
+                            <div className='free_img Flappy_score'>
+                                {flappyStore.score}
+                            </div>
+                            <div ref={pixiScene} id="canvasWrapperPixi" onClick={() => {
+                                flappyStore.fly()
+                            }}></div>
+                        </div>
+                        : <div className='Flappy_play'>
+                            {flappyStore.score !== 0 && <></>}
+                            <div className='Flappy_play_score_wrapper'>
+                                <div className='Flappy_play_score'>
+                                    <div className='Flappy_play_score_header'>
+                                        SCORE:
+                                    </div>
+                                    <div className='Flappy_play_score_value'>
+                                        {flappyStore.score}
+                                    </div>
+                                    <div className='Flappy_play_score_header Flappy_play_score_best'>
+                                        BEST:
+                                    </div>
+                                    <div className='Flappy_play_score_value'>
+                                        {Math.max(flappyStore.max, flappyStore.score)}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='Flappy_play_btns'>
+                                <button className='Flappy_play_btn' onClick={() => { flappyStore.newGame(walletStore.wallet) }}>Play</button>
+                                <button className='Flappy_play_btn'>Share</button>
+                            </div>
+                            <button className='Flappy_play_btn'>Leaderboard</button>
+                        </div>
 
-            {
-                flappyStore.play ? <div ref={pixiScene} id="canvasWrapperPixi" onClick={() => {
-                    flappyStore.fly()
-                }}></div> : <button onClick={() => { flappyStore.newGame() }}>Play</button>
-            }
+                }
+            </div>
         </Window>
     )
 }

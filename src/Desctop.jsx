@@ -2,6 +2,7 @@ import React from 'react';
 import './scss/Desctop.scss';
 import windowStore from './windowStore'
 import { observer } from 'mobx-react-lite';
+import walletStore from './walletStore';
 
 const Desctop = (props) => {
     return (
@@ -113,7 +114,12 @@ const Desctop = (props) => {
                         Airdrop
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('thimbles', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('thimbles', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
 
                         <img src='/img/links/thimblesLink.png' className='Desctop_link_img Desctop_link_img_ball' alt='decor' />
@@ -125,7 +131,13 @@ const Desctop = (props) => {
                         Thimbles
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('flappy', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('flappy', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
                         <img src='/img/links/flappyLink.png' className='Desctop_link_img Desctop_link_img_ball' alt='decor' />
                     </div>

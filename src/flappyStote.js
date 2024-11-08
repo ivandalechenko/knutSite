@@ -1,21 +1,25 @@
 import { makeAutoObservable, observable } from 'mobx';
-const acceleration = 0.0001
+import api from './api';
+const acceleration = 0.001
 const bearAcceleration = 10 / 60
 const distanseBetweenWallsX = 200
 const distanseBetweenWalsY = 140
 const wallColliderWidth = 50;
+const devmode = false;
+
 
 class FlappyStore {
     betweenWalls = distanseBetweenWallsX;
-
+    score = 0;
     speed = .5;
     position = 0;
     bearPosition = 100;
     bearSpeed = 1;
     lastwallnum = 0;
     play = false;
+    max = localStorage.getItem("flappyBest") || 0;
     walls = []
-
+    wallet = '1234'
     constructor() {
         makeAutoObservable(this, {
             walls: observable
@@ -27,11 +31,13 @@ class FlappyStore {
         this.position = this.position + this.speed;
 
         this.bearSpeed = this.bearSpeed - bearAcceleration;
-        this.bearPosition = this.bearPosition - this.bearSpeed;
+        if (!devmode) {
+            this.bearPosition = this.bearPosition - this.bearSpeed;
+        }
 
         // Обработка выхода вверх или вниз
         if (this.bearPosition < -100 || this.bearPosition > (h) + 100) {
-            this.play = false;
+            this.gameOver()
         }
 
         // console.log(this.position);
@@ -59,23 +65,43 @@ class FlappyStore {
                 console.log(`topWall: ${topWall}`);
                 console.log(`botWall: ${botWall}`);
 
+                this.score = wall.num
                 if (bearPos < topWall || bearPos > botWall) {
-                    this.play = false;
+                    this.gameOver()
                 }
-
             }
         }
 
     }
 
-    newGame() {
+    gameOver() {
+        if (!devmode) {
+            if (this.score > this.max) {
+                this.max = this.score
+                localStorage.setItem("flappyBest", this.score)
+                const res = {
+                    wallet: this.wallet,
+                    score: this.score
+                }
+                const jsonString = JSON.stringify(res);
+                api.post('/flappy', { value: btoa(jsonString) })
+            }
+            this.play = false;
+        }
+
+
+    }
+
+    newGame(wallet) {
+        this.wallet = wallet
         this.play = true;
-        this.speed = 1;
+        this.speed = 3;
         this.position = 0;
         this.bearPosition = 200;
-        this.bearSpeed = 5;
+        this.bearSpeed = 1;
         this.lastwallnum = 0;
         this.walls = []
+        this.score = 0;
     }
 
     fly() {

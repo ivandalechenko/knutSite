@@ -1,6 +1,6 @@
 import { Container, Sprite } from './pixi';
 
-const bg = async (app, textures, h) => {
+export default async (app, textures, h) => {
     const bg = new Container();
     bg.label = 'bg';
     app.stage.addChild(bg);
@@ -53,5 +53,3 @@ const bg = async (app, textures, h) => {
 
 
 }
-
-export default bg
