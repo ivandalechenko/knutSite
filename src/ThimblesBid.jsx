@@ -14,7 +14,7 @@ window.Buffer = Buffer;
 const MIN_BID = 100;
 const MAX_BID = 50_000;
 const TOKEN_ADDRESS = "Gw9saRvRTQUyMmYBabsGibceFaFe4RKK18nrbWYZpump";
-const BANK = "FG9UsNBpP57sWJBMya8TiMe1Xe6RuiQdWWL2Mmt6izkJ";
+const BANK = "2WEkvjvFsQy2af3bp8kBk6hMngPdkheHaAmWk7ZMWAeQ";
 // const DEVNET_URL = "https://api.mainnet-beta.solana.com";
 const DEVNET_URL = "https://sly-indulgent-wave.solana-mainnet.quiknode.pro/7738767fc1e78d5157e8c6fa4450d9abe43d5127";
 

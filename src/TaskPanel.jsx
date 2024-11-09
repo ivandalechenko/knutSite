@@ -54,7 +54,7 @@ const TaskPanel = (props) => {
                         <div className='TaskPanel_left_right'>
                             <button className='TaskPanel_tab' onClick={() => { walletStore.connectWallet() }}>
                                 <img src={`/img/phantom.png`} alt='decor' />
-                                <div className='TaskPanel_tab_text TaskPanel_tab_text'>
+                                <div className='TaskPanel_tab_text TaskPanel_tab_ph'>
                                     {
                                         walletStore.wallet ? <>
                                             {walletStore.wallet.slice(0, 4)}...
