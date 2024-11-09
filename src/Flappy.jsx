@@ -112,10 +112,24 @@ const Flappy = (props) => {
 
                                 <a className='Flappy_play_btn Flappy_play_btn_mob' onClick={(event) => {
                                     event.preventDefault();
-                                    window.location.href = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
-                                    setTimeout(() => {
-                                        window.location.href = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
-                                    }, 1000);
+
+                                    const iosAppLink = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    const androidAppLink = `intent://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    const webFallback = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+
+                                    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                        // iOS
+                                        window.location.href = iosAppLink;
+                                        setTimeout(() => {
+                                            window.location.href = webFallback;
+                                        }, 500);
+                                    } else if (/Android/i.test(navigator.userAgent)) {
+                                        // Android
+                                        window.location.href = androidAppLink;
+                                    } else {
+                                        // На десктопах и других устройствах откроется веб-версия
+                                        window.location.href = webFallback;
+                                    }
                                 }} >Share</a>
                             </div>
                             <button className='Flappy_play_btn' onClick={() => {
