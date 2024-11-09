@@ -113,17 +113,20 @@ const Flappy = (props) => {
                                 <a className='Flappy_play_btn Flappy_play_btn_mob' onClick={(event) => {
                                     event.preventDefault();
 
-                                    const text = `I REACHED ${flappyStore.score} POINTS IN FLAPPY KNUT`;
-                                    const hashtags = "KNUT";
-                                    const url = "https://knut.wtf";
-                                    const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}&url=${encodeURIComponent(url)}`;
+                                    const iosAppLink = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    const androidAppLink = `intent://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    const webFallback = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
 
-                                    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                                        window.location.href = tweetUrl;
+                                    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                        // iOS
+                                        window.location.href = iosAppLink;
+                                    } else if (/Android/i.test(navigator.userAgent)) {
+                                        // Android
+                                        window.location.href = androidAppLink;
                                     } else {
-                                        window.open(tweetUrl, '_blank'); // Для десктопа открываем в новой вкладке
+                                        // На десктопах и других устройствах откроется веб-версия
+                                        window.location.href = webFallback;
                                     }
-
                                 }} >Share</a>
                             </div>
                             <button className='Flappy_play_btn' onClick={() => {
