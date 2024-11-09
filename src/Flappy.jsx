@@ -110,7 +110,13 @@ const Flappy = (props) => {
                                 <button className='Flappy_play_btn' onClick={() => { flappyStore.newGame(walletStore.wallet) }}>Play</button>
                                 <a className='Flappy_play_btn Flappy_play_btn_pc' href={`https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`} target='_blank' >Share</a>
 
-                                <a className='Flappy_play_btn Flappy_play_btn_mob' href={`x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`} target='_blank' >Share</a>
+                                <a className='Flappy_play_btn Flappy_play_btn_mob' onClick={(event) => {
+                                    event.preventDefault();
+                                    window.location.href = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    setTimeout(() => {
+                                        window.location.href = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    }, 1000);
+                                }} >Share</a>
                             </div>
                             <button className='Flappy_play_btn' onClick={() => {
                                 windowStore.setWindowStatus('flappyLeaderboard', 'opened')
@@ -118,7 +124,7 @@ const Flappy = (props) => {
                         </div>
                 }
             </div>
-        </Window>
+        </Window >
     )
 }
 
