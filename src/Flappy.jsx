@@ -114,30 +114,15 @@ const Flappy = (props) => {
                                     event.preventDefault();
 
 
-                                    // const text = `I REACHED ${flappyStore.score} POINTS IN FLAPPY KNUT`;
-                                    // const hashtags = "KNUT";
-                                    // const url = "https://knut.wtf";
-                                    // const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}&url=${encodeURIComponent(url)}`;
-
-                                    // if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                                    //     window.location.href = tweetUrl;
-                                    // } else {
-                                    //     window.open(tweetUrl, '_blank'); // Для десктопа открываем в новой вкладке
-                                    // }
-
                                     const text = `I REACHED ${flappyStore.score} POINTS IN FLAPPY KNUT`;
+                                    const hashtags = "KNUT";
                                     const url = "https://knut.wtf";
+                                    const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}&url=${encodeURIComponent(url)}`;
 
-                                    if (navigator.share) {
-                                        // Если `navigator.share` поддерживается
-                                        navigator.share({
-                                            title: 'Flappy Knut',
-                                            text: text,
-                                            url: url
-                                        }).catch((error) => console.log('Ошибка общего доступа:', error));
+                                    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                        window.location.href = tweetUrl;
                                     } else {
-                                        // Резервная ссылка на X
-                                        window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                                        window.open(tweetUrl, '_blank'); // Для десктопа открываем в новой вкладке
                                     }
 
                                 }} >Share</a>
