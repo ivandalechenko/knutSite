@@ -59,10 +59,31 @@
         }
 
         &_btn {
+
+            -webkit-font-smoothing: none;
+            font-family: "Pixelated MS Sans Serif", Arial;
+            font-size: 11px;
+
+            border: none;
+            border-radius: 0;
+            box-sizing: border-box;
+            color: transparent;
+            min-height: 23px;
+            min-width: 75px;
+            padding: 0 12px;
+            text-shadow: 0 0 #222;
+
+
+            background: #B8C0C1;
+            box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+
             margin-top: 8px;
             width: 100%;
             font-size: 20px;
             padding: 8px !important;
+            text-align: center;
+
+
         }
     }
 
