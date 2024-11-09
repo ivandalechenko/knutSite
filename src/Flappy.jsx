@@ -114,15 +114,12 @@ const Flappy = (props) => {
                                     event.preventDefault();
 
                                     const iosAppLink = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
-                                    const androidAppLink = `intent://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
+                                    const androidAppLink = `intent://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A#Intent;scheme=x;package=com.twitter.android;end;`;
                                     const webFallback = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
 
                                     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                                         // iOS
                                         window.location.href = iosAppLink;
-                                        setTimeout(() => {
-                                            window.location.href = webFallback;
-                                        }, 500);
                                     } else if (/Android/i.test(navigator.userAgent)) {
                                         // Android
                                         window.location.href = androidAppLink;
