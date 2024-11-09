@@ -113,20 +113,33 @@ const Flappy = (props) => {
                                 <a className='Flappy_play_btn Flappy_play_btn_mob' onClick={(event) => {
                                     event.preventDefault();
 
-                                    const iosAppLink = `x://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
-                                    const androidAppLink = `intent://intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
-                                    const webFallback = `https://x.com/intent/post?hashtags=KNUT&text=I+REACHED+${flappyStore.score}+POINTS+IN+FLAPPY+KNUT%0D%0A&url=https://knut.wtf%0D%0A`;
 
-                                    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                                        // iOS
-                                        window.location.href = iosAppLink;
-                                    } else if (/Android/i.test(navigator.userAgent)) {
-                                        // Android
-                                        window.location.href = androidAppLink;
+                                    // const text = `I REACHED ${flappyStore.score} POINTS IN FLAPPY KNUT`;
+                                    // const hashtags = "KNUT";
+                                    // const url = "https://knut.wtf";
+                                    // const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&hashtags=${hashtags}&url=${encodeURIComponent(url)}`;
+
+                                    // if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                    //     window.location.href = tweetUrl;
+                                    // } else {
+                                    //     window.open(tweetUrl, '_blank'); // Для десктопа открываем в новой вкладке
+                                    // }
+
+                                    const text = `I REACHED ${flappyStore.score} POINTS IN FLAPPY KNUT`;
+                                    const url = "https://knut.wtf";
+
+                                    if (navigator.share) {
+                                        // Если `navigator.share` поддерживается
+                                        navigator.share({
+                                            title: 'Flappy Knut',
+                                            text: text,
+                                            url: url
+                                        }).catch((error) => console.log('Ошибка общего доступа:', error));
                                     } else {
-                                        // На десктопах и других устройствах откроется веб-версия
-                                        window.location.href = webFallback;
+                                        // Резервная ссылка на X
+                                        window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
                                     }
+
                                 }} >Share</a>
                             </div>
                             <button className='Flappy_play_btn' onClick={() => {
