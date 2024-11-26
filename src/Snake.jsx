@@ -12,10 +12,30 @@ const SnakeGame = () => {
         ], // Начальная длина змейки (3 клетки)
         food: { x: 15, y: 15 }, // Координаты еды
         direction: 'RIGHT', // Текущее направление движения
-        gridSize: 15, // Размер клетки (300px / 20 = 15px)
+        gridSize: 16, // Размер клетки (300px / 20 = 15px)
         score: 0, // Счёт
         gameOver: false, // Состояние игры
     });
+
+    const newGame = () => {
+        console.log('meow');
+
+        const { gameOver } = gameState;
+        if (gameOver) {
+            setGameState({
+                snake: [
+                    { x: 10, y: 10 },
+                    { x: 9, y: 10 },
+                    { x: 8, y: 10 },
+                ], // Начальная длина змейки (3 клетки)
+                food: { x: 15, y: 15 }, // Координаты еды
+                direction: 'RIGHT', // Текущее направление движения
+                gridSize: 16, // Размер клетки (300px / 20 = 15px)
+                score: 0, // Счёт
+                gameOver: false, // Состояние игры
+            })
+        }
+    }
 
     const gridCount = 20; // Количество клеток в ширину/высоту
 
@@ -27,7 +47,7 @@ const SnakeGame = () => {
                 updateGame();
                 draw(ctx);
             }
-        }, 200); // Скорость игры (200 мс)
+        }, 150); // Скорость игры (200 мс)
 
         return () => clearInterval(interval);
     }, [gameState]);
@@ -135,22 +155,29 @@ const SnakeGame = () => {
         });
     };
 
-    // Функция рисования на canvas
     const draw = (ctx) => {
         const { snake, food, gridSize } = gameState;
 
         // Очистка canvas
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
+        console.log('SNAKE');
         // Отрисовка змейки
-        ctx.fillStyle = 'black';
-        snake.forEach((segment) => {
+        snake.forEach((segment, index) => {
+            const alpha = ((100 / snake.length) * (snake.length - index)) / 100; // Прозрачность уменьшается ближе к хвосту
+            console.log(alpha);
+
+            ctx.fillStyle = `rgba(0, 0, 0, ${Math.max(alpha, 0.2)})`; // Минимальная прозрачность 0.2
+
+            const size = index === 0 ? gridSize - 2 : gridSize - 6; // Голова больше, тело стандартное
+            const offset = (gridSize - size) / 2; // Центрируем сегменты
+
             ctx.fillRect(
-                segment.x * gridSize + 2,
-                segment.y * gridSize + 2,
-                gridSize - 4,
-                gridSize - 4
-            ); // Отступы между сегментами
+                segment.x * gridSize + offset,
+                segment.y * gridSize + offset,
+                size,
+                size
+            );
         });
 
         // Отрисовка еды
@@ -163,20 +190,37 @@ const SnakeGame = () => {
         ); // Еда меньше змейки
     };
 
+
+
+
     return (
         <Window type={'snake'}>
             <div className="Snake">
-                <div className="score">Score: {gameState.score}</div>
-                <canvas
-                    ref={canvasRef}
-                    width={300} // Ширина канваса
-                    height={300} // Высота канваса
-                    style={{ border: '1px solid black' }}
-                />
-                {gameState.gameOver && <div className="game-over">Game Over!</div>}
+                <div className="Snake_score">{formatNumber(gameState.score)}</div>
+                <div className='Snake_game'>
+                    {
+                        gameState.gameOver && <div className='Snake_newGame free_img' onClick={() => { newGame() }}>
+                            <div className='Snake_newGame_inner'>
+                                New Game
+                            </div>
+                        </div>
+                    }
+
+                    <canvas
+                        style={{ opacity: gameState.gameOver ? 0.2 : 1 }}
+                        ref={canvasRef}
+                        width={320} // Ширина канваса
+                        height={320} // Высота канваса
+                    />
+                </div>
+                {/* {gameState.gameOver && <div className="game-over">Game Over!</div>} */}
             </div>
         </Window>
     );
 };
 
 export default SnakeGame;
+
+function formatNumber(num, length = 4) {
+    return num.toString().padStart(length, '0');
+}
