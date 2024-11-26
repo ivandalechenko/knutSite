@@ -170,6 +170,17 @@ export default observer((props) => {
                         Mine sweeper
                     </div>
                 </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('chart', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/chartLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Chart
+                    </div>
+                </div>
             </div>
         </div>
     )
