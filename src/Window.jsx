@@ -4,7 +4,7 @@ import windowStore from './windowStore';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
-const Window = ({ children, type }) => {
+export default observer(({ children, type }) => {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
@@ -80,7 +80,7 @@ const Window = ({ children, type }) => {
                     {type === 'thimbleswm' && 'Thimbles'}
                     {type === 'flappy' && 'Flappy Knut'}
                     {type === 'flappyLeaderboard' && 'Leaderboard'}
-
+                    {type === 'minesweeper' && 'Minesweeper'}
 
                 </div>
                 <div className="title-bar-controls">
@@ -99,6 +99,4 @@ const Window = ({ children, type }) => {
             <div onMouseDown={(e) => { updateMyZ(); e.stopPropagation() }}>{children}</div>
         </div>
     );
-};
-
-export default observer(Window);
+})

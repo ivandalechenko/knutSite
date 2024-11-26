@@ -1,6 +1,9 @@
 .Window {
     position: absolute;
 
+    left: 50px;
+    top: 50px;
+
     &_state {
         left: 300px;
         top: 50px;
@@ -70,6 +73,8 @@
         left: 50px;
         top: 50px;
     }
+
+
 
 
 

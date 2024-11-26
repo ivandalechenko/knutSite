@@ -21,7 +21,7 @@ import walletStore from './walletStore.js';
 import windowStore from './windowStore.js';
 
 
-const Flappy = (props) => {
+export default observer((props) => {
     const pixiScene = useRef(null);
 
     useEffect(() => {
@@ -73,7 +73,6 @@ const Flappy = (props) => {
             }
         }
     }, [flappyStore.play])
-    // https://x.com/intent/post?hashtags=PAWS+CULT%21+%F0%9F%90%BE&text=JOIN
 
     return (
         <Window type='flappy'>
@@ -135,6 +134,4 @@ const Flappy = (props) => {
             </div>
         </Window >
     )
-}
-
-export default observer(Flappy)
+})

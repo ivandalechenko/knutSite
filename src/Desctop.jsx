@@ -4,7 +4,8 @@ import windowStore from './windowStore'
 import { observer } from 'mobx-react-lite';
 import walletStore from './walletStore';
 
-const Desctop = (props) => {
+
+export default observer((props) => {
     return (
         <div className='Desctop'>
             <div className='Desctop_links'>
@@ -21,7 +22,6 @@ const Desctop = (props) => {
                 </div>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('roadmap', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
-
                         <img src='/img/links/roadmapLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
                     <div className='Desctop_link_arrow free_img'>
@@ -159,9 +159,18 @@ const Desctop = (props) => {
                         Meme Generator
                     </div>
                 </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('minesweeper', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/minesweeperLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Mine sweeper
+                    </div>
+                </div>
             </div>
         </div>
     )
-}
-
-export default observer(Desctop)
+})
