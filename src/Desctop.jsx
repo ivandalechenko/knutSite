@@ -181,6 +181,17 @@ export default observer((props) => {
                         Chart
                     </div>
                 </div>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('snake', 'opened') }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/snakeLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Snake
+                    </div>
+                </div>
             </div>
         </div>
     )

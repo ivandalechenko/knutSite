@@ -1,0 +1,17 @@
+.Snake {
+    background: #98E15F;
+
+    @media(max-width: 800px) {
+        height: calc(100vh - 120px);
+    }
+
+    canvas {
+        // width: 400px;
+        // height: 500px;
+        border: 2px solid #000;
+        // @media(max-width: 800px) {
+        //     height: calc(100vh - 120px);
+        //     width: 100%;
+        // }
+    }
+}

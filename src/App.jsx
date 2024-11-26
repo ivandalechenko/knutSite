@@ -19,6 +19,7 @@ import ThimblesWithMoney from './ThimblesWithMoney.jsx'
 import Flappy from './Flappy.jsx'
 import Minesweeper from './Minesweeper.jsx'
 import Chart from './Chart.jsx'
+import Snake from './Snake.jsx'
 
 
 
@@ -68,6 +69,7 @@ function App() {
       {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard />}
       {windowStore.getWindowStatus('minesweeper') === 'opened' && <Minesweeper />}
       {windowStore.getWindowStatus('chart') === 'opened' && <Chart />}
+      {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}
 
 
       <TaskPanel />
