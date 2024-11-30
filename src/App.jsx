@@ -15,11 +15,11 @@ import MemeGen from './MemeGen'
 import Airdrop from './Airdrop'
 import Thimbles from './Thimbles.jsx'
 import FlappyLeaderboard from './FlappyLeaderboard.jsx'
-import ThimblesWithMoney from './ThimblesWithMoney.jsx'
 import Flappy from './Flappy.jsx'
 import Minesweeper from './Minesweeper.jsx'
 import Chart from './Chart.jsx'
 import Snake from './Snake.jsx'
+import ChangeWallpaper from './ChangeWallpaper.jsx'
 
 
 
@@ -70,6 +70,7 @@ function App() {
       {windowStore.getWindowStatus('minesweeper') === 'opened' && <Minesweeper />}
       {windowStore.getWindowStatus('chart') === 'opened' && <Chart />}
       {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}
+      {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
 
 
       <TaskPanel />

@@ -22,6 +22,18 @@ const Pusk = ({ onClick }) => {
                         <div className='Pusk_link Pusk_link_header'>
                             <div className='Pusk_link_del'>
                             </div>
+                            Settings
+                        </div>
+                        <div className='Pusk_hr'></div>
+                        <a className='Pusk_link' onClick={() => { windowStore.setWindowStatus('changeWallpaper', 'opened') }}>
+                            <div className='Pusk_link_img'>
+                                <img src='/img/links/changeWallpaperLink.png' alt='decor' />
+                            </div>
+                            Change wallpaper
+                        </a>
+                        <div className='Pusk_link Pusk_link_header'>
+                            <div className='Pusk_link_del'>
+                            </div>
                             Socials
                         </div>
                         <div className='Pusk_hr'></div>

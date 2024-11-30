@@ -83,6 +83,7 @@ export default observer(({ children, type }) => {
                     {type === 'minesweeper' && 'Minesweeper'}
                     {type === 'chart' && 'Chart'}
                     {type === 'snake' && 'Snake'}
+                    {type === 'changeWallpaper' && 'Change wallpaper'}
 
                 </div>
                 <div className="title-bar-controls">

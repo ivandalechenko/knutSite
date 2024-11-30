@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './scss/Desctop.scss';
 import windowStore from './windowStore'
 import { observer } from 'mobx-react-lite';
 import walletStore from './walletStore';
-
+import wallpaperStore from './WallpaperStore';
 
 export default observer((props) => {
+    const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 1);
+    useEffect(() => {
+        setwallpaper(wallpaperStore.wallpaper)
+    }, [wallpaperStore.wallpaper])
     return (
-        <div className='Desctop'>
+        <div className='Desctop' style={{
+            backgroundImage: `url('/img/wallpapers/${wallpaper}.png')`
+        }}>
             <div className='Desctop_links'>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('state', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
