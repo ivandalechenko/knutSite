@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './scss/ChangeWallpaper.scss';
 import Window from './Window';
-import wallpaperStore from './WallpaperStore';
+import wallpaperStore from './wallpaperStore';
 export default () => {
     const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 1);
     useEffect(() => {

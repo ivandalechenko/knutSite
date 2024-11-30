@@ -3,7 +3,7 @@ import './scss/Desctop.scss';
 import windowStore from './windowStore'
 import { observer } from 'mobx-react-lite';
 import walletStore from './walletStore';
-import wallpaperStore from './WallpaperStore';
+import wallpaperStore from './wallpaperStore';
 
 export default observer((props) => {
     const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 1);
@@ -202,3 +202,4 @@ export default observer((props) => {
         </div>
     )
 })
+
