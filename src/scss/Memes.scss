@@ -1,0 +1,61 @@
+.Memes {
+    display: flex;
+
+    @media(max-width: 800px) {
+        // height: calc(100dvh - 120px);
+    }
+
+    &_selected {
+        display: flex;
+        align-items: center;
+        height: 300px;
+        width: 300px;
+
+        @media(max-width: 800px) {
+            width: 100%;
+            justify-content: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            max-height: 292px;
+            object-fit: contain;
+        }
+    }
+
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 70px;
+        justify-content: space-between;
+        align-content: space-between;
+        height: 300px;
+
+        &_nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                cursor: pointer;
+            }
+        }
+
+        &_el {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 63px;
+            height: 63px;
+
+            img {
+                width: 100%;
+                max-width: 62px;
+                max-height: 62px;
+                object-fit: contain;
+            }
+        }
+    }
+
+}

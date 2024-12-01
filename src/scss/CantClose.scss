@@ -1,0 +1,19 @@
+.CantClose {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    padding: 10px 20px;
+
+    &_header {
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    &_subheader {
+        font-size: 12px;
+        margin-top: 4px;
+        color: #000;
+    }
+}

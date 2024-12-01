@@ -1,0 +1,74 @@
+.Desctop {
+    position: absolute;
+    width: 100dvw;
+    height: 100dvh;
+    background: url('/img/bg.svg');
+    background-position: center;
+    background-size: cover;
+
+
+
+    &_links {
+        display: flex;
+        margin-top: 30px;
+        margin-left: 30px;
+        gap: 28px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: calc(100dvh - 100px);
+        align-items: flex-start;
+        align-content: baseline;
+
+        @media(max-width: 800px) {
+            margin-top: 60px;
+            margin-left: 10px;
+        }
+    }
+
+    &_link {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100px;
+
+
+        &_img {
+            width: 48px;
+
+            &_wrapper {
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        img {
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        &_arrow {
+            width: 100% !important;
+            left: -20px;
+        }
+
+        &_text {
+            margin-top: 8px;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0.5px 1.25px 0px rgba(#000, 1);
+            font-size: 17px;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            .Desctop_link_text {
+                text-decoration: underline;
+            }
+        }
+
+    }
+}

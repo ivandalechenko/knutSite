@@ -1,0 +1,113 @@
+.Window {
+    position: absolute;
+
+    &_state {
+        left: 300px;
+        top: 50px;
+    }
+
+    &_roadmap {
+        left: 240px;
+        top: 220px;
+    }
+
+    &_whitepaper {
+        left: 280px;
+        top: 130px;
+    }
+
+    &_cantClose {
+        left: 380px;
+        top: 80px;
+    }
+
+    &_tokenomics {
+        left: 100px;
+        top: 60px;
+    }
+
+    &_milestones {
+        left: 150px;
+        top: 90px;
+    }
+
+    &_memes {
+        left: 300px;
+        top: 200px;
+    }
+
+    &_TTT {
+        left: 330px;
+        top: 20px;
+    }
+
+    &_paint {
+        left: 200px;
+        top: 100px;
+    }
+
+    &_memeGen {
+        left: 180px;
+        top: 30px;
+    }
+
+    &_airdrop {
+        left: 30px;
+        top: 50px;
+    }
+
+    &_thimbles {
+        left: 280px;
+        top: 80px;
+    }
+
+
+    &_player {
+        background: linear-gradient(to right, #14121E, #68689C, #313143) !important;
+        right: 10px;
+        bottom: 50px;
+
+        box-shadow: inset 2px 2px #817F97, 2px 2px #303149, -2px -2px #303149, 2px -2px #303149, -2px 2px #303149 !important;
+
+
+
+        .title-bar {
+            background: transparent !important;
+        }
+
+        .title-bar-controls button {
+            background: transparent;
+            box-shadow: none !important;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23fff'/%3E%3C/svg%3E") !important
+        }
+
+    }
+
+
+    @media(max-width: 800px) {
+        left: 0px;
+        top: 46px;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    .title-bar-text {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+        font-size: 12px;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

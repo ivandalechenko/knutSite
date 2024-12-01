@@ -1,0 +1,65 @@
+.Milestones {
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    align-content: start;
+    gap: 24px;
+    width: 100%;
+    max-width: 560px;
+
+    @media(max-width: 800px) {
+        max-width: 800px;
+        height: calc(100dvh - 120px);
+        overflow-y: scroll;
+        max-height: none;
+    }
+
+
+    img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    &_row {
+        width: 100%;
+        display: flex;
+        gap: 24px;
+
+        @media(max-width: 800px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &_el {
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        align-content: baseline;
+        flex-wrap: wrap;
+
+
+        img {
+            width: 48px;
+            height: 48px;
+
+            @media(max-width: 800px) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        &_text {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #000;
+            margin-top: 8px;
+
+            @media(max-width: 800px) {
+                font-size: 13px;
+            }
+        }
+    }
+}
