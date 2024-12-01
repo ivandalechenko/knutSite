@@ -17,7 +17,7 @@ class WindowStore {
         memeGen: 'closed',
         airdrop: 'closed',
         minesweeper: 'closed',
-        changeWallpaper: 'opened',
+        changeWallpaper: 'closed',
 
         thimbles: 'closed',
         // thimbleswm: 'closed'
