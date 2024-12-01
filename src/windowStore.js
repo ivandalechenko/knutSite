@@ -16,9 +16,13 @@ class WindowStore {
         paint: 'closed',
         memeGen: 'closed',
         airdrop: 'closed',
+        minesweeper: 'closed',
+        changeWallpaper: 'closed',
 
         thimbles: 'closed',
-        thimbleswm: 'closed'
+        // thimbleswm: 'closed'
+        flappy: 'closed',
+        flappyLeaderboard: 'closed'
     }
 
     constructor() {
@@ -32,7 +36,7 @@ class WindowStore {
         this.z = this.z + 1;
         return this.z;
     }
-    setWindowStatus(win, status) {
+    async setWindowStatus(win, status) {
         if (window.innerWidth <= 800) {
             this.windows[win] = status;
         } else {
@@ -51,7 +55,7 @@ class WindowStore {
         const windows = Object.entries(this.windows)
             .filter(([key, value]) => value !== 'closed' && !['', ''].includes(key)) // фильтруем окна, которые не 'closed'
             .map(([key]) => key); // возвращаем только ключи
-        console.log(windows);
+        // console.log(windows);
         return windows
     }
 

@@ -12,7 +12,7 @@ const Thimbles = () => {
     return (
         <Window type='thimbles'>
             <div className='Thimbles'>
-                <ThimblesGameOffline />
+                {/* <ThimblesGameOffline />
                 <div className='Thimbles_soon window'>
                     <div className='Thimbles_soon_bid'>
                         <input type="text" value={10} />
@@ -21,10 +21,10 @@ const Thimbles = () => {
                     <div className='Thimbles_soon_text'>
                         Cumming soon...
                     </div>
-                </div>
-                {/* <ThimblesGame /> */}
-                {/* <ThimblesBid /> */}
-                {/* <ThimblesLastGames /> */}
+                </div> */}
+                <ThimblesGame />
+                <ThimblesBid />
+                <ThimblesLastGames />
             </div>
         </Window>
     );

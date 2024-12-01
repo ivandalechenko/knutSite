@@ -14,7 +14,14 @@ import Paint from './Paint'
 import MemeGen from './MemeGen'
 import Airdrop from './Airdrop'
 import Thimbles from './Thimbles.jsx'
-import ThimblesWithMoney from './ThimblesWithMoney.jsx'
+import FlappyLeaderboard from './FlappyLeaderboard.jsx'
+import Flappy from './Flappy.jsx'
+import Minesweeper from './Minesweeper.jsx'
+import Chart from './Chart.jsx'
+import Snake from './Snake.jsx'
+import ChangeWallpaper from './ChangeWallpaper.jsx'
+
+
 
 
 
@@ -28,6 +35,9 @@ import { useState } from 'react';
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
+  if (localStorage.getItem('thimblesStatus') === undefined || localStorage.getItem('thimblesStatus') === 'undefined') {
+    localStorage.removeItem('thimblesStatus')
+  }
   useEffect(() => {
     if (firstClicked) {
       audioStore.play = true;
@@ -55,7 +65,13 @@ function App() {
       {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
       {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
-      {windowStore.getWindowStatus('thimbleswm') === 'opened' && <ThimblesWithMoney />}
+      {windowStore.getWindowStatus('flappy') === 'opened' && <Flappy />}
+      {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard />}
+      {windowStore.getWindowStatus('minesweeper') === 'opened' && <Minesweeper />}
+      {windowStore.getWindowStatus('chart') === 'opened' && <Chart />}
+      {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}
+      {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
+
 
       <TaskPanel />
     </div>

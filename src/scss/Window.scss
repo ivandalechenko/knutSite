@@ -1,6 +1,9 @@
 .Window {
     position: absolute;
 
+    left: 50px;
+    top: 50px;
+
     &_state {
         left: 300px;
         top: 50px;
@@ -61,12 +64,27 @@
         top: 80px;
     }
 
+    &_flappy {
+        left: 90px;
+        top: 30px;
+    }
+
+    &_flappyLeaderboard {
+        left: 50px;
+        top: 50px;
+    }
+
+
+
+
 
     &_player {
         background: linear-gradient(to right, #14121E, #68689C, #313143) !important;
         right: 10px;
         bottom: 50px;
 
+        left: auto;
+        top: auto;
         box-shadow: inset 2px 2px #817F97, 2px 2px #303149, -2px -2px #303149, 2px -2px #303149, -2px 2px #303149 !important;
 
 

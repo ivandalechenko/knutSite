@@ -1,9 +1,9 @@
 import { makeAutoObservable, observable } from 'mobx';
 
 class GameStore {
-    thimblesStatus = localStorage.getItem('thimblesStatus') || 'wait';
+    thimblesStatus = localStorage.getItem('thimblesStatus') !== 'undefined' ? localStorage.getItem('thimblesStatus') || 'wait' : 'wait';
     thimblePlaying = this.thimblesStatus !== 'wait';
-
+    thimblesLastResult = false;
     constructor() {
         makeAutoObservable(this);
     }
