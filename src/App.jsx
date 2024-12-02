@@ -44,12 +44,13 @@ function App() {
     }
   }, [firstClicked])
   return (
-    <div className='App' onClick={() => {
+    < div className='App' onClick={() => {
       setfirstClicked(true)
       if (windowStore.getWindowStatus('state') === 'opened') {
         bearStore.incBear()
       }
-    }}>
+    }
+    }>
       <Desctop />
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
@@ -74,7 +75,7 @@ function App() {
 
 
       <TaskPanel />
-    </div>
+    </div >
   )
 }
 

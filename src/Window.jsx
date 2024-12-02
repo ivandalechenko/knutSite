@@ -62,7 +62,7 @@ export default observer(({ children, type }) => {
         >
             <div className="title-bar">
                 <div className="title-bar-text">
-                    <img src={`/img/links/${type}Link.${type === 'TTT' ? 'svg' : 'png'}`} alt='decor' />
+                    <img src={`/img/links/${type}Link.png`} alt='decor' />
                     {type === 'state' && '$knut State'}
                     {type === 'roadmap' && 'Roadmap'}
                     {type === 'whitepaper' && 'Whitepaper'}

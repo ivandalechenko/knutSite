@@ -183,13 +183,13 @@ const TTT = (props) => {
                     <div className='TTT_score window'>
                         <div className='TTT_score_el'>
                             <div className='TTT_score_img'>
-                                <img src='/img/ttt/user.svg' style={{ opacity: myTurn ? 1 : .3 }} alt='decor' />
+                                <img src='/img/ttt/user.png' style={{ opacity: myTurn ? 1 : .3 }} alt='decor' />
                             </div>
                             <TTTScore score={userScore} />
                         </div>
                         <div className='TTT_score_el'>
                             <div className='TTT_score_img'>
-                                <img src='/img/ttt/pc.svg' style={{ opacity: myTurn ? .3 : 1 }} alt='decor' />
+                                <img src='/img/ttt/pc.png' style={{ opacity: myTurn ? .3 : 1 }} alt='decor' />
                             </div>
                             <TTTScore score={pcScore} />
                         </div>
@@ -205,10 +205,10 @@ const TTT = (props) => {
                                                 onClick={() => step(x, y)}
                                                 key={y}
                                                 style={{
-                                                    backgroundColor: winningCells.some(cell => cell[0] === x && cell[1] === y) ? '#FF989E' : 'transparent',
+                                                    backgroundColor: winningCells.some(cell => cell[0] === x && cell[1] === y) ? '#989eff' : 'transparent',
                                                 }}
                                             >
-                                                {field[x][y] && <img src={`/img/links/${field[x][y] === 'x' ? 'TTTLink' : 'round'}.svg`} alt='decor' />}
+                                                {field[x][y] && <img src={`/img/links/${field[x][y] === 'x' ? 'TTTLink' : 'round'}.png`} alt='decor' />}
                                             </div>
                                         ))
                                     }
