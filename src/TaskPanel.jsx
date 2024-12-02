@@ -76,6 +76,9 @@ const TaskPanel = (props) => {
                             <a href="https://dexscreener.com/solana/8ztb9xdw33yjhfwlxc9u9jox6sbd4x2rzsxm5g1z78e3" target='_blank'>
                                 <img src='/img/media/bird.png' alt='decor' />
                             </a>
+                            <a href="https://discord.gg/kSsdkkHmNU" target='_blank'>
+                                <img src='/img/media/ds.png' alt='decor' />
+                            </a>
                         </div>
                         <div className='TaskPanel_vl'></div>
                         <div className='TaskPanel_stat likeButton'>
