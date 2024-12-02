@@ -76,7 +76,7 @@ export default observer(({ children, type }) => {
                     {type === 'paint' && 'knutPaint'}
                     {type === 'memeGen' && 'Meme Generator'}
                     {type === 'airdrop' && 'Airdrop'}
-                    {type === 'thimbles' && 'Icebergs'}
+                    {type === 'thimbles' && 'Thimbles'}
                     {type === 'thimbleswm' && 'Icebergs'}
                     {type === 'flappy' && 'Flappy Knut'}
                     {type === 'flappyLeaderboard' && 'Leaderboard'}
