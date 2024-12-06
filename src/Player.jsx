@@ -113,7 +113,7 @@ const Player = (props) => {
                     </div>
 
                     {
-                        ['Main', 'LifeStyle', 'Driving', 'FRED', 'ChillMorning', 'Party', 'Relaxation', 'Romantic', 'Workouts',].map((ps) => {
+                        ['Main', 'LifeStyle', 'FRED', 'Driving', 'ChillMorning', 'Party', 'Relaxation', 'Romantic', 'Workouts',].map((ps) => {
                             return <div className={`Player_playlists_element ${audioStore.category === ps && 'Player_playlists_element_selected'}`} onClick={() => { audioStore.changeCategory(ps) }}>
                                 {ps}
                             </div>
