@@ -108,15 +108,15 @@ export default observer((props) => {
                         knutPaint
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('airdrop', 'opened') }}>
+                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('staking', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
-                        <img src='/img/links/airdropLink.png' className='Desctop_link_img' alt='decor' />
+                        <img src='/img/links/stakingLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
                     <div className='Desctop_link_arrow free_img'>
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
                     <div className='Desctop_link_text'>
-                        Airdrop
+                        Staking
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={async () => {

@@ -763,6 +763,48 @@ class AudioStore {
                 "https://knut.wtf/music/Workouts/Zeitmaschine - 90s Mix.mp3"
             ].sort(() => Math.random() - 0.5)
         }
+        if (cat === 'FRED') {
+            this.songs = [
+                "https://knut.wtf/music/Fred/adore u.mp3",
+                "https://knut.wtf/music/Fred/Baby again...mp3",
+                "https://knut.wtf/music/Fred/backseat.mp3",
+                "https://knut.wtf/music/Fred/Baxter (these are my friends).mp3",
+                "https://knut.wtf/music/Fred/BerwynGesaffNeighbours.mp3",
+                "https://knut.wtf/music/Fred/Billie (loving arms).mp3",
+                "https://knut.wtf/music/Fred/Bleu (better with time).mp3",
+                "https://knut.wtf/music/Fred/Clara (the night is dark).mp3",
+                "https://knut.wtf/music/Fred/Cmon.mp3",
+                "https://knut.wtf/music/Fred/Danielle (smile on my face).mp3",
+                "https://knut.wtf/music/Fred/Delilah (pull me out of this).mp3",
+                "https://knut.wtf/music/Fred/Dermot (see yourself in my eyes).mp3",
+                "https://knut.wtf/music/Fred/Faisal (envelops me).mp3",
+                "https://knut.wtf/music/Fred/fear less.mp3",
+                "https://knut.wtf/music/Fred/glow.mp3",
+                "https://knut.wtf/music/Fred/Hannah (the sun).mp3",
+                "https://knut.wtf/music/Fred/i saw you.mp3",
+                "https://knut.wtf/music/Fred/Jessie (i miss you).mp3",
+                "https://knut.wtf/music/Fred/Julia (deep diving).mp3",
+                "https://knut.wtf/music/Fred/Jungle.mp3",
+                "https://knut.wtf/music/Fred/just stand there.mp3",
+                "https://knut.wtf/music/Fred/Kammy (like i do).mp3",
+                "https://knut.wtf/music/Fred/Kyle (i found you).mp3",
+                "https://knut.wtf/music/Fred/leavemealone.mp3",
+                "https://knut.wtf/music/Fred/Lights Out.mp3",
+                "https://knut.wtf/music/Fred/Marea (we’ve lost dancing).mp3",
+                "https://knut.wtf/music/Fred/Me (heavy).mp3",
+                "https://knut.wtf/music/Fred/peace u need.mp3",
+                "https://knut.wtf/music/Fred/places to be.mp3",
+                "https://knut.wtf/music/Fred/Roze (forgive).mp3",
+                "https://knut.wtf/music/Fred/Rumble.mp3",
+                "https://knut.wtf/music/Fred/stayinit.mp3",
+                "https://knut.wtf/music/Fred/Strong.mp3",
+                "https://knut.wtf/music/Fred/Tate (how i feel).mp3",
+                "https://knut.wtf/music/Fred/ten.mp3",
+                "https://knut.wtf/music/Fred/Turn On The Lights again.. (feat. Future & Fred again..) - Anyma Remix.mp3",
+                "https://knut.wtf/music/Fred/Turn On The Lights again.. (feat. Future).mp3",
+                "https://knut.wtf/music/Fred/Yasminah (see your face again).mp3"
+            ].sort(() => Math.random() - 0.5)
+        }
         this.category = cat;
         this.nextSong();
     }

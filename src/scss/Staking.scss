@@ -1,0 +1,18 @@
+.Staking {
+    font-size: 10px;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+
+    @media(max-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 121px);
+    }
+
+    img {
+        width: 200px;
+        object-fit: contain;
+    }
+}
