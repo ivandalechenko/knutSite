@@ -26,6 +26,10 @@
         @media(max-width: 800px) {
             font-size: 32px;
         }
+
+        &:not(:first-child) {
+            margin-top: 24px;
+        }
     }
 
     &_phase {
