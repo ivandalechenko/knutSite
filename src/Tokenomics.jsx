@@ -10,12 +10,8 @@ const Tokenomics = (props) => {
     const [textIndex, setTextIndex] = useState(0); // Индекс текущего текста
 
     const textArray = [
-        'De',
-        'Deca',
-        'Decetr',
-        'Decen',
-        'Decentrala',
-        'Decentrali',
+        'Decent',
+        'Decentral',
         'Decentralised',
     ]; // Массив строк
 
@@ -58,10 +54,10 @@ const Tokenomics = (props) => {
                 </div>
                 <div className='Tokenomics_block'>
                     <div className='Tokenomics_el'>
-                        <div
-                            className='Tokenomics_el_name decentralised'
-                            ref={textRef}
-                        ></div>
+                        <div className='Tokenomics_el_name decentralised'>
+                            <span ref={textRef}></span>
+                            <span className="blinking-cursor">|</span>
+                        </div>
                         <div className='Tokenomics_el_perc'>:100%</div>
                     </div>
                 </div>

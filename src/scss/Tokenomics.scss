@@ -1,3 +1,15 @@
+.blinking-cursor {
+    display: inline-block;
+    background: #808080;
+    animation: blink .5s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
 .Tokenomics {
     width: 100%;
     max-width: 700px;
@@ -58,6 +70,17 @@
 
             @media(max-width: 800px) {
                 font-size: 16px;
+            }
+
+            span {
+                font-family: 'DOS';
+                font-weight: 700;
+                font-size: 32px;
+                color: #808080;
+
+                @media(max-width: 800px) {
+                    font-size: 16px;
+                }
             }
         }
     }
