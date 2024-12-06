@@ -18,6 +18,8 @@ class WindowStore {
         airdrop: 'closed',
         minesweeper: 'closed',
         changeWallpaper: 'closed',
+        staking: 'closed',
+        wack: 'closed',
 
         thimbles: 'closed',
         // thimbleswm: 'closed'

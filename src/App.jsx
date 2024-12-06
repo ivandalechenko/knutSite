@@ -33,6 +33,7 @@ import bearStore from './bearStore'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Staking from './Staking.jsx'
+import Wack from './Wack.jsx'
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
@@ -74,6 +75,7 @@ function App() {
       {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}
       {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
       {windowStore.getWindowStatus('staking') === 'opened' && <Staking />}
+      {windowStore.getWindowStatus('wack') === 'opened' && <Wack />}
 
 
       <TaskPanel />
