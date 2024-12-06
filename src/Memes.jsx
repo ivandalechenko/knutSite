@@ -3,7 +3,20 @@ import './scss/Memes.scss';
 import Window from './Window'
 import { useState } from 'react';
 const MEMES_PER_PAGE = 4;
-const TOTAL_MEMES_COUNT = 76;
+const TOTAL_MEMES_COUNT = 100;
+const baseArr = Array.from({ length: TOTAL_MEMES_COUNT + 1 }, (_, i) => i);
+
+// Функция для перемешивания массива
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Случайный индекс от 0 до i
+        [array[i], array[j]] = [array[j], array[i]];  // Меняем местами элементы
+    }
+    return array;
+}
+
+// Перемешиваем массив
+const memesArr = shuffleArray(baseArr);
 
 const Memes = (props) => {
     const [page, setpage] = useState(0);
@@ -33,7 +46,7 @@ const Memes = (props) => {
         <Window type='memes'>
             <div className='Memes'>
                 <div className='Memes_selected window'>
-                    <img src={`/img/memes/mem${selectedMeme}.webp`} alt='decor' />
+                    <img src={`/img/memes/mem${memesArr[selectedMeme]}${memesArr[selectedMeme] > 76 ? '-min.png' : '.webp'}`} alt='decor' />
                 </div>
                 <div className='Memes_list window'>
                     <div className='Memes_list_content'>
@@ -47,8 +60,8 @@ const Memes = (props) => {
                                     index = TOTAL_MEMES_COUNT - index + 3
                                 }
 
-                                return <div className='Memes_list_el' key={`meme_${index}`} onClick={() => { setselectedMeme(index) }}>
-                                    <img src={`/img/memes/mem${index}.webp`} alt='decor' />
+                                return <div className='Memes_list_el' key={`meme_${memesArr[index]}`} onClick={() => { setselectedMeme(memesArr[index]) }}>
+                                    <img src={`/img/memes/mem${memesArr[index]}${memesArr[index] > 76 ? '-min.png' : '.webp'}`} alt='decor' />
                                 </div>
                             }
                             )

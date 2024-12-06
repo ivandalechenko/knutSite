@@ -43,6 +43,18 @@ export default () => {
                         </div>
                         4
                     </div>
+                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 5 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(5) }}>
+                        <div className='ChangeWallpaper_element_inner window_inner'>
+                            <img src="/img/wallpapers/5.png" alt="" />
+                        </div>
+                        5
+                    </div>
+                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 6 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(6) }}>
+                        <div className='ChangeWallpaper_element_inner window_inner'>
+                            <img src="/img/wallpapers/6.png" alt="" />
+                        </div>
+                        6
+                    </div>
                 </div>
             </div>
         </Window>
