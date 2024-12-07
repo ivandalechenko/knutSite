@@ -4,6 +4,7 @@ import Window from './Window';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import api from './api';
+import walletStore from './walletStore';
 
 const FlappyLeaderboard = ({ type }) => {
     const [lb, setlb] = useState([]);
@@ -30,14 +31,14 @@ const FlappyLeaderboard = ({ type }) => {
                                     <img src='/img/flappy/coin.png' alt='decor' />
                                 </div>
                                 <div className='FlappyLeaderboard_element_info'>
-                                    <div className='FlappyLeaderboard_element_info_value'>{lbel.wallet.slice(0, 4)}...{lbel.wallet.slice(-4)}</div>
+                                    <div className='FlappyLeaderboard_element_info_value'>{lbel.wallet === walletStore.wallet && '(You)'}{lbel.wallet.slice(0, 4)}...{lbel.wallet.slice(-4)}</div>
                                 </div>
                             </div>
                             <div className='FlappyLeaderboard_element_right'>
                                 {index + 1}{index + 1 === 1 ? 'st' : index + 1 === 2 ? 'nd' : 'th'}
                                 <div className='FlappyLeaderboard_element_value_wrapper'>
                                     <div className='FlappyLeaderboard_element_value'>
-                                        {lbel[type]}
+                                        {lbel[type]} {type === 'minesweeper' && 'sec'}
                                     </div>
                                 </div>
                             </div>
