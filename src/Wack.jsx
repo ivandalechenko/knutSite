@@ -93,7 +93,7 @@ const Wack = () => {
                     <div className="Wack_score_final">Game Over</div>
                     <div className="Wack_score_final">Final Score: {score}</div>
                     <button onClick={() => {
-                        windowStore.setWindowStatus('snakeLeaderboard', 'opened')
+                        windowStore.setWindowStatus('wackLeaderboard', 'opened')
                     }} className="wackBtn">
                         Leaderboard
                     </button>                    <button onClick={startNewGame} className="wackBtn">
