@@ -10,6 +10,7 @@ class MinesweeperStore {
     countOfFlags = 0;
     gameEnd = false;
     timerInterval;
+    wallet = localStorage.getItem('walletConnected') || 'guest'
     minTimer = +localStorage.getItem("minesweeperBest") || 9999
 
 

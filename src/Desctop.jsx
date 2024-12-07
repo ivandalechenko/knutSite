@@ -126,7 +126,6 @@ export default observer((props) => {
                     windowStore.setWindowStatus('thimbles', 'opened')
                 }}>
                     <div className='Desctop_link_img_wrapper'>
-
                         <img src='/img/links/thimblesLink.png' className='Desctop_link_img Desctop_link_img_ball' alt='decor' />
                     </div>
                     <div className='Desctop_link_arrow free_img'>
@@ -163,7 +162,12 @@ export default observer((props) => {
                         Meme Generator
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('minesweeper', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('minesweeper', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
                         <img src='/img/links/minesweeperLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
