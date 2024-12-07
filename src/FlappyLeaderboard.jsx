@@ -37,7 +37,7 @@ const FlappyLeaderboard = ({ type }) => {
                                 {index + 1}{index + 1 === 1 ? 'st' : index + 1 === 2 ? 'nd' : 'th'}
                                 <div className='FlappyLeaderboard_element_value_wrapper'>
                                     <div className='FlappyLeaderboard_element_value'>
-                                        {lbel.score}
+                                        {lbel[type]}
                                     </div>
                                 </div>
                             </div>
