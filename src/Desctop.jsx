@@ -12,7 +12,7 @@ export default observer((props) => {
     }, [wallpaperStore.wallpaper])
     return (
         <div className='Desctop' style={{
-            backgroundImage: `url('/img/wallpapers/${wallpaper}.png')`
+            backgroundImage: `url('/img/wallpapers/${wallpaper}-min.png')`
         }}>
             <div className='Desctop_links'>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('state', 'opened') }}>

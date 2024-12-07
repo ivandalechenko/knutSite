@@ -19,42 +19,17 @@ export default () => {
                     eset to default
                 </div>
                 <div className={`ChangeWallpaper_content window`}>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 1 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(1) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/1.png" alt="" />
-                        </div>
-                        1
-                    </div>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 2 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(2) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/2.png" alt="" />
-                        </div>
-                        2
-                    </div>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 3 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(3) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/3.png" alt="" />
-                        </div>
-                        3
-                    </div>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 4 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(4) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/4.png" alt="" />
-                        </div>
-                        4
-                    </div>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 5 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(5) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/5.png" alt="" />
-                        </div>
-                        5
-                    </div>
-                    <div className={`ChangeWallpaper_element ${Number(wallpaper) === 6 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(6) }}>
-                        <div className='ChangeWallpaper_element_inner window_inner'>
-                            <img src="/img/wallpapers/6.png" alt="" />
-                        </div>
-                        6
-                    </div>
+                    {
+                        Array.from({ length: 29 }, (_, index) => {
+                            return <div className={`ChangeWallpaper_element ${Number(wallpaper) === index + 1 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(index + 1) }}>
+                                <div className='ChangeWallpaper_element_inner window_inner'>
+                                    <img src={`/img/wallpapers/${index + 1}-min.png`} alt="" />
+                                </div>
+                                {index + 1}
+                            </div>
+                        })
+                    }
+
                 </div>
             </div>
         </Window>
