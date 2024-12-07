@@ -56,7 +56,6 @@ const TTT = (props) => {
     };
 
     const checkWinner = (currentField) => {
-        return 'x'; // Возвращаем 'draw' для ничьей
         // Проверка победителя
 
         for (let i = 0; i < 3; i++) {
