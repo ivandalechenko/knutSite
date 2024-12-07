@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './scss/Snake.scss';
 import Window from './Window';
+import walletStore from './walletStore';
 
 const SnakeGame = () => {
     const canvasRef = useRef(null);
@@ -41,14 +42,20 @@ const SnakeGame = () => {
 
     // Обновление состояния игры
     useEffect(() => {
-        const ctx = canvasRef.current.getContext('2d');
-        const interval = setInterval(() => {
-            if (!gameState.gameOver) {
+        if (!gameState.gameOver) {
+            const ctx = canvasRef.current.getContext('2d');
+            const interval = setInterval(() => {
                 updateGame();
                 draw(ctx);
+            }, 150); // Скорость игры (200 мс)
+        } else {
+            const res = {
+                wallet: walletStore.wallet,
+                score: gameState.score
             }
-        }, 150); // Скорость игры (200 мс)
-
+            const jsonString = JSON.stringify(res);
+            api.post('/snake', { value: btoa(jsonString) })
+        }
         return () => clearInterval(interval);
     }, [gameState]);
 

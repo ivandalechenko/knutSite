@@ -5,18 +5,26 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import api from './api';
 
-const FlappyLeaderboard = (props) => {
+const FlappyLeaderboard = ({ type }) => {
     const [lb, setlb] = useState([]);
     useEffect(() => {
         const init = async () => {
-            const res = await api.get('/flappy')
+            let res;
+            if (type === 'flappy') {
+                res = await api.get('/flappy')
+            } if (type === 'snake') {
+                res = await api.get('/snake')
+            } if (type === 'wack') {
+                res = await api.get('/wack')
+            }
+
             setlb(res.data)
         }
 
         init()
     }, [])
     return (
-        <Window type={'flappyLeaderboard'} >
+        <Window type={`${type}Leaderboard`} >
             <div className='FlappyLeaderboard'>
                 {lb.map((lbel, index) => (
                     <div className='FlappyLeaderboard_element window' key={`lbel-${lbel._id}`}>

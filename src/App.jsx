@@ -69,7 +69,9 @@ function App() {
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
       {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
       {windowStore.getWindowStatus('flappy') === 'opened' && <Flappy />}
-      {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard />}
+      {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard type="flappy" />}
+      {windowStore.getWindowStatus('snakeLeaderboard') === 'opened' && <FlappyLeaderboard type="snake" />}
+      {windowStore.getWindowStatus('wackLeaderboard') === 'opened' && <FlappyLeaderboard type="wack" />}
       {windowStore.getWindowStatus('minesweeper') === 'opened' && <Minesweeper />}
       {windowStore.getWindowStatus('chart') === 'opened' && <Chart />}
       {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}

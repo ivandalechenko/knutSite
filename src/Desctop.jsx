@@ -137,7 +137,6 @@ export default observer((props) => {
                     </div>
                 </div>
                 <div className='Desctop_link' onClick={async () => {
-
                     if (!walletStore.wallet) {
                         await walletStore.connectWallet()
                     }
@@ -186,7 +185,12 @@ export default observer((props) => {
                         Chart
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('snake', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('snake', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
                         <img src='/img/links/snakeLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
@@ -197,7 +201,12 @@ export default observer((props) => {
                         Snake
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('wack', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('wack', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
                         <img src='/img/links/wackLink.png' className='Desctop_link_img' alt='decor' />
                     </div>

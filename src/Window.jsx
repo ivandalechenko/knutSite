@@ -80,6 +80,9 @@ export default observer(({ children, type }) => {
                     {type === 'thimbleswm' && 'Icebergs'}
                     {type === 'flappy' && 'Flappy Knut'}
                     {type === 'flappyLeaderboard' && 'Leaderboard'}
+                    {type === 'snakeLeaderboard' && 'Leaderboard'}
+                    {type === 'wackLeaderboard' && 'Leaderboard'}
+
                     {type === 'minesweeper' && 'Minesweeper'}
                     {type === 'chart' && 'Chart'}
                     {type === 'snake' && 'Snake'}
