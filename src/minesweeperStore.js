@@ -1,7 +1,7 @@
 import { makeAutoObservable, observable } from 'mobx';
 import api from './api';
 const FIELD_SIZE = 10;
-const MINES_COUNT = 1;
+const MINES_COUNT = 10;
 
 class MinesweeperStore {
     field = [];
@@ -129,16 +129,16 @@ class MinesweeperStore {
     win() {
         this.gameEnd = true;
 
-        // if (this.timer < this.minTimer) {
-        this.minTimer = this.timer
-        localStorage.setItem("minesweeperBest", this.timer)
-        const res = {
-            wallet: this.wallet,
-            minesweeper: this.timer
+        if (this.timer < this.minTimer) {
+            this.minTimer = this.timer
+            localStorage.setItem("minesweeperBest", this.timer)
+            const res = {
+                wallet: this.wallet,
+                minesweeper: this.timer
+            }
+            const jsonString = JSON.stringify(res);
+            api.post('/leaderboard', { value: btoa(jsonString) })
         }
-        const jsonString = JSON.stringify(res);
-        api.post('/leaderboard', { value: btoa(jsonString) })
-        // }
     }
     loose() {
         this.gameEnd = true;
