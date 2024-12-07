@@ -140,7 +140,7 @@ const ThimblesBid = (props) => {
         } catch (error) {
             setwaiting(false)
             console.error("Transaction failed:", error);
-            alert("Ошибка при выполнении транзакции.");
+            alert("Error on transaction creating.");
         }
 
 

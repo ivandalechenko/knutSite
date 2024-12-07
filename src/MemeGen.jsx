@@ -71,7 +71,7 @@ const MemeGen = (props) => {
                 link.click(); // Программное нажатие для скачивания
             })
             .catch(function (error) {
-                console.error('Ошибка при создании изображения', error);
+                console.error('Error on image creating', error);
             });
     };
 

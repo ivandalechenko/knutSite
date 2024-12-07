@@ -14,7 +14,7 @@ const Airdrop = (props) => {
                 setcopied(false)
             }, 5000);
         }).catch(err => {
-            console.error('Ошибка копирования: ', err);
+            console.error('Copy error: ', err);
         });
 
     }
