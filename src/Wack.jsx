@@ -3,7 +3,7 @@ import './scss/Wack.scss';
 import Window from './Window';
 
 const Wack = () => {
-    const [time, setTime] = useState(20); // Оставшееся время
+    const [time, setTime] = useState(30); // Оставшееся время
     const [score, setScore] = useState(0); // Очки
     const [holes, setHoles] = useState(Array(7).fill('empty')); // Состояние всех лунок
     const [gameOver, setGameOver] = useState(false); // Состояние окончания игры
