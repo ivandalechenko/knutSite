@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import './scss/Snake.scss';
 import Window from './Window';
 import walletStore from './walletStore';
+import api from './api';
+import windowStore from './windowStore';
 
 const SnakeGame = () => {
     const canvasRef = useRef(null);
@@ -48,15 +50,19 @@ const SnakeGame = () => {
                 updateGame();
                 draw(ctx);
             }, 150); // Скорость игры (200 мс)
+            return () => clearInterval(interval);
         } else {
-            const res = {
-                wallet: walletStore.wallet,
-                score: gameState.score
+            const best = +localStorage.getItem('snakeBest') || 0;
+            if (gameState.score > best) {
+                localStorage.setItem('snakeBest', gameState.score)
+                const res = {
+                    wallet: walletStore.wallet,
+                    snake: gameState.score
+                }
+                const jsonString = JSON.stringify(res);
+                api.post('/leaderboard', { value: btoa(jsonString) })
             }
-            const jsonString = JSON.stringify(res);
-            api.post('/snake', { value: btoa(jsonString) })
         }
-        return () => clearInterval(interval);
     }, [gameState]);
 
     // Обработчик клавиш
@@ -203,7 +209,7 @@ const SnakeGame = () => {
     return (
         <Window type={'snake'}>
             <div className="Snake">
-                <div className="Snake_score">{formatNumber(gameState.score)}</div>
+                <div className="Snake_score">{formatNumber(gameState.score)}{localStorage.getItem('snakeBest') ? <span>BEST: {localStorage.getItem('snakeBest')}</span> : ''} <span onClick={() => { windowStore.setWindowStatus('snakeLeaderboard', 'opened') }}>LEADEBOARD</span></div>
                 <div className='Snake_game'>
                     {
                         gameState.gameOver && <div className='Snake_newGame free_img' onClick={() => { newGame() }}>
