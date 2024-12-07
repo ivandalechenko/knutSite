@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import './scss/Wack.scss';
 import Window from './Window';
+import windowStore from './windowStore';
 
 const Wack = () => {
-    const [time, setTime] = useState(30); // Оставшееся время
+    const [time, setTime] = useState(5); // Оставшееся время
     const [score, setScore] = useState(0); // Очки
     const [holes, setHoles] = useState(Array(7).fill('empty')); // Состояние всех лунок
     const [gameOver, setGameOver] = useState(false); // Состояние окончания игры
@@ -14,6 +15,16 @@ const Wack = () => {
             return () => clearInterval(timer);
         } else {
             setGameOver(true); // Игра окончена
+            const best = +localStorage.getItem('wackBest') || 0;
+            if (score > best) {
+                localStorage.setItem('wackBest', score)
+                const res = {
+                    wallet: walletStore.wallet,
+                    wack: score
+                }
+                const jsonString = JSON.stringify(res);
+                api.post('/leaderboard', { value: btoa(jsonString) })
+            }
         }
     }, [time]);
 
@@ -80,7 +91,11 @@ const Wack = () => {
                 <div className="Wack_gameover">
                     <div className="Wack_score_final">Game Over</div>
                     <div className="Wack_score_final">Final Score: {score}</div>
-                    <button onClick={startNewGame} className="wackBtn">
+                    <button onClick={() => {
+                        windowStore.setWindowStatus('snakeLeaderboard', 'opened')
+                    }} className="wackBtn">
+                        Leaderboard
+                    </button>                    <button onClick={startNewGame} className="wackBtn">
                         New Game
                     </button>
                 </div>
