@@ -3,6 +3,7 @@ import './scss/Wack.scss';
 import Window from './Window';
 import windowStore from './windowStore';
 import walletStore from './walletStore';
+import api from './api';
 
 const Wack = () => {
     const [time, setTime] = useState(10); // Оставшееся время
