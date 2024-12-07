@@ -108,7 +108,7 @@ function getCurrentTime() {
 }
 
 function capitalizeFirstLetter(str) {
-    if (str === 'flappyLeaderboard' || str === 'wackLeaderboard' || str === 'snakeLeaderboard') {
+    if (str === 'flappyLeaderboard' || str === 'wackLeaderboard' || str === 'snakeLeaderboard' || str === 'tttLeaderboard' || str === 'minesweeperLeaderboard') {
         return 'Leaderboard'
     }
     if (!str) return str;  // Проверка на пустую строку

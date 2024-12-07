@@ -82,6 +82,8 @@ export default observer(({ children, type }) => {
                     {type === 'flappyLeaderboard' && 'Leaderboard'}
                     {type === 'snakeLeaderboard' && 'Leaderboard'}
                     {type === 'wackLeaderboard' && 'Leaderboard'}
+                    {type === 'tttLeaderboard' && 'Leaderboard'}
+                    {type === 'minesweeperLeaderboard' && 'Leaderboard'}
 
                     {type === 'minesweeper' && 'Minesweeper'}
                     {type === 'chart' && 'Chart'}

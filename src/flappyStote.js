@@ -81,10 +81,10 @@ class FlappyStore {
                 localStorage.setItem("flappyBest", this.score)
                 const res = {
                     wallet: this.wallet,
-                    score: this.score
+                    flappy: this.score
                 }
                 const jsonString = JSON.stringify(res);
-                api.post('/flappy', { value: btoa(jsonString) })
+                api.post('/leaderboard', { value: btoa(jsonString) })
             }
             this.play = false;
         }

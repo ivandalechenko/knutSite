@@ -4,6 +4,7 @@ import Window from './Window';
 import minesweeperStore from "./minesweeperStore";
 import { observer } from 'mobx-react-lite';
 import TTTScore from "./TTTScore";
+import windowStore from './windowStore';
 
 
 export default observer((props) => {
@@ -64,6 +65,16 @@ export default observer((props) => {
             <img src="/img/logo.png" className={`${minesweeperStore.gameEnd && 'gameEnd'}`} alt="" />
           </div>
           <TTTScore score={minesweeperStore.timer} nocolor />
+        </div>
+        <div className='Minesweeper_best'>
+          {
+            +localStorage.getItem('minesweeperBest') || 9999 < 9999 && <>Best time: {localStorage.getItem('minesweeperBest')}sec</>
+          }
+          <button onClick={() => {
+            windowStore.setWindowStatus('minesweeperLeaderboard', 'opened')
+          }}>
+            Leadeboard
+          </button>
         </div>
         {
           minesweeperStore.field.length > 0 && <div className='Minesweeper_field'>

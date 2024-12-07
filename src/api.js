@@ -2,7 +2,6 @@ import axios from 'axios';
 export const API_URL = `${import.meta.env.DEV ? 'http://localhost:5000' : "https://api.knut.wtf"}`;
 
 const api = axios.create({
-    // withCredentials: true,
     baseURL: API_URL
 })
 

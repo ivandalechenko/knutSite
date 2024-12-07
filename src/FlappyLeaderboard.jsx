@@ -9,16 +9,10 @@ const FlappyLeaderboard = ({ type }) => {
     const [lb, setlb] = useState([]);
     useEffect(() => {
         const init = async () => {
-            let res;
-            if (type === 'flappy') {
-                res = await api.get('/flappy')
-            } if (type === 'snake') {
-                res = await api.get('/snake')
-            } if (type === 'wack') {
-                res = await api.get('/wack')
-            }
+            let res = await api.get('/leaderboard', { params: { type: type } })
+            console.log(res.data);
 
-            setlb(res.data)
+            // setlb(res.data)
         }
 
         init()
