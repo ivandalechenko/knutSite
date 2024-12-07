@@ -1,0 +1,126 @@
+.Minesweeper {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    align-content: baseline;
+    flex-wrap: wrap;
+    width: 342px;
+    row-gap: 16px;
+    padding: 16px;
+
+    @media(max-width: 800px) {
+        height: calc(100vh - 120px);
+        padding: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+
+    @media(max-height: 440px) {
+        overflow-y: scroll;
+    }
+
+    &_best {
+        color: #000;
+        font-size: 18px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        button {
+            font-size: 18px !important;
+        }
+    }
+
+    &_score {
+        width: 100%;
+        max-width: 310px;
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: 800px) {
+
+            max-width: 500px;
+        }
+
+        &_logo {
+            min-width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .gameEnd {
+                rotate: 180deg;
+            }
+        }
+    }
+
+
+    &_field {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 310px;
+
+        @media(max-height: 500px) {
+            max-width: 250px;
+        }
+
+    }
+
+    &_element {
+        height: 31px;
+        width: 31px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+        font-size: 24px !important;
+        line-height: 0px;
+        padding: 0px !important;
+        padding-top: 4px !important;
+
+        @media(max-height: 500px) {
+            height: 25px;
+            width: 25px;
+        }
+
+        &:active {
+            box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #dfdfdf, inset 2px 2px grey, inset -2px -2px #fff;
+        }
+    }
+
+    .bgred {
+        background: #D01822;
+    }
+
+    .transparent {
+        color: #0413C900;
+    }
+
+    .blue {
+        color: #0413C9;
+    }
+
+    .green {
+        color: #08770A;
+    }
+
+    .red {
+        color: #D01822;
+    }
+
+    .darkblue {
+        color: #000A82;
+    }
+
+    .darkred {
+        color: #750208;
+    }
+
+    .window {
+        cursor: pointer;
+    }
+}

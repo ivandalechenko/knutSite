@@ -4,7 +4,7 @@ import windowStore from './windowStore';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
-const Window = ({ children, type }) => {
+export default observer(({ children, type }) => {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
@@ -62,7 +62,7 @@ const Window = ({ children, type }) => {
         >
             <div className="title-bar">
                 <div className="title-bar-text">
-                    <img src={`/img/links/${type}Link.${type === 'TTT' ? 'svg' : 'png'}`} alt='decor' />
+                    <img src={`/img/links/${type}Link.png`} alt='decor' />
                     {type === 'state' && '$knut State'}
                     {type === 'roadmap' && 'Roadmap'}
                     {type === 'whitepaper' && 'Whitepaper'}
@@ -77,10 +77,20 @@ const Window = ({ children, type }) => {
                     {type === 'memeGen' && 'Meme Generator'}
                     {type === 'airdrop' && 'Airdrop'}
                     {type === 'thimbles' && 'Thimbles'}
-                    {type === 'thimbleswm' && 'Thimbles'}
+                    {type === 'thimbleswm' && 'Icebergs'}
+                    {type === 'flappy' && 'Flappy Knut'}
+                    {type === 'flappyLeaderboard' && 'Leaderboard'}
+                    {type === 'snakeLeaderboard' && 'Leaderboard'}
+                    {type === 'wackLeaderboard' && 'Leaderboard'}
+                    {type === 'tttLeaderboard' && 'Leaderboard'}
+                    {type === 'minesweeperLeaderboard' && 'Leaderboard'}
 
-
-
+                    {type === 'minesweeper' && 'Minesweeper'}
+                    {type === 'chart' && 'Chart'}
+                    {type === 'snake' && 'Snake'}
+                    {type === 'changeWallpaper' && 'Change wallpaper'}
+                    {type === 'staking' && 'Staking'}
+                    {type === 'wack' && 'Wack-a-Knut'}
                 </div>
                 <div className="title-bar-controls">
                     {!['cantClose', 'player', 'shutdown'].includes(type) && (
@@ -98,6 +108,4 @@ const Window = ({ children, type }) => {
             <div onMouseDown={(e) => { updateMyZ(); e.stopPropagation() }}>{children}</div>
         </div>
     );
-};
-
-export default observer(Window);
+})

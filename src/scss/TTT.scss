@@ -57,6 +57,16 @@
             flex-wrap: wrap;
             gap: 8px;
         }
+
+        &_img {
+            height: 60px;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 48px;
+            }
+        }
     }
 
     &_field {
@@ -85,6 +95,10 @@
                 @media(max-width: 800px) {
                     width: 70px;
                     height: 70px;
+                }
+
+                img {
+                    width: 48px;
                 }
 
                 &:active {

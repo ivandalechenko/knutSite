@@ -3,6 +3,9 @@ import './scss/TTT.scss';
 import Window from './Window';
 import TTTScore from './TTTScore';
 import { useState, useEffect } from 'react';
+import api from './api';
+import walletStore from './walletStore';
+import windowStore from './windowStore';
 
 const TTT = (props) => {
     const [userScore, setUserScore] = useState(0);
@@ -32,7 +35,19 @@ const TTT = (props) => {
             if (winner) {
                 setGameOver(true);
                 if (winner === 'x') {
-                    setUserScore(userScore + 1);
+                    const best = +localStorage.getItem('tttBest') || 0
+                    setTimeout(() => {
+                        setUserScore(userScore + 1);
+                    }, 10);
+                    if (userScore + 1 > best) {
+                        localStorage.setItem('tttBest', userScore + 1)
+                        const res = {
+                            wallet: walletStore.wallet,
+                            ttt: userScore + 1
+                        }
+                        const jsonString = JSON.stringify(res);
+                        api.post('/leaderboard', { value: btoa(jsonString) })
+                    }
                 }
                 return;
             }
@@ -42,6 +57,7 @@ const TTT = (props) => {
 
     const checkWinner = (currentField) => {
         // Проверка победителя
+
         for (let i = 0; i < 3; i++) {
             // Проверка строк
             if (currentField[i][0] && currentField[i][0] === currentField[i][1] && currentField[i][0] === currentField[i][2]) {
@@ -183,16 +199,26 @@ const TTT = (props) => {
                     <div className='TTT_score window'>
                         <div className='TTT_score_el'>
                             <div className='TTT_score_img'>
-                                <img src='/img/ttt/user.svg' style={{ opacity: myTurn ? 1 : .3 }} alt='decor' />
+                                <img src='/img/ttt/user.png' style={{ opacity: myTurn ? 1 : .3 }} alt='decor' />
                             </div>
                             <TTTScore score={userScore} />
                         </div>
                         <div className='TTT_score_el'>
                             <div className='TTT_score_img'>
-                                <img src='/img/ttt/pc.svg' style={{ opacity: myTurn ? .3 : 1 }} alt='decor' />
+                                <img src='/img/ttt/pc.png' style={{ opacity: myTurn ? .3 : 1 }} alt='decor' />
                             </div>
                             <TTTScore score={pcScore} />
                         </div>
+                    </div>
+                    <div className='Minesweeper_best'>
+                        {
+                            (+localStorage.getItem('tttBest') || 9999) < 9999 ? <>Best: {localStorage.getItem('tttBest')}</> : <></>
+                        }
+                        <button onClick={() => {
+                            windowStore.setWindowStatus('tttLeaderboard', 'opened')
+                        }}>
+                            Leadeboard
+                        </button>
                     </div>
                     <div className='TTT_field window'>
                         {
@@ -205,10 +231,10 @@ const TTT = (props) => {
                                                 onClick={() => step(x, y)}
                                                 key={y}
                                                 style={{
-                                                    backgroundColor: winningCells.some(cell => cell[0] === x && cell[1] === y) ? '#FF989E' : 'transparent',
+                                                    backgroundColor: winningCells.some(cell => cell[0] === x && cell[1] === y) ? '#989eff' : 'transparent',
                                                 }}
                                             >
-                                                {field[x][y] && <img src={`/img/links/${field[x][y] === 'x' ? 'TTTLink' : 'round'}.svg`} alt='decor' />}
+                                                {field[x][y] && <img src={`/img/links/${field[x][y] === 'x' ? 'TTTLink' : 'round'}.png`} alt='decor' />}
                                             </div>
                                         ))
                                     }

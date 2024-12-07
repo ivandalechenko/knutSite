@@ -63,11 +63,18 @@
 
     &_left {
         width: 100%;
+        justify-content: space-between;
+
+        &_left {
+            display: flex;
+            column-gap: 4px;
+            width: 100%;
+        }
 
     }
 
     &_right {
-        min-width: 225px;
+        min-width: 265px;
         justify-content: right;
 
         @media(max-width: 800px) {
@@ -101,6 +108,10 @@
             @media(max-width: 800px) {
                 display: none;
             }
+        }
+
+        &_ph {
+            white-space: nowrap;
         }
 
         img {

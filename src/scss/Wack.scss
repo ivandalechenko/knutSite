@@ -1,0 +1,72 @@
+.Wack {
+    font-size: 10px;
+    background: #fff !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 300px;
+
+    @media(max-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 121px);
+    }
+
+    &_element {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+
+        img {
+            width: 80px;
+        }
+    }
+
+    &_score {
+        display: flex;
+        padding: 12px;
+        justify-content: space-between;
+
+        div {
+            color: #000;
+        }
+    }
+
+}
+
+.wackBtn {
+    font-size: 24px !important;
+}
+
+.Wack_gameover {
+    text-align: center;
+    padding: 24px;
+    width: 400px;
+    height: 300px;
+
+    @media(max-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 121px);
+    }
+}
+
+.Wack_score_final {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.Wack_new_game {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

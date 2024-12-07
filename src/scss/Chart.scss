@@ -1,0 +1,19 @@
+.Chart {
+    font-size: 10px;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 200px);
+
+    @media(max-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 120px);
+    }
+
+    iframe {
+        width: 100%;
+        height: calc(100vh - 200px);
+
+        @media(max-width: 800px) {
+            height: calc(100vh - 120px);
+        }
+    }
+}

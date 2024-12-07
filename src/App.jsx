@@ -14,7 +14,14 @@ import Paint from './Paint'
 import MemeGen from './MemeGen'
 import Airdrop from './Airdrop'
 import Thimbles from './Thimbles.jsx'
-import ThimblesWithMoney from './ThimblesWithMoney.jsx'
+import FlappyLeaderboard from './FlappyLeaderboard.jsx'
+import Flappy from './Flappy.jsx'
+import Minesweeper from './Minesweeper.jsx'
+import Chart from './Chart.jsx'
+import Snake from './Snake.jsx'
+import ChangeWallpaper from './ChangeWallpaper.jsx'
+
+
 
 
 
@@ -25,21 +32,27 @@ import audioStore from './audioStore'
 import bearStore from './bearStore'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Staking from './Staking.jsx'
+import Wack from './Wack.jsx'
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
+  if (localStorage.getItem('thimblesStatus') === undefined || localStorage.getItem('thimblesStatus') === 'undefined') {
+    localStorage.removeItem('thimblesStatus')
+  }
   useEffect(() => {
     if (firstClicked) {
       audioStore.play = true;
     }
   }, [firstClicked])
   return (
-    <div className='App' onClick={() => {
+    < div className='App' onClick={() => {
       setfirstClicked(true)
       if (windowStore.getWindowStatus('state') === 'opened') {
         bearStore.incBear()
       }
-    }}>
+    }
+    }>
       <Desctop />
       {windowStore.getWindowStatus('whitepaper') === 'opened' && <Whitepaper />}
       {windowStore.getWindowStatus('roadmap') === 'opened' && <Roadmap />}
@@ -55,10 +68,22 @@ function App() {
       {windowStore.getWindowStatus('memeGen') === 'opened' && <MemeGen />}
       {windowStore.getWindowStatus('airdrop') === 'opened' && <Airdrop />}
       {windowStore.getWindowStatus('thimbles') === 'opened' && <Thimbles />}
-      {windowStore.getWindowStatus('thimbleswm') === 'opened' && <ThimblesWithMoney />}
+      {windowStore.getWindowStatus('flappy') === 'opened' && <Flappy />}
+      {windowStore.getWindowStatus('flappyLeaderboard') === 'opened' && <FlappyLeaderboard type="flappy" />}
+      {windowStore.getWindowStatus('snakeLeaderboard') === 'opened' && <FlappyLeaderboard type="snake" />}
+      {windowStore.getWindowStatus('wackLeaderboard') === 'opened' && <FlappyLeaderboard type="wack" />}
+      {windowStore.getWindowStatus('tttLeaderboard') === 'opened' && <FlappyLeaderboard type="ttt" />}
+      {windowStore.getWindowStatus('minesweeperLeaderboard') === 'opened' && <FlappyLeaderboard type="minesweeper" />}
+      {windowStore.getWindowStatus('minesweeper') === 'opened' && <Minesweeper />}
+      {windowStore.getWindowStatus('chart') === 'opened' && <Chart />}
+      {windowStore.getWindowStatus('snake') === 'opened' && <Snake />}
+      {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
+      {windowStore.getWindowStatus('staking') === 'opened' && <Staking />}
+      {windowStore.getWindowStatus('wack') === 'opened' && <Wack />}
+
 
       <TaskPanel />
-    </div>
+    </div >
   )
 }
 

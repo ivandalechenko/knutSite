@@ -1,109 +1,70 @@
-import React from 'react';
-import './scss/Milestones.scss';
-import Window from './Window'
+import React, { useEffect, useRef, useState } from 'react';
+import './scss/Tokenomics.scss';
+import Window from './Window';
+import { gsap, TextPlugin } from 'gsap/all';
 
-const Milestones = (props) => {
+gsap.registerPlugin(TextPlugin);
+
+const Tokenomics = (props) => {
+    const textRef = useRef(null); // Ссылка на элемент с текстом
+    const [textIndex, setTextIndex] = useState(0); // Индекс текущего текста
+
+    const textArray = [
+        "Phase 1 ✅",
+        "Phase 2 ✅",
+        "Phase 3 ✅ [JUSTICE]",
+        "Loading...",
+        "Rip Knut xx",
+    ]; // Массив строк
+
+    useEffect(() => {
+        const animateText = () => {
+            const currentText = textArray[textIndex];
+
+            // Анимация печати текста
+            gsap.to(textRef.current, {
+                text: currentText, // Печатаемый текст
+                duration: currentText.length * 0.1, // Скорость печати (0.1 сек на символ)
+                ease: 'none', // Без ускорения
+                onComplete: () => {
+                    // Задержка перед стиранием текста
+                    setTimeout(() => {
+                        // Анимация стирания текста
+                        gsap.to(textRef.current, {
+                            text: '', // Стираем текст
+                            duration: currentText.length * 0.05, // Скорость стирания
+                            ease: 'none', // Без ускорения
+                            onComplete: () => {
+                                // Переход к следующему тексту
+                                setTextIndex((prev) => (prev + 1) % textArray.length);
+                            },
+                        });
+                    }, 1000); // Задержка перед стиранием 1 секунда
+                },
+            });
+        };
+
+        animateText();
+    }, [textIndex, textArray]);
+
     return (
-        <Window type='milestones'>
-            <div className='Milestones'>
-                <div className='Milestones_row'>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/window.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            $100.000
-                            MCAP
-                            Noel DOXXED
-                            Tanjim BURNED
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/window.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            $250.000 MCAP
-                            Artist Reveal #1
-                            First official team member reveal
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/window.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            $500.000
-                            MCAP CAME
-                            TOO HARD ..
-                            uhh... fast
-                        </div>
-                    </div>
+        <Window type={'milestones'}>
+            <div className='Tokenomics'>
+                <div className='Tokenomics_header'>
+                    <img src='/img/links/milestonesLink.png' alt='decor' />
+                    Milestones
                 </div>
-                <div className='Milestones_row'>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/planet.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            Backer #1 $750.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/planet.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            Backer #2 $1.000.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/planet.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            Backer #3 $1.500.000
-                        </div>
-                    </div>
-
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/planet.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            Backer #4 $2.500.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/milestones/planet.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            Backer #5 $5.000.000
-                        </div>
-                    </div>
-
-
-                </div>
-                <div className='Milestones_row'>
-                    <div className='Milestones_el'>
-                        <img src='/img/logo.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            KOL #1 $1.000.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/logo.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            KOL #2 $2.000.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/logo.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            KOL #3 $3.000.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/logo.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            KOL #4 $4.000.000
-                        </div>
-                    </div>
-                    <div className='Milestones_el'>
-                        <img src='/img/logo.png' alt='decor' />
-                        <div className='Milestones_el_text'>
-                            KOL #5 $5.000.000
+                <div className='Tokenomics_block'>
+                    <div className='Tokenomics_el'>
+                        <div className='Tokenomics_el_name decentralised'>
+                            <span ref={textRef}></span>
+                            <span className="blinking-cursor">|</span>
                         </div>
                     </div>
                 </div>
             </div>
         </Window>
-    )
-}
+    );
+};
 
-export default Milestones
+export default Tokenomics;

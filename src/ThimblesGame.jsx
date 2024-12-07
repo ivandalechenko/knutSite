@@ -97,8 +97,14 @@ const ThimblesGame = (props) => {
             if (win) {
                 setshowBalls(true)
                 gameStore.thimblesLastResult = 'win';
+                setTimeout(() => {
+                    gameStore.thimblesLastResult = false;
+                }, 5000);
             } else {
                 gameStore.thimblesLastResult = 'loose';
+                setTimeout(() => {
+                    gameStore.thimblesLastResult = false;
+                }, 5000);
                 setTimeout(() => {
                     setopenedThimble(-1)
                     setTimeout(() => {

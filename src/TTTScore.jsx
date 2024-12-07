@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 
-const TTTScore = ({ score }) => {
+const TTTScore = ({ score = 0, nocolor = false }) => {
     const [updated, setupdated] = useState(false);
     let updateTO
     useEffect(() => {
@@ -18,7 +18,7 @@ const TTTScore = ({ score }) => {
         <div className='TTTScore_wrapper'>
             <div className='TTTScore window'>
                 {numberToArray(score).map((el) => {
-                    return <img src={`/img/ttt/${updated ? 'green' : 'red'}/${el}.svg`} alt='decor' />
+                    return <img src={`/img/ttt/${updated ? nocolor ? 'red' : 'green' : 'red'}/${el}.svg`} alt='decor' />
                 })}
             </div>
         </div>
