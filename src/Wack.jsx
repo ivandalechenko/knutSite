@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import './scss/Wack.scss';
 import Window from './Window';
 import windowStore from './windowStore';
+import walletStore from './walletStore';
 
 const Wack = () => {
-    const [time, setTime] = useState(5); // Оставшееся время
+    const [time, setTime] = useState(10); // Оставшееся время
     const [score, setScore] = useState(0); // Очки
     const [holes, setHoles] = useState(Array(7).fill('empty')); // Состояние всех лунок
     const [gameOver, setGameOver] = useState(false); // Состояние окончания игры
@@ -79,7 +80,7 @@ const Wack = () => {
     };
 
     const startNewGame = () => {
-        setTime(20); // Сбрасываем время
+        setTime(10); // Сбрасываем время
         setScore(0); // Сбрасываем очки
         setHoles(Array(7).fill('empty')); // Сбрасываем лунки
         setGameOver(false); // Перезапускаем игру
