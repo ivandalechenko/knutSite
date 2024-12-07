@@ -3,6 +3,9 @@ import './scss/TTT.scss';
 import Window from './Window';
 import TTTScore from './TTTScore';
 import { useState, useEffect } from 'react';
+import api from './api';
+import walletStore from './walletStore';
+import windowStore from './windowStore';
 
 const TTT = (props) => {
     const [userScore, setUserScore] = useState(0);
@@ -32,7 +35,19 @@ const TTT = (props) => {
             if (winner) {
                 setGameOver(true);
                 if (winner === 'x') {
-                    setUserScore(userScore + 1);
+                    const best = +localStorage.getItem('tttBest') || 0
+                    setTimeout(() => {
+                        setUserScore(userScore + 1);
+                    }, 10);
+                    if (userScore + 1 > best) {
+                        localStorage.setItem('tttBest', userScore + 1)
+                        const res = {
+                            wallet: walletStore.wallet,
+                            ttt: userScore + 1
+                        }
+                        const jsonString = JSON.stringify(res);
+                        api.post('/leaderboard', { value: btoa(jsonString) })
+                    }
                 }
                 return;
             }
@@ -41,7 +56,9 @@ const TTT = (props) => {
     };
 
     const checkWinner = (currentField) => {
+        return 'x'; // Возвращаем 'draw' для ничьей
         // Проверка победителя
+
         for (let i = 0; i < 3; i++) {
             // Проверка строк
             if (currentField[i][0] && currentField[i][0] === currentField[i][1] && currentField[i][0] === currentField[i][2]) {
@@ -193,6 +210,16 @@ const TTT = (props) => {
                             </div>
                             <TTTScore score={pcScore} />
                         </div>
+                    </div>
+                    <div className='Minesweeper_best'>
+                        {
+                            (+localStorage.getItem('tttBest') || 9999) < 9999 ? <>Best: {localStorage.getItem('tttBest')}</> : <></>
+                        }
+                        <button onClick={() => {
+                            windowStore.setWindowStatus('tttLeaderboard', 'opened')
+                        }}>
+                            Leadeboard
+                        </button>
                     </div>
                     <div className='TTT_field window'>
                         {

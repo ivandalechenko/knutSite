@@ -68,7 +68,7 @@ export default observer((props) => {
         </div>
         <div className='Minesweeper_best'>
           {
-            +localStorage.getItem('minesweeperBest') || 9999 < 9999 && <>Best time: {localStorage.getItem('minesweeperBest')}sec</>
+            (+localStorage.getItem('minesweeperBest') || 9999) < 9999 ? <>Best time: {localStorage.getItem('minesweeperBest')}sec</> : <></>
           }
           <button onClick={() => {
             windowStore.setWindowStatus('minesweeperLeaderboard', 'opened')

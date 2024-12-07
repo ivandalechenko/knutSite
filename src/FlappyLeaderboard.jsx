@@ -31,7 +31,7 @@ const FlappyLeaderboard = ({ type }) => {
                                     <img src='/img/flappy/coin.png' alt='decor' />
                                 </div>
                                 <div className='FlappyLeaderboard_element_info'>
-                                    <div className='FlappyLeaderboard_element_info_value'>{lbel.wallet === walletStore.wallet && '(You)'}{lbel.wallet.slice(0, 4)}...{lbel.wallet.slice(-4)}</div>
+                                    <div className='FlappyLeaderboard_element_info_value'>{lbel.wallet === walletStore.wallet && '(You) '} {lbel.wallet.slice(0, 4)}...{lbel.wallet.slice(-4)}</div>
                                 </div>
                             </div>
                             <div className='FlappyLeaderboard_element_right'>

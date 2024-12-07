@@ -85,7 +85,12 @@ export default observer((props) => {
                         Memes
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('TTT', 'opened') }}>
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('TTT', 'opened')
+                }}>
                     <div className='Desctop_link_img_wrapper'>
                         <img src='/img/links/TTTLink.png' className='Desctop_link_img' alt='decor' />
                     </div>
