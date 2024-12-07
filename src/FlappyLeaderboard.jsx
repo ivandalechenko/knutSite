@@ -11,8 +11,9 @@ const FlappyLeaderboard = ({ type }) => {
         const init = async () => {
             let res = await api.get('/leaderboard', { params: { type: type } })
             console.log(res.data);
-
-            // setlb(res.data)
+            if (res.data) {
+                setlb(res.data)
+            }
         }
 
         init()
