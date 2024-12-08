@@ -27,52 +27,86 @@ export default observer((props) => {
     useEffect(() => {
         if (flappyStore.play) {
             let app;
+            let lastTime = performance.now();
+            let animationFrameId;
+            const TARGET_FPS = 60;
+            const FRAME_INTERVAL = 1000 / TARGET_FPS; // 16.67 мс для 60 FPS
+
             app = new Application();
 
             const initGame = async () => {
-
                 const textures = await loadTextures();
                 const w = document.body.clientWidth > 800 ? 400 : document.body.clientWidth - 6;
                 const h = document.body.clientWidth > 800 ? 500 : document.body.clientHeight - 122;
+
                 await app.init({
                     antialias: false,
                     forceFXAA: false,
                     roundPixels: false,
                     background: '#E9EBFF', width: w, height: h
                 });
+
                 if (!pixiScene.current) return;
                 pixiScene.current.appendChild(app.canvas);
                 app.canvas.style.imageRendering = 'pixelated';
 
-                app.ticker.add((delta) => {
-                    flappyStore.tik(w, h)
-                    flappyBgMove(app, flappyStore.position / 2)
-                    flappyBearMove(app, textures, flappyStore.bearPosition, delta.lastTime)
-                    flappyCloudsMove(app, flappyStore.position, w)
-                    flappyWalls(app, textures, flappyStore.walls, flappyStore.position, flappyStore.betweenWalls, w, h)
-                })
+                // Инициализация объектов
+                flappyBgInit(app, textures, h);
+                flappyCloudsInit(app, textures, w, h);
+                flappyBearInit(app, textures, w, flappyStore.bearPosition);
 
-
-                flappyBgInit(app, textures, h)
-                flappyCloudsInit(app, textures, w, h)
-                flappyBearInit(app, textures, w, flappyStore.bearPosition)
                 const scene = new Container();
                 scene.label = 'scene';
                 app.stage.addChild(scene);
-            }
+
+                // Основной игровой цикл
+                const gameLoop = (currentTime) => {
+                    if (!flappyStore.play) {
+                        cancelAnimationFrame(animationFrameId); // Останавливаем игру
+                        return;
+                    }
+
+                    const deltaTime = currentTime - lastTime;
+
+                    if (deltaTime >= FRAME_INTERVAL) {
+                        lastTime = currentTime - (deltaTime % FRAME_INTERVAL);
+
+                        // Обновляем игру
+                        flappyStore.tik(w, h);
+                        flappyBgMove(app, flappyStore.position / 2);
+                        flappyBearMove(app, textures, flappyStore.bearPosition, deltaTime);
+                        flappyCloudsMove(app, flappyStore.position, w);
+                        flappyWalls(
+                            app,
+                            textures,
+                            flappyStore.walls,
+                            flappyStore.position,
+                            flappyStore.betweenWalls,
+                            w, h
+                        );
+                    }
+
+                    animationFrameId = requestAnimationFrame(gameLoop);
+                };
+
+                // Запуск игры
+                animationFrameId = requestAnimationFrame(gameLoop);
+            };
 
             initGame();
 
+            // Очистка при размонтировании
             return () => {
+                cancelAnimationFrame(animationFrameId);
                 if (app) {
                     app.destroy(true, { children: true, texture: true, baseTexture: true });
                 }
                 if (pixiScene.current) {
                     pixiScene.current.innerHTML = '';
                 }
-            }
+            };
         }
-    }, [flappyStore.play])
+    }, [flappyStore.play]);
 
     return (
         <Window type='flappy'>
