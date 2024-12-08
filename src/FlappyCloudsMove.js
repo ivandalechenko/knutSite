@@ -6,7 +6,7 @@ export default async (app, position, w) => {
 
     cloud1.x = w - (position / 5 % w);
 
-    cloud2.x = (position / 3) % w;
+    cloud2.x = (position / 7) % w;
     cloud3.x = w - (position / 9 % w);
 
 }
