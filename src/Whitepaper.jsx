@@ -17,7 +17,7 @@ const Whitepaper = (props) => {
                                 setopened('')
                             }} />
                         </div>
-                        <img src={`/img/whitepapers/${opened}.png`} className='Whitepaper_content' alt="" />
+                        <img src={`/img/whitepapers/${opened}.webp`} className='Whitepaper_content' alt="" />
 
                     </> : <div className='Whitepaper_list'>
 

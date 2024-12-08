@@ -80,8 +80,6 @@ function App() {
       {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
       {windowStore.getWindowStatus('staking') === 'opened' && <Staking />}
       {windowStore.getWindowStatus('wack') === 'opened' && <Wack />}
-
-
       <TaskPanel />
     </div >
   )
