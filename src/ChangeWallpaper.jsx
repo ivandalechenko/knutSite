@@ -23,7 +23,7 @@ export default () => {
                         Array.from({ length: 29 }, (_, index) => {
                             return <div className={`ChangeWallpaper_element ${Number(wallpaper) === index + 1 ? 'window_inner' : 'window'}`} onClick={() => { setwallpaper(index + 1) }}>
                                 <div className='ChangeWallpaper_element_inner window_inner'>
-                                    <img src={`/img/wallpapers/${index + 1}-min.png`} alt="" />
+                                    <img src={`/img/wallpapers/${index + 1}-min.webp`} alt="" />
                                 </div>
                                 {index + 1}
                             </div>
