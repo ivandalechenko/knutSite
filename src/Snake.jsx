@@ -21,8 +21,6 @@ const SnakeGame = () => {
     });
 
     const newGame = () => {
-        console.log('meow');
-
         const { gameOver } = gameState;
         if (gameOver) {
             setGameState({
@@ -147,12 +145,10 @@ const SnakeGame = () => {
             // Проверка на "поедание" еды
             let newFood = prev.food;
             let newScore = prev.score;
+            console.log(prev.snake);
             if (head.x === prev.food.x && head.y === prev.food.y) {
-                // Генерация новой еды
-                newFood = {
-                    x: Math.floor(Math.random() * gridCount),
-                    y: Math.floor(Math.random() * gridCount),
-                };
+
+                newFood = generateFood(gridCount, prev.snake)
                 newScore += 1; // Увеличение счёта
             } else {
                 // Удаление хвоста (если не съели еду)
@@ -168,13 +164,25 @@ const SnakeGame = () => {
         });
     };
 
+
+    function generateFood(gridCount, snake) {
+        let newFood;
+
+        do {
+            newFood = {
+                x: Math.floor(Math.random() * gridCount),
+                y: Math.floor(Math.random() * gridCount),
+            };
+        } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+
+        return newFood;
+    }
     const draw = (ctx) => {
         const { snake, food, gridSize } = gameState;
 
         // Очистка canvas
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-        console.log('SNAKE');
         // Отрисовка змейки
         snake.forEach((segment, index) => {
             const alpha = ((100 / snake.length) * (snake.length - index)) / 100; // Прозрачность уменьшается ближе к хвосту
