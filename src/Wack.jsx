@@ -4,12 +4,14 @@ import Window from './Window';
 import windowStore from './windowStore';
 import walletStore from './walletStore';
 import api from './api';
+const GAME_DURATION = 30
 
 const Wack = () => {
-    const [time, setTime] = useState(10); // Оставшееся время
+    const [time, setTime] = useState(30); // Оставшееся время
     const [score, setScore] = useState(0); // Очки
-    const [holes, setHoles] = useState(Array(7).fill('empty')); // Состояние всех лунок
+    const [holes, setHoles] = useState(Array(12).fill('empty')); // Состояние всех лунок
     const [gameOver, setGameOver] = useState(false); // Состояние окончания игры
+    const [lives, setlives] = useState(3);
 
     useEffect(() => {
         if (time > 0) {
@@ -33,10 +35,18 @@ const Wack = () => {
     useEffect(() => {
         if (time > 0) {
             const knutInterval = setInterval(() => {
-                const randomHole = Math.floor(Math.random() * holes.length);
-                const randomDuration = Math.random() * 1000 + 500; // От 500 мс до 1500 мс
-                showKnut(randomHole, randomDuration);
-            }, 500); // Появление каждые 500 мс
+                const willSpawn = getRandomInt(0, 5)
+                if (willSpawn === 0) {
+                    const knutCount = getRandomInt(1, 3)
+                    for (let i = 0; i < knutCount; i++) {
+                        const randomHole = Math.floor(Math.random() * holes.length);
+                        if (holes[randomHole] === 'empty') {
+                            const randomDuration = Math.random() * 2000 + 500; // От 1000 мс до 2000 мс
+                            showKnut(randomHole, randomDuration);
+                        }
+                    }
+                }
+            }, 100); // Появление каждые 500 мс
             return () => clearInterval(knutInterval);
         }
     }, [time, holes]);
@@ -53,7 +63,7 @@ const Wack = () => {
                 const updated = [...prev];
                 if (updated[index] === 'knut') {
                     updated[index] = 'empty'; // Возвращаем пустую лунку
-                    setScore((prevScore) => Math.max(0, prevScore - 1)); // Отнимаем 1 очко, если не был удар
+                    // setScore((prevScore) => Math.max(0, prevScore - 1)); // Отнимаем 1 очко, если не был удар
                 }
                 return updated;
             });
@@ -74,18 +84,31 @@ const Wack = () => {
                     });
                 }, 1000); // Через 1 секунду возвращаем лунку в пустое состояние
             } else if (updated[index] === 'empty') {
-                setScore((prevScore) => Math.max(0, prevScore - 2)); // Отнимаем 2 очка, минимум 0
+                if (lives > 1) {
+                    setlives(lives - 1)
+                } else {
+                    setGameOver(true);
+                }
+                // setScore((prevScore) => Math.max(0, prevScore - 2)); // Отнимаем 2 очка, минимум 0
             }
             return updated;
         });
     };
 
     const startNewGame = () => {
-        setTime(10); // Сбрасываем время
+        setTime(30); // Сбрасываем время
         setScore(0); // Сбрасываем очки
-        setHoles(Array(7).fill('empty')); // Сбрасываем лунки
+        setHoles(Array(12).fill('empty')); // Сбрасываем лунки
         setGameOver(false); // Перезапускаем игру
+        setlives(3)
     };
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 
     return (
         <Window type="wack">
@@ -105,6 +128,15 @@ const Wack = () => {
                 <>
                     <div className="Wack_score">
                         <div className="Wack_score_time">{time} sec left</div>
+                        <div className="Wack_score_lives">
+                            {Array.from({ length: 3 }, (_, index) => {
+                                if (index < lives) {
+                                    return <img src="/img/heart.png" alt="" />
+                                } else {
+                                    return <img src="/img/heartBroken.png" alt="" />
+                                }
+                            })}
+                        </div>
                         <div className="Wack_score_score">Score: {score}</div>
                     </div>
                     <div className="Wack window_inner">

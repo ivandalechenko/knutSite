@@ -23,6 +23,9 @@
 
         img {
             width: 80px;
+            pointer-events: none;
+            // user-drag: none;
+            -webkit-user-drag: none;
         }
     }
 
@@ -30,9 +33,21 @@
         display: flex;
         padding: 12px;
         justify-content: space-between;
+        align-items: center;
 
         div {
             color: #000;
+        }
+
+        &_lives {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 8px;
+
+            img {
+                width: 24px;
+            }
         }
     }
 
