@@ -12,6 +12,15 @@ const Wack = () => {
     const [holes, setHoles] = useState(Array(12).fill('empty')); // Состояние всех лунок
     const [gameOver, setGameOver] = useState(false); // Состояние окончания игры
     const [lives, setlives] = useState(3);
+    const [damage, setdamage] = useState(false);
+    useEffect(() => {
+        if (lives !== 3) {
+            setdamage(true)
+            setTimeout(() => {
+                setdamage(false)
+            }, 100);
+        }
+    }, [lives])
 
     useEffect(() => {
         if (time > 0) {
@@ -140,6 +149,11 @@ const Wack = () => {
                         <div className="Wack_score_score">Score: {score}</div>
                     </div>
                     <div className="Wack window_inner">
+                        <div className="free_img Wack_damage">
+                            <div className='Wack_damage_inner' style={{
+                                opacity: damage ? 0.2 : 0
+                            }}></div>
+                        </div>
                         {holes.map((state, index) => (
                             <div
                                 key={index}

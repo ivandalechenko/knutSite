@@ -8,6 +8,20 @@
     flex-wrap: wrap;
     width: 400px;
     height: 300px;
+    overflow: hidden;
+
+    &_damage {
+        width: 100% !important;
+        z-index: 999;
+
+        &_inner {
+            min-width: 100vw;
+            min-height: 100vh;
+            pointer-events: none;
+            background: red;
+            transition: opacity 200ms;
+        }
+    }
 
     @media(max-width: 800px) {
         width: 100%;
