@@ -15,11 +15,16 @@ export default () => {
     let banTO;
 
     useEffect(() => {
-        connect()
+        connect();
 
         return () => {
-            socketRef.current.close();
-            clearTimeout(muteTO)
+            if (socketRef.current) {
+                socketRef.current.onclose = null; // Отменяем реконнект
+                socketRef.current.close();
+            }
+            clearInterval(reconnectInterval.current);
+            clearTimeout(muteTO);
+            clearTimeout(banTO);
         };
     }, []);
 
@@ -80,11 +85,10 @@ export default () => {
                 }
             }
         };
-
-        // socketRef.current.onclose = () => {
-        //     console.log('Соединение закрыто. Попытка реконнекта...');
-        //     attemptReconnect();
-        // };
+        socketRef.current.onclose = () => {
+            console.log('Соединение закрыто. Попытка реконнекта...');
+            attemptReconnect(); // Попытка реконнекта
+        };
     }
 
     const attemptReconnect = () => {
@@ -92,6 +96,8 @@ export default () => {
             reconnectInterval.current = setInterval(() => {
                 if (!socketRef.current || socketRef.current.readyState === WebSocket.CLOSED) {
                     connect();
+                    console.log('Норм попытка');
+
                 }
             }, 5000); // Попытка реконнекта каждые 5 секунд
         }
