@@ -20,8 +20,8 @@ import Minesweeper from './Minesweeper.jsx'
 import Chart from './Chart.jsx'
 import Snake from './Snake.jsx'
 import ChangeWallpaper from './ChangeWallpaper.jsx'
-
-
+import Bugreport from "./Bugreport.jsx";
+import Chat from "./Chat.jsx";
 
 
 
@@ -34,6 +34,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Staking from './Staking.jsx'
 import Wack from './Wack.jsx'
+import metricStore from './metricStore.js'
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
@@ -45,6 +46,20 @@ function App() {
       audioStore.play = true;
     }
   }, [firstClicked])
+
+  useEffect(() => {
+    const handleUnload = () => {
+      metricStore.sendMetrics()
+    };
+
+    window.addEventListener('unload', handleUnload);
+
+    return () => {
+      window.removeEventListener('unload', handleUnload);
+    };
+  }, []);
+
+
   return (
     <div className='App' onClick={() => {
       setfirstClicked(true)
@@ -80,6 +95,8 @@ function App() {
       {windowStore.getWindowStatus('changeWallpaper') === 'opened' && <ChangeWallpaper />}
       {windowStore.getWindowStatus('staking') === 'opened' && <Staking />}
       {windowStore.getWindowStatus('wack') === 'opened' && <Wack />}
+      {windowStore.getWindowStatus('bugreport') === 'opened' && <Bugreport />}
+      {windowStore.getWindowStatus('chat') === 'opened' && <Chat />}
       <TaskPanel />
     </div >
   )

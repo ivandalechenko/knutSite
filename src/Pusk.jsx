@@ -1,6 +1,7 @@
 import React from 'react';
 import './scss/Pusk.scss';
 import windowStore from './windowStore'
+import walletStore from './walletStore';
 
 
 const Pusk = ({ onClick }) => {
@@ -30,6 +31,15 @@ const Pusk = ({ onClick }) => {
                                 <img src='/img/links/changeWallpaperLink.png' alt='decor' />
                             </div>
                             Change wallpaper
+                        </a>
+                        <a className='Pusk_link' onClick={() => {
+                            walletStore.connectWallet()
+                            windowStore.setWindowStatus('chat', 'opened')
+                        }}>
+                            <div className='Pusk_link_img'>
+                                <img src='/img/links/chatLink.png' alt='decor' />
+                            </div>
+                            Chat
                         </a>
                         <div className='Pusk_link Pusk_link_header'>
                             <div className='Pusk_link_del'>

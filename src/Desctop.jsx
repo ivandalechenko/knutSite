@@ -226,6 +226,21 @@ export default observer((props) => {
                         Wack-a-Knut
                     </div>
                 </div>
+
+
+                {/* <div className='Desctop_link' onClick={async () => {
+                    windowStore.setWindowStatus('bugreport', 'opened')
+                }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/bugreportLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Bug Report
+                    </div>
+                </div> */}
             </div>
         </div>
     )

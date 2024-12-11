@@ -85,12 +85,14 @@ export default observer(({ children, type }) => {
                     {type === 'tttLeaderboard' && 'Leaderboard'}
                     {type === 'minesweeperLeaderboard' && 'Leaderboard'}
 
+                    {type === 'bugreport' && 'Bugreport'}
                     {type === 'minesweeper' && 'Minesweeper'}
                     {type === 'chart' && 'Chart'}
                     {type === 'snake' && 'Snake'}
                     {type === 'changeWallpaper' && 'Change wallpaper'}
                     {type === 'staking' && 'Staking'}
                     {type === 'wack' && 'Wack-a-Knut'}
+                    {type === 'chat' && 'Chat'}
                 </div>
                 <div className="title-bar-controls">
                     {!['cantClose', 'player', 'shutdown'].includes(type) && (

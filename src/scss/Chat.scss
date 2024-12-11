@@ -1,0 +1,104 @@
+.Chat {
+    font-size: 10px;
+    width: 500px;
+    height: 400px;
+
+    @media(max-width: 800px) {
+        width: 100%;
+        height: calc(100vh - 121px);
+    }
+
+    &_inputBlock {
+        display: flex;
+        width: 100%;
+        padding: 2px 1px;
+        column-gap: 5px;
+        align-items: center;
+
+        input {
+            width: 100%;
+        }
+
+        .muteBtn {
+            border: none;
+            border-radius: 0;
+            box-sizing: border-box;
+            color: transparent;
+            min-height: 23px;
+            min-width: 25px;
+            padding: 0 12px;
+            text-shadow: 0 0 #222;
+            background: #B8C0C1;
+            box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+    }
+
+    &_messages {
+        padding: 12px !important;
+        background: #fff !important;
+        height: 374px;
+        overflow-y: scroll;
+        display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        flex-wrap: wrap;
+        // align-items: end;
+        // align-content: end;
+
+        // width: 100%;
+        // align-self: start;
+        // align-items: end;
+        // align-content: end;
+        // row-gap: 24px;
+        @media(max-width: 800px) {
+            height: calc(100vh - 146px);
+        }
+    }
+
+    &_message {
+        width: 100%;
+        padding: 12px 8px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #0004;
+        }
+
+        &_info {
+            width: 100%;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        &_author {
+            color: #000;
+            font-size: 16px;
+
+            span {
+                color: red;
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &_time {
+            color: #000;
+            font-size: 16px;
+        }
+
+        &_text {
+            color: #000;
+            font-size: 18px;
+            font-weight: 900;
+            margin-top: 8px;
+        }
+    }
+}
