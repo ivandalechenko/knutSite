@@ -32,7 +32,7 @@ const Pusk = ({ onClick }) => {
                             </div>
                             Change wallpaper
                         </a>
-                        <a className='Pusk_link' onClick={() => {
+                        {/* <a className='Pusk_link' onClick={() => {
                             walletStore.connectWallet()
                             windowStore.setWindowStatus('chat', 'opened')
                         }}>
@@ -40,7 +40,7 @@ const Pusk = ({ onClick }) => {
                                 <img src='/img/links/chatLink.png' alt='decor' />
                             </div>
                             Chat
-                        </a>
+                        </a> */}
                         <div className='Pusk_link Pusk_link_header'>
                             <div className='Pusk_link_del'>
                             </div>
