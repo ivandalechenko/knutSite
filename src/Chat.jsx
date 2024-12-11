@@ -175,22 +175,27 @@ export default () => {
                         messages.map((message, index) => {
                             const wallet = message.wallet ? `${message.wallet.slice(0, 4)}...${message.wallet.slice(-4)}` : 'Guest';
 
-                            return <div className="Chat_message" key={`message-from_${message.wallet}-at_${message.time}`}>
+                            return <div className="Chat_message" key={`message-from_${message.wallet}-at_${message.time}_with_id_${message._id}`}>
                                 <div className="Chat_message_info">
                                     <div className='Chat_message_author'>
-                                        {wallet} {isAdmin && <> - <span onClick={() => {
+                                        {message.wallet === walletStore.wallet ? 'You' : wallet} {isAdmin && <> - <span onClick={() => {
                                             deleteMessage(message._id)
-                                        }}>Delete</span>  - <span onClick={() => {
-                                            banUser(message.wallet, 60 * 5)
-                                        }}>B5M</span> - <span onClick={() => {
-                                            banUser(message.wallet, 60 * 60)
-                                        }}>B1H</span> - <span onClick={() => {
-                                            banUser(message.wallet, 60 * 60 * 6)
-                                        }}>B6H</span> - <span onClick={() => {
-                                            banUser(message.wallet, 60 * 60 * 24)
-                                        }}>B24H</span>- <span onClick={() => {
-                                            banUser(message.wallet, 60 * 60 * 99999)
-                                        }}>BINF</span></>}
+                                        }}>Delete</span>  {
+                                                walletStore.wallet !== message.wallet && <>
+                                                    - <span onClick={() => {
+                                                        banUser(message.wallet, 60 * 5)
+                                                    }}>B5M</span> - <span onClick={() => {
+                                                        banUser(message.wallet, 60 * 60)
+                                                    }}>B1H</span> - <span onClick={() => {
+                                                        banUser(message.wallet, 60 * 60 * 6)
+                                                    }}>B6H</span> - <span onClick={() => {
+                                                        banUser(message.wallet, 60 * 60 * 24)
+                                                    }}>B24H</span>- <span onClick={() => {
+                                                        banUser(message.wallet, 60 * 60 * 99999)
+                                                    }}>BINF</span></>
+                                            }
+                                        </>
+                                        }
                                     </div>
                                     <div className='Chat_message_time'>
                                         {formatTime(message.time)}
