@@ -172,7 +172,7 @@ export default () => {
                             return <div className="Chat_message" key={`message-from_${message.wallet}-at_${message.time}`}>
                                 <div className="Chat_message_info">
                                     <div className='Chat_message_author'>
-                                        {wallet} - <span onClick={() => {
+                                        {wallet} {isAdmin && <> - <span onClick={() => {
                                             deleteMessage(message._id)
                                         }}>Delete</span>  - <span onClick={() => {
                                             banUser(message.wallet, 60 * 5)
@@ -184,7 +184,7 @@ export default () => {
                                             banUser(message.wallet, 60 * 60 * 24)
                                         }}>B24H</span>- <span onClick={() => {
                                             banUser(message.wallet, 60 * 60 * 99999)
-                                        }}>BINF</span>
+                                        }}>BINF</span></>}
                                     </div>
                                     <div className='Chat_message_time'>
                                         {formatTime(message.time)}
