@@ -137,7 +137,7 @@ const ThimblesBid = (props) => {
             })
             gameStore.thibleBid(result.data.gameId)
             setwaiting(false)
-            const oldthimblesBest = localStorage.getItem('thimblesBest') || 0;
+            const oldthimblesBest = +localStorage.getItem('thimblesBest') || 0;
             localStorage.setItem('thimblesBest', oldthimblesBest + bid)
         } catch (error) {
             setwaiting(false)

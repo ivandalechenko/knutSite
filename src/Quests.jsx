@@ -5,7 +5,7 @@ import api from './api';
 import questsStore from './questsStore';
 import userStore from './userStore';
 export default () => {
-    const [openedTab, setopenedTab] = useState('General');
+    const [openedTab, setopenedTab] = useState('Socials');
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default () => {
                 {
                     openedTab === 'General' && <div className='Quests_general'>
                         {questsStore.quests.map((quest) => {
-                            const best = localStorage.getItem(`${quest.type}Best`) || 0
+                            const best = +localStorage.getItem(`${quest.type}Best`) || 0
                             let percentOfComplete = best / quest.reqScore * 100;
 
                             if (quest.type === 'minesweeper') {
@@ -81,6 +81,9 @@ export default () => {
                             }
                         })}
                     </div>
+                }
+                {
+                    openedTab === 'Socials' && <div className='Quests_'></div>
                 }
 
             </div>
