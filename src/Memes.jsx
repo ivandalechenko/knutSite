@@ -17,8 +17,6 @@ function shuffleArray(array) {
 }
 
 // Перемешиваем массив
-console.log(baseArr);
-console.log(memesArr);
 
 
 const Memes = (props) => {

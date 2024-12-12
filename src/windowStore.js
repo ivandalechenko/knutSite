@@ -22,9 +22,9 @@ class WindowStore {
         wack: 'closed',
 
         thimbles: 'closed',
-        // thimbleswm: 'closed'
         flappy: 'closed',
-        flappyLeaderboard: 'closed'
+        flappyLeaderboard: 'closed',
+        quests: 'opened'
     }
 
     constructor() {

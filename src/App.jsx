@@ -22,6 +22,7 @@ import Snake from './Snake.jsx'
 import ChangeWallpaper from './ChangeWallpaper.jsx'
 import Bugreport from "./Bugreport.jsx";
 import Chat from "./Chat.jsx";
+import Quests from "./Quests.jsx";
 
 
 
@@ -35,6 +36,8 @@ import { useState } from 'react';
 import Staking from './Staking.jsx'
 import Wack from './Wack.jsx'
 import metricStore from './metricStore.js'
+import api from './api.js'
+import questsStore from './questsStore.js'
 
 function App() {
   const [firstClicked, setfirstClicked] = useState(false);
@@ -53,6 +56,10 @@ function App() {
     };
 
     window.addEventListener('unload', handleUnload);
+
+
+
+    questsStore.initQuests()
 
     return () => {
       window.removeEventListener('unload', handleUnload);
@@ -97,6 +104,7 @@ function App() {
       {windowStore.getWindowStatus('wack') === 'opened' && <Wack />}
       {windowStore.getWindowStatus('bugreport') === 'opened' && <Bugreport />}
       {windowStore.getWindowStatus('chat') === 'opened' && <Chat />}
+      {windowStore.getWindowStatus('quests') === 'opened' && <Quests />}
       <TaskPanel />
     </div >
   )

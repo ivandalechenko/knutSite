@@ -35,12 +35,12 @@ const TTT = (props) => {
             if (winner) {
                 setGameOver(true);
                 if (winner === 'x') {
-                    const best = +localStorage.getItem('tttBest') || 0
+                    const best = +localStorage.getItem('TTTBest') || 0
                     setTimeout(() => {
                         setUserScore(userScore + 1);
                     }, 10);
                     if (userScore + 1 > best) {
-                        localStorage.setItem('tttBest', userScore + 1)
+                        localStorage.setItem('TTTBest', userScore + 1)
                         const res = {
                             wallet: walletStore.wallet,
                             ttt: userScore + 1
@@ -212,7 +212,7 @@ const TTT = (props) => {
                     </div>
                     <div className='Minesweeper_best'>
                         {
-                            (+localStorage.getItem('tttBest') || 9999) < 9999 ? <>Best: {localStorage.getItem('tttBest')}</> : <></>
+                            (+localStorage.getItem('TTTBest') || 9999) < 9999 ? <>Best: {localStorage.getItem('TTTBest')}</> : <></>
                         }
                         <button onClick={() => {
                             windowStore.setWindowStatus('tttLeaderboard', 'opened')

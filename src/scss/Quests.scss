@@ -1,0 +1,146 @@
+.Quests {
+    width: 600px;
+    height: 400px;
+    overflow-y: scroll;
+
+    &_balance {
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+        color: #000;
+        font-size: 16px;
+
+        span {
+            font-weight: 900;
+            color: #000;
+        }
+    }
+
+    &_tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 16px;
+    }
+
+    &_tab {
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42px;
+        border: none;
+        border-radius: 0;
+        box-sizing: border-box;
+        color: transparent;
+        text-shadow: 0 0 #222;
+        background: #B8C0C1;
+        box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+        cursor: pointer;
+
+        &_opened {
+            box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px grey, inset -2px -2px #dfdfdf;
+        }
+    }
+
+    &_general {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 24px 8px;
+        row-gap: 24px;
+
+        &_element {
+            column-gap: 16px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &_name {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 12px;
+            min-width: 130px;
+
+            img {
+                width: 48px;
+            }
+
+            &_text {
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #000;
+                font-weight: 900;
+            }
+        }
+
+        &_content {
+            width: 100%;
+            box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+            padding: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 8px;
+
+            &_status {
+                width: 100%;
+                height: 28px;
+                box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0px 4px;
+
+                &_value {
+                    justify-content: right !important;
+                    font-weight: 900;
+                    font-size: 18px;
+                    color: #000;
+                    text-shadow: 0px 0px 2px #fff;
+
+                    &_inv {
+                        color: #FFF;
+                    }
+                }
+
+                &_inner {
+                    min-width: 4px;
+                    height: 20px;
+                    background: linear-gradient(to right, #000080, #1084D0);
+                }
+            }
+
+            &_header {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+            }
+
+            &_req {
+                font-size: 15px;
+                color: #000;
+                font-weight: 900;
+                padding-left: 8px;
+            }
+
+            &_btn {
+                box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+                padding: 12px;
+                font-size: 15px;
+                color: #000;
+
+                span {
+                    // font-size: 15px;
+                    color: #000;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}

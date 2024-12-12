@@ -93,6 +93,9 @@ export default observer(({ children, type }) => {
                     {type === 'staking' && 'Staking'}
                     {type === 'wack' && 'Wack-a-Knut'}
                     {type === 'chat' && 'Chat'}
+                    {type === 'quests' && 'Quests'}
+
+
                 </div>
                 <div className="title-bar-controls">
                     {!['cantClose', 'player', 'shutdown'].includes(type) && (
