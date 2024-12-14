@@ -1,19 +1,28 @@
 import { makeAutoObservable, observable } from 'mobx';
 import walletStore from './walletStore';
 import api from './api';
+import userStore from './userStore';
 
 class QuestsStore {
     quests = []
 
     constructor() {
-        makeAutoObservable(this, {
-            quests: true,  // Указываем, что quests нужно сделать наблюдаемым
-        })
+        makeAutoObservable(this)
     }
 
     initQuests = async () => {
         const qlist = await api.get('/quests')
         this.quests = qlist.data
     }
+    completeQuest = (art) => {
+        localStorage.setItem(`quest_${art}Completed`, true)
+    }
+
+    claimReward = async (art) => {
+        walletStore.connectWallet
+        await api.post('/quests/claim', { art: art, wallet: walletStore.wallet })
+        userStore.getMe()
+    }
 }
+
 export default new QuestsStore();

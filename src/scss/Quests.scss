@@ -3,6 +3,10 @@
     height: 400px;
     overflow-y: scroll;
 
+    @media(max-width: 800px) {
+        height: calc(100vh - 121px);
+    }
+
     &_balance {
         width: 100%;
         text-align: center;
@@ -134,11 +138,60 @@
                 padding: 12px;
                 font-size: 15px;
                 color: #000;
+                cursor: pointer;
 
                 span {
                     // font-size: 15px;
                     color: #000;
                     font-weight: 900;
+                }
+            }
+        }
+    }
+
+    &_socials {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 24px 8px;
+        row-gap: 24px;
+        box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+
+        &_wrapper {
+            padding: 24px;
+        }
+
+        &_element {
+            column-gap: 16px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 12px;
+
+            &_name {
+                font-size: 20px;
+                font-weight: 900;
+                color: #000;
+            }
+
+            &_price {
+                font-size: 16px;
+                color: #000;
+            }
+
+            &_btn {
+                box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+                height: 48px;
+                display: flex;
+                justify-content: center;
+                padding: 0px 24px;
+                align-items: center;
+                font-size: 16px;
+                color: #000;
+                font-weight: 900;
+
+                &_nolink {
+                    text-decoration: none;
                 }
             }
         }
