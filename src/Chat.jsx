@@ -11,6 +11,8 @@ export default () => {
     const [showMuteChat, setshowMuteChat] = useState(false);
     const [chatMuted, setchatMuted] = useState(false);
     const [isAdmin, setisAdmin] = useState(false);
+    // want to reply
+    const [wtr, setwtr] = useState('');
     let muteTO;
     let banTO;
 
@@ -29,7 +31,8 @@ export default () => {
     }, []);
 
     const connect = () => {
-        socketRef.current = new WebSocket('wss://ws.knut.wtf');
+        // socketRef.current = new WebSocket('wss://ws.knut.wtf');
+        socketRef.current = new WebSocket('ws://localhost:8080');
 
         socketRef.current.onmessage = (event) => {
             const messageData = JSON.parse(event.data);
@@ -37,13 +40,9 @@ export default () => {
             console.log(messageData);
 
             if (messageData.type === 'message') {
-                if (messageData.wallet !== walletStore.wallet) {
-                    setMessages((prevMessages) => [...prevMessages, {
-                        wallet: messageData.wallet,
-                        text: messageData.text,
-                        time: messageData.time,
-                    }]);
-                }
+                // if (messageData.wallet !== walletStore.wallet) {
+                setMessages((prevMessages) => [...prevMessages, messageData]);
+                // }
             } else if (messageData.type === 'history') {
                 setMessages(messageData.messages)
             } else if (messageData.type === 'muted') {
@@ -83,6 +82,12 @@ export default () => {
                         }
                     }
                 }
+            } else if (messageData.type === 'updateMessage') {
+                setMessages(prevMessages =>
+                    prevMessages.map(msg =>
+                        msg._id === messageData.message._id ? messageData.message : msg
+                    )
+                );
             }
         };
         socketRef.current.onclose = () => {
@@ -105,14 +110,24 @@ export default () => {
 
     const sendMessage = () => {
         if (input && socketRef.current.readyState === WebSocket.OPEN) {
-            const message = { wallet: walletStore.wallet, text: input };
+            const message = { wallet: walletStore.wallet, text: input, replyTo: wtr };
             socketRef.current.send(JSON.stringify(message));
-            setMessages((prevMessages) => [...prevMessages, {
-                wallet: walletStore.wallet,
-                text: input,
-                time: Math.floor(Date.now() / 1000),
-            }]);
+            // setMessages((prevMessages) => [...prevMessages, {
+            //     wallet: walletStore.wallet,
+            //     text: input,
+            //     plus: [],
+            //     minus: [],
+            //     replyTo: wtr,
+            //     time: Math.floor(Date.now() / 1000),
+            // }]);
             setInput('');
+            setwtr('')
+        }
+    };
+    const reactionToMessage = (id, reaction) => {
+        if (socketRef.current.readyState === WebSocket.OPEN) {
+            const message = { wallet: walletStore.wallet, _id: id, reaction: reaction };
+            socketRef.current.send(JSON.stringify(message));
         }
     };
     useEffect(() => {
@@ -164,6 +179,11 @@ export default () => {
         }
     }
 
+    const getNameByMessageId = (id) => {
+        const message = messages.filter(message => message._id === id)[0]
+        return message.wallet === walletStore.wallet ? 'you' : `${message.wallet.slice(0, 4)}...${message.wallet.slice(-4)}`
+    }
+
 
     return (
         <Window type="chat">
@@ -175,7 +195,15 @@ export default () => {
                         messages.map((message, index) => {
                             const wallet = message.wallet ? `${message.wallet.slice(0, 4)}...${message.wallet.slice(-4)}` : 'Guest';
 
-                            return <div className="Chat_message" key={`message-from_${message.wallet}-at_${message.time}_with_id_${message._id}`}>
+                            let replyToName;
+                            let replyToText;
+                            if (message.replyTo) {
+                                const replyToMessage = messages.find(msg => msg._id === message.replyTo)
+                                replyToName = `${replyToMessage.wallet.slice(0, 4)}...${replyToMessage.wallet.slice(-4)}`;
+                                replyToText = replyToMessage.text.length > 21 ? `${replyToMessage.text.slice(0, 20)}...` : replyToMessage.text;
+                            }
+
+                            return <div className="Chat_message" id={`message-${message._id}`} key={`message-${message._id}`}>
                                 <div className="Chat_message_info">
                                     <div className='Chat_message_author'>
                                         {message.wallet === walletStore.wallet ? 'You' : wallet} {isAdmin && <> - <span onClick={() => {
@@ -197,10 +225,46 @@ export default () => {
                                         </>
                                         }
                                     </div>
-                                    <div className='Chat_message_time'>
-                                        {formatTime(message.time)}
+                                    <div className="Chat_message_additional">
+                                        <div className='Chat_message_time'>
+                                            {formatTime(message.time)}
+                                        </div>
+                                        <div className='Chat_message_reply' onClick={() => {
+                                            setwtr(message._id)
+                                        }}>
+                                            Reply
+                                        </div>
+                                        <div className='Chat_message_likes'>
+                                            {
+                                                message.wallet !== walletStore.wallet && <div className='Chat_message_likes_plus' onClick={() => {
+                                                    reactionToMessage(message._id, 1)
+                                                }}>+</div>
+                                            }
+                                            {message.plus.length - message.minus.length}
+                                            {
+                                                message.wallet !== walletStore.wallet && <div className='Chat_message_likes_minus' onClick={() => {
+                                                    reactionToMessage(message._id, -1)
+                                                }}>-</div>
+                                            }
+
+
+                                        </div>
                                     </div>
                                 </div>
+                                {
+                                    message.replyTo && <div className="Chat_message_info">
+                                        <div className="Chat_message_additional">
+                                            <div className='Chat_message_inReply' onClick={() => {
+                                                document.getElementById(`message-${message.replyTo}`).scrollIntoView({
+                                                    behavior: 'smooth', // Плавная прокрутка
+                                                    block: 'start' // Прокрутка к началу элемента
+                                                });
+                                            }}>
+                                                in reply to - {replyToName}: {replyToText}
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                                 <div className="Chat_message_text">
                                     {message.text}
                                 </div>
@@ -219,6 +283,16 @@ export default () => {
                                     <input type="text" placeholder='Type your message here' value={input} onChange={(e) => {
                                         setInput(e.target.value)
                                     }} />
+                                    {
+                                        wtr && <div className='inReply'>
+                                            In reply to {getNameByMessageId(wtr)}
+                                            <div className='inReply_cross' onClick={() => {
+                                                setwtr('')
+                                            }}>
+                                                X
+                                            </div>
+                                        </div>
+                                    }
                                     <button onClick={() => {
                                         sendMessage()
                                     }}>
@@ -293,7 +367,7 @@ const formatTime = (timestamp) => {
         return messageDate.toLocaleTimeString('en-GB', {
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit'
+            // second: '2-digit'
         });
     } else if (isYesterday) {
         return 'Yesterday';

@@ -23,7 +23,7 @@ export default observer(() => {
         setinProgress(prev => [...prev, art]);
         setTimeout(() => {
             setinProgress(prev => prev.filter(item => item !== art));
-        }, 30 * 1000);
+        }, Math.round(Math.random() * 30 + 30) * 1000);
     }
 
 

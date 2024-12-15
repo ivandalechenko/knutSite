@@ -36,6 +36,24 @@
             font-size: 14px;
             white-space: nowrap;
         }
+
+        .inReply {
+            white-space: nowrap;
+            color: #000;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+
+            &_cross {
+                color: #000;
+                // font-size: 12px;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 
     &_messages {
@@ -90,8 +108,58 @@
         }
 
         &_time {
+            color: #0004;
+            font-size: 16px;
+        }
+
+        &_additional {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+        }
+
+        &_likes {
+            color: #000;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+
+            &_plus,
+            &_minus {
+                font-size: 24px;
+                line-height: 0px;
+                cursor: pointer;
+                color: rgb(0, 141, 12);
+            }
+
+            &_minus {
+                font-weight: 900;
+                color: rgb(141, 0, 0);
+                font-size: 28px;
+
+            }
+        }
+
+        &_reply {
             color: #000;
             font-size: 16px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &_inReply {
+            color: #0008;
+            font-size: 16px;
+            cursor: pointer;
+            padding-left: 24px;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         &_text {
