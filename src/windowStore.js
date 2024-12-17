@@ -24,8 +24,7 @@ class WindowStore {
         thimbles: 'closed',
         flappy: 'closed',
         flappyLeaderboard: 'closed',
-
-        chat: 'opened'
+        chat: 'closed'
     }
 
     constructor() {
