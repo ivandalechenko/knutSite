@@ -94,6 +94,7 @@ export default observer(({ children, type }) => {
                     {type === 'wack' && 'Wack-a-Knut'}
                     {type === 'chat' && 'Chat'}
                     {type === 'quests' && 'Quests'}
+                    {type === 'team' && 'Team'}
 
 
                 </div>

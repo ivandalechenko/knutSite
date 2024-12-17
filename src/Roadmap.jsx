@@ -14,7 +14,6 @@ const Roadmap = (props) => {
                 </div>
                 <div className='Roadmap_step'>
                     - From $10K MC to GG EZ Moon.
-
                 </div>
                 <div className='Roadmap_step'>
 

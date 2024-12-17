@@ -31,8 +31,8 @@ export default () => {
     }, []);
 
     const connect = () => {
-        // socketRef.current = new WebSocket('wss://ws.knut.wtf');
-        socketRef.current = new WebSocket('ws://localhost:8080');
+        socketRef.current = new WebSocket('wss://ws.knut.wtf');
+        // socketRef.current = new WebSocket('ws://localhost:8080');
 
         socketRef.current.onmessage = (event) => {
             const messageData = JSON.parse(event.data);
@@ -218,9 +218,13 @@ export default () => {
                                                         banUser(message.wallet, 60 * 60 * 6)
                                                     }}>B6H</span> - <span onClick={() => {
                                                         banUser(message.wallet, 60 * 60 * 24)
-                                                    }}>B24H</span>- <span onClick={() => {
+                                                    }}>B24H</span>
+
+                                                    {/* <span onClick={() => {
                                                         banUser(message.wallet, 60 * 60 * 99999)
-                                                    }}>BINF</span></>
+                                                    }}>BINF</span>
+                                                     */}
+                                                </>
                                             }
                                         </>
                                         }

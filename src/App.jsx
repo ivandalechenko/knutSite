@@ -23,6 +23,7 @@ import ChangeWallpaper from './ChangeWallpaper.jsx'
 import Bugreport from "./Bugreport.jsx";
 import Chat from "./Chat.jsx";
 import Quests from "./Quests.jsx";
+import Team from "./Team.jsx";
 
 
 
@@ -105,6 +106,7 @@ function App() {
       {windowStore.getWindowStatus('bugreport') === 'opened' && <Bugreport />}
       {windowStore.getWindowStatus('chat') === 'opened' && <Chat />}
       {windowStore.getWindowStatus('quests') === 'opened' && <Quests />}
+      {windowStore.getWindowStatus('team') === 'opened' && <Team />}
       <TaskPanel />
     </div >
   )
