@@ -111,6 +111,12 @@ function capitalizeFirstLetter(str) {
     if (str === 'flappyLeaderboard' || str === 'wackLeaderboard' || str === 'snakeLeaderboard' || str === 'tttLeaderboard' || str === 'minesweeperLeaderboard') {
         return 'Leaderboard'
     }
+
+    if (str === 'team') {
+        return 'Bakers'
+    }
+
+
     if (!str) return str;  // Проверка на пустую строку
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
