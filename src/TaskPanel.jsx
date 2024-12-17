@@ -113,7 +113,7 @@ function capitalizeFirstLetter(str) {
     }
 
     if (str === 'team') {
-        return 'Bakers'
+        return 'Backers'
     }
 
 

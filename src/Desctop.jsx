@@ -236,7 +236,7 @@ export default observer((props) => {
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
                     <div className='Desctop_link_text'>
-                        Bakers
+                        Backers
                     </div>
                 </div>
 
