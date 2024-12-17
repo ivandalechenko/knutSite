@@ -11,45 +11,43 @@ export default () => {
                     Papa Bears
                 </div>
                 <div className='Roadmap_step'>
-                    Mr Noel Giga Ser
+                    Mr Giga Ser
                     <br />
-                    Ser Pussy L. Marihuana
+                    L.
                     <br />
                     Dr JD redacted.ser
                     <br />
-                    Prod. Oleksi haha zaza
+                    LiquidityGod
+                    <br />
+                    D9K?
                 </div>
                 <div className='Roadmap_phase'>
                     Core / Community Leaders
                 </div>
                 <div className='Roadmap_step'>
-                    Mr Liquidity. God
-                    <br />
                     Discord Ser. Fatal
                     <br />
-                    She. Intention Natalie
+                    Intention Natalie
                     <br />
-                    ChefBurn. Master Tanjim
+                    BurnMaster Tanjim
                     <br />
                     F.
+                    <br />
+                    KryptoSensei
+                    <br />
+                    Manuel
                 </div>
                 <div className='Roadmap_phase'>
                     Community Devs
                 </div>
 
                 <div className='Roadmap_step'>
-                    Snickers
-                    <br />
-                    Burkay
-                    <br />
-                    Soapy
+                    TBA
                 </div>
                 <div className='Roadmap_phase'>
                     Mods
                 </div>
                 <div className='Roadmap_step'>
-                    Manuel
-                    <br />
                     Eddie
                     <br />
                     Kaysa
@@ -61,12 +59,42 @@ export default () => {
                     xderdeuder
                     <br />
                     Brave
+                    <br />
+                    Semi
+                    <br />
+                    Tudor
+                    <br />
+                    Hurlibuz
+                    <br />
+                    Propangalf
                 </div>
                 <div className='Roadmap_phase'>
-                    Backers
+                    Backers (individuals)
                 </div>
                 <div className='Roadmap_step'>
-                    Dom, Shady, Cani, ChengZhao, Burhan, Victor, Fernando, Nebula, Jaany, Antonino, SkRyder, CreditScend, Wayne
+                    Dominic Kuster, Shady, Cani, ChengZhao, Burhan, Victor, Fernando, Jaany, Antonino, SkRyder, Wayne
+                </div>
+                <div className='Roadmap_phase'>
+                    Backers (official)
+                </div>
+                <div className='Roadmap_step'>
+                    Nebula Agency
+                    <br />
+                    GamesForALiving
+                    <br />
+                    CryptoEducation
+                    <br />
+                    Liquidpay
+                    <br />
+                    Memechain
+                    <br />
+                    W3B
+                    <br />
+                    Bluechip
+                    <br />
+                    Julius&Bär
+                    <br />
+                    LaStrada
                 </div>
 
 
