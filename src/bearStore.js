@@ -1,4 +1,5 @@
 import { makeAutoObservable, observable } from 'mobx';
+import windowStore from './windowStore';
 
 class BearStore {
     currentBear = 1;
@@ -8,7 +9,7 @@ class BearStore {
     }
 
     incBear() {
-        if (this.currentBear < 9) {
+        if (this.currentBear < 9 || windowStore.getWindowStatus('state') === 'opened') {
             this.currentBear = this.currentBear + 1
         }
     }

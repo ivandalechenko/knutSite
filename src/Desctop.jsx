@@ -6,7 +6,7 @@ import walletStore from './walletStore';
 import wallpaperStore from './wallpaperStore';
 
 export default observer((props) => {
-    const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 1);
+    const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 2);
     useEffect(() => {
         setwallpaper(wallpaperStore.wallpaper)
     }, [wallpaperStore.wallpaper])
@@ -14,6 +14,16 @@ export default observer((props) => {
         <div className='Desctop' style={{
             backgroundImage: `url('/img/wallpapers/${wallpaper}-min.webp')`
         }}>
+            {
+                wallpaper === 1 && <div className='Desctop_bg free_img'>
+                    <div className='Desctop_bg_inner'>
+                        <video autoPlay muted loop playsInline>
+                            <source src="/img/wallpapers/1.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            }
+
             <div className='Desctop_links'>
                 <div className='Desctop_link' onClick={() => { windowStore.setWindowStatus('state', 'opened') }}>
                     <div className='Desctop_link_img_wrapper'>
@@ -240,6 +250,23 @@ export default observer((props) => {
                     </div>
                 </div>
 
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('chat', 'opened')
+                }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/chatLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Chat
+                    </div>
+                </div>
+
 
                 {/* <div className='Desctop_link' onClick={async () => {
                     windowStore.setWindowStatus('bugreport', 'opened')
@@ -255,7 +282,7 @@ export default observer((props) => {
                     </div>
                 </div> */}
             </div>
-        </div>
+        </div >
     )
 })
 

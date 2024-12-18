@@ -95,12 +95,40 @@ export default () => {
                     Julius&Bär
                     <br />
                     LaStrada
+                    <br />
+                    SkillfulAI
+                    <br />
+                    XSWAP
+                    <br />
+                    GALILE
+                    <br />
+                    PAAL
+                    <br />
+                    V*****
+                    <br />
+                    I*******
+                    <br />
+                    B*****
+                    <br />
+                    G*****
+                    <br />
+                    P******
+                    <br />
+                    L******
                 </div>
 
-
-
-
-
+                <div className='Roadmap_phase'>
+                    As seen on
+                </div>
+                <div className='Roadmap_step'>
+                    CoinMarketCap
+                    <br />
+                    CoinGecko
+                    <br />
+                    Pump.Fun
+                    <br />
+                    dexscreener
+                </div>
 
 
 

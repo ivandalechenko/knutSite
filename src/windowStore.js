@@ -3,7 +3,8 @@ import { makeAutoObservable, observable } from 'mobx';
 class WindowStore {
     z = 0;
     windows = {
-        state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
+        // state: window.innerWidth <= 800 || import.meta.env.DEV ? 'closed' : 'opened',
+        state: 'closed',
         roadmap: 'closed',
         whitepaper: 'closed',
         tokenomics: 'closed',
