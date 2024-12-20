@@ -6,7 +6,7 @@ import walletStore from './walletStore';
 import wallpaperStore from './wallpaperStore';
 
 export default observer((props) => {
-    const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 2);
+    const [wallpaper, setwallpaper] = useState(+localStorage.getItem('wallpaper') || 2);
     useEffect(() => {
         setwallpaper(wallpaperStore.wallpaper)
     }, [wallpaperStore.wallpaper])
@@ -264,6 +264,23 @@ export default observer((props) => {
                     </div>
                     <div className='Desctop_link_text'>
                         Chat
+                    </div>
+                </div>
+
+                <div className='Desctop_link' onClick={async () => {
+                    if (!walletStore.wallet) {
+                        await walletStore.connectWallet()
+                    }
+                    windowStore.setWindowStatus('calendar', 'opened')
+                }}>
+                    <div className='Desctop_link_img_wrapper'>
+                        <img src='/img/links/calendarLink.png' className='Desctop_link_img' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_arrow free_img'>
+                        <img src='/img/links/arrow.png' alt='decor' />
+                    </div>
+                    <div className='Desctop_link_text'>
+                        Calendar
                     </div>
                 </div>
 

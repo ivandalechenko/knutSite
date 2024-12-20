@@ -11,23 +11,24 @@ export default () => {
                     Papa Bears
                 </div>
                 <div className='Roadmap_step'>
-                    Mr Giga Ser
+                    NoelBe_
                     <br />
                     L.
                     <br />
-                    Dr JD redacted.ser
-                    <br />
                     LiquidityGod
                     <br />
-                    D9K?
+                    D9K
+                    <br />
+                    JD
                 </div>
                 <div className='Roadmap_phase'>
                     Core / Community Leaders
                 </div>
                 <div className='Roadmap_step'>
-                    Discord Ser. Fatal
+
+                    FatalXerror
                     <br />
-                    Intention Natalie
+                    IntentionNatalie
                     <br />
                     BurnMaster Tanjim
                     <br />

@@ -3,7 +3,9 @@ import walletStore from './walletStore';
 import api from './api';
 
 class QuestsStore {
-    me = {}
+    me = {
+        quests: []
+    }
 
     constructor() {
         makeAutoObservable(this)

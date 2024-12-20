@@ -24,6 +24,7 @@ import Bugreport from "./Bugreport.jsx";
 import Chat from "./Chat.jsx";
 import Quests from "./Quests.jsx";
 import Team from "./Team.jsx";
+import Calendar from "./Calendar.jsx";
 
 
 
@@ -107,6 +108,7 @@ function App() {
       {windowStore.getWindowStatus('chat') === 'opened' && <Chat />}
       {windowStore.getWindowStatus('quests') === 'opened' && <Quests />}
       {windowStore.getWindowStatus('team') === 'opened' && <Team />}
+      {windowStore.getWindowStatus('calendar') === 'opened' && <Calendar />}
       <TaskPanel />
     </div >
   )
