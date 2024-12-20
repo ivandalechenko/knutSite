@@ -32,7 +32,7 @@ export default observer(() => {
         <Window type="quests">
 
             {/* <div className='Quests window_inner' key={`please_rerender_${userStore.quests.length}`}> */}
-            <div className='Quests window_inner' key={`please_rerender_${claimed.length}`}>
+            <div className='Quests window_inner' key={`please_rerender_${claimed.length}_${questsStore.rerender}`}>
                 <div className='Quests_balance'>
                     Balance <span>{userStore.me.balance} $knut</span>
                 </div>
@@ -117,14 +117,20 @@ export default observer(() => {
 
 
                                     return <div className='Quests_socials_element' key={quest.art}>
-                                        <div className='Quests_socials_element_info'>
-                                            <div className='Quests_socials_element_name'>
-                                                {quest.name}
+                                        <div className='Quests_socials_element_left'>
+                                            <div className='Quests_socials_element_img'>
+                                                <img src={`${quest.img}`} alt="" />
                                             </div>
-                                            <div className='Quests_socials_element_price'>
-                                                (+{quest.price} $knut)
+                                            <div className='Quests_socials_element_info'>
+                                                <div className='Quests_socials_element_name'>
+                                                    {quest.name}
+                                                </div>
+                                                <div className='Quests_socials_element_price'>
+                                                    (+{quest.price} $knut)
+                                                </div>
                                             </div>
                                         </div>
+
                                         <a href={`${link}`} target='_blank' onClick={(e) => {
                                             if (completed) {
                                                 e.preventDefault()

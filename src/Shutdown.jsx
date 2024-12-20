@@ -4,10 +4,12 @@ import Window from './Window'
 import windowStore from './windowStore'
 import { useEffect } from 'react';
 import bearStore from './bearStore'
+import questsStore from './questsStore';
 
 const Shutdown = (props) => {
     useEffect(() => {
         bearStore.killBear()
+        questsStore.completeQuest('shutdown')
     }, [])
     return (
         <Window type='shutdown'>

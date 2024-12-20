@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './scss/State.scss';
 import Window from './Window'
 import bearStore from './bearStore'
 import { observer } from 'mobx-react-lite';
+import questsStore from "./questsStore";
 
 const State = (props) => {
+
+    useEffect(() => {
+        questsStore.completeQuest('state')
+    }, [])
     return (
         <Window type="state">
             <div className='State'>

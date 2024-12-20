@@ -1,4 +1,5 @@
 import { makeAutoObservable, observable } from 'mobx';
+import questsStore from './questsStore';
 
 class AudioStore {
     volume = 30
@@ -137,6 +138,7 @@ class AudioStore {
             ].sort(() => Math.random() - 0.5)
         }
         if (cat === 'ChillMorning') {
+            questsStore.completeQuest('listen-chill')
             this.songs = ["https://knut.wtf/music/ChillMorning/A Bar Song (Tipsy).mp3",
                 "https://knut.wtf/music/ChillMorning/APT..mp3",
                 "https://knut.wtf/music/ChillMorning/Austin (Boots Stop Workin').mp3",

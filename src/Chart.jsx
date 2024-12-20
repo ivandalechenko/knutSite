@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './scss/Chart.scss';
 import Window from './Window';
+import questsStore from "./questsStore";
 export default (props) => {
+    useEffect(() => {
+        questsStore.completeQuest('chart')
+    }, [])
     return (
         <Window type="chart">
             <div className='Chart'>

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './scss/Roadmap.scss';
 import Window from './Window'
+import questsStore from "./questsStore";
 
 const Roadmap = (props) => {
+
+    useEffect(() => {
+        questsStore.completeQuest('roadmap')
+    }, [])
     return (
         <Window type="roadmap">
             <div className='Roadmap'>

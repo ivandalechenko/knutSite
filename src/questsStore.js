@@ -5,7 +5,7 @@ import userStore from './userStore';
 
 class QuestsStore {
     quests = []
-
+    rerender = 0;
     constructor() {
         makeAutoObservable(this)
     }
@@ -16,6 +16,7 @@ class QuestsStore {
     }
     completeQuest = (art) => {
         localStorage.setItem(`quest_${art}Completed`, true)
+        this.rerender = Math.random()
     }
 
     claimReward = async (art) => {

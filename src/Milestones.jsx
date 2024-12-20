@@ -2,13 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import './scss/Tokenomics.scss';
 import Window from './Window';
 import { gsap, TextPlugin } from 'gsap/all';
+import questsStore from './questsStore';
 
 gsap.registerPlugin(TextPlugin);
 
 const Tokenomics = (props) => {
     const textRef = useRef(null); // Ссылка на элемент с текстом
     const [textIndex, setTextIndex] = useState(0); // Индекс текущего текста
-
+    useEffect(() => {
+        questsStore.completeQuest('milestone')
+    }, [])
     const textArray = [
         "Phase 1 ✅",
         "Phase 2 ✅",

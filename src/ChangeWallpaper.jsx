@@ -2,12 +2,17 @@ import { useEffect, useState } from 'react';
 import './scss/ChangeWallpaper.scss';
 import Window from './Window';
 import wallpaperStore from './wallpaperStore';
+import questsStore from './questsStore';
 export default () => {
-    const [wallpaper, setwallpaper] = useState(localStorage.getItem('wallpaper') || 2);
+    const [wallpaper, setwallpaper] = useState(+localStorage.getItem('wallpaper') || 2);
     useEffect(() => {
         localStorage.setItem('wallpaper', wallpaper)
         wallpaperStore.wallpaper = wallpaper;
     }, [wallpaper])
+
+    useEffect(() => {
+        questsStore.completeQuest('wallpapers')
+    }, [])
 
     return (
         <Window type="changeWallpaper">

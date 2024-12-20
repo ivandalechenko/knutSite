@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './scss/Memes.scss';
 import Window from './Window'
 import { useState } from 'react';
+import questsStore from './questsStore';
 const MEMES_PER_PAGE = 4;
 const TOTAL_MEMES_COUNT = 96;
 const baseArr = Array.from({ length: TOTAL_MEMES_COUNT }, (_, i) => i + 1);
@@ -23,6 +24,9 @@ const Memes = (props) => {
     const [page, setpage] = useState(0);
     const [selectedMeme, setselectedMeme] = useState(0);
 
+    useEffect(() => {
+        questsStore.completeQuest('memes')
+    }, [])
     const nextPage = () => {
         setselectedMeme((prev) => (prev + 1) % TOTAL_MEMES_COUNT);
     };
