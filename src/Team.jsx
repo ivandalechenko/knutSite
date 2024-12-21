@@ -38,13 +38,7 @@ export default () => {
                     <br />
                     Manuel
                 </div>
-                <div className='Roadmap_phase'>
-                    Community Devs
-                </div>
 
-                <div className='Roadmap_step'>
-                    TBA
-                </div>
                 <div className='Roadmap_phase'>
                     Mods
                 </div>
@@ -70,7 +64,7 @@ export default () => {
                     Propangalf
                 </div>
                 <div className='Roadmap_phase'>
-                    Backers (individuals)
+                    Backers (key opinion leaders / advisors)
                 </div>
                 <div className='Roadmap_step'>
                     Dominic Kuster, Shady, Cani, ChengZhao, Burhan, Victor, Fernando, Jaany, Antonino, SkRyder, Wayne

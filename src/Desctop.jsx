@@ -8,7 +8,7 @@ import wallpaperStore from './wallpaperStore';
 export default observer((props) => {
     const [wallpaper, setwallpaper] = useState(+localStorage.getItem('wallpaper') || 2);
     useEffect(() => {
-        setwallpaper(wallpaperStore.wallpaper)
+        setwallpaper(+wallpaperStore.wallpaper)
     }, [wallpaperStore.wallpaper])
     return (
         <div className='Desctop' style={{
@@ -280,7 +280,7 @@ export default observer((props) => {
                         <img src='/img/links/arrow.png' alt='decor' />
                     </div>
                     <div className='Desctop_link_text'>
-                        Calendar
+                        Giveaway Calendar
                     </div>
                 </div>
 
