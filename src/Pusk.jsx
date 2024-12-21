@@ -74,6 +74,12 @@ const Pusk = ({ onClick }) => {
                             </div>
                             DEXscreener
                         </a>
+                        <a href='https://discord.gg/kSsdkkHmNU' target='_blank' className='Pusk_link'>
+                            <div className='Pusk_link_img'>
+                                <img src='/img/media/bird.png' alt='decor' />
+                            </div>
+                            Discord
+                        </a>
                     </div>
                     <div className='Pusk_bot'>
 
