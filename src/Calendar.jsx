@@ -218,7 +218,7 @@ export default () => {
                                     </video>
                                 </div>
                                 <div className='Calendar_lock free_img' >
-                                    <img src={`/img/calendar/1${registered ? "opened" : ''}.png`} onClick={register} alt="" />
+                                    <img src={`/img/calendar/2${registered ? "opened" : ''}.png`} onClick={register} alt="" />
                                 </div>
                                 {
                                     registered && <div className='Calendar_success free_img'>
