@@ -6,7 +6,7 @@ import walletStore from './walletStore';
 
 // время UTC + 1
 
-const FIRSTDAY = 19
+const FIRSTDAY = 21
 // const TIME_OFFSET_SEC = 60 * 60 * 24
 // const TIME_OFFSET_SEC = 60 * 60 * 5
 const WINPOS = 96
@@ -218,7 +218,7 @@ export default () => {
                                     </video>
                                 </div>
                                 <div className='Calendar_lock free_img' >
-                                    <img src={`/img/calendar/2${registered ? "opened" : ''}.png`} onClick={register} alt="" />
+                                    <img src={`/img/calendar/${getTodayNumber() - FIRSTDAY + 1}${registered ? "opened" : ''}.png`} onClick={register} alt="" />
                                 </div>
                                 {
                                     registered && <div className='Calendar_success free_img'>
