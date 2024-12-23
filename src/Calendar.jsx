@@ -8,7 +8,7 @@ import walletStore from './walletStore';
 
 const FIRSTDAY = 21
 // const TIME_OFFSET_SEC = 60 * 60 * 24
-// const TIME_OFFSET_SEC = 60 * 60 * 5
+// const TIME_OFFSET_SEC = 60 * 60 * 23
 const WINPOS = 96
 const TIME_OFFSET_SEC = 0
 
@@ -35,7 +35,6 @@ export default () => {
         if (winnerRes.data === walletStore.wallet) {
             winner = 'you'
             localStorage.setItem('calendarWinnerUnconnected', true)
-
         } else {
             winner = winnerRes.data
         }
@@ -45,10 +44,9 @@ export default () => {
         if (winner === 'you') {
             setTimeout(() => {
                 setwinner(true)
-            }, 15 * 1000);
-        } else {
-            localStorage.setItem('advent-claimed', getTodayNumber() - 1)
+            }, 8 * 1000);
         }
+        localStorage.setItem('advent-claimed', getTodayNumber() - 1)
     }
 
 

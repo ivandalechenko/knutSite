@@ -193,41 +193,41 @@
 
             .spin {
                 animation:
-                    charge1 .5s cubic-bezier(0, .77, .44, .99) forwards,
-                    charge2 1s cubic-bezier(0, .77, .44, .99) forwards 1s,
-                    charge3 2s cubic-bezier(0, .77, .44, .99) forwards 2.5s,
-                    push 4s cubic-bezier(.13, .79, .52, .52) forwards 5s, //5
-                    stop 3s cubic-bezier(0, .56, .13, 1.01) forwards 9s; //9
+                    // charge1 .5s cubic-bezier(0, .77, .44, .99) forwards,
+                    // charge2 1s cubic-bezier(0, .77, .44, .99) forwards 1s,
+                    // charge3 2s cubic-bezier(0, .77, .44, .99) forwards 2.5s,
+                    push 4s cubic-bezier(.13, .79, .52, .52) forwards 0s, //5
+                    stop 3s cubic-bezier(0, .56, .13, 1.01) forwards 4s; //9
 
-                @keyframes charge1 {
-                    0% {
-                        transform: translate(0px, 0px);
-                    }
+                // @keyframes charge1 {
+                //     0% {
+                //         transform: translate(0px, 0px);
+                //     }
 
-                    100% {
-                        transform: translate(110px, 0px);
-                    }
-                }
+                //     100% {
+                //         transform: translate(110px, 0px);
+                //     }
+                // }
 
-                @keyframes charge2 {
-                    0% {
-                        transform: translate(110px, 0px);
-                    }
+                // @keyframes charge2 {
+                //     0% {
+                //         transform: translate(110px, 0px);
+                //     }
 
-                    100% {
-                        transform: translate(220px, 0px);
-                    }
-                }
+                //     100% {
+                //         transform: translate(220px, 0px);
+                //     }
+                // }
 
-                @keyframes charge3 {
-                    0% {
-                        transform: translate(220px, 0px);
-                    }
+                // @keyframes charge3 {
+                //     0% {
+                //         transform: translate(220px, 0px);
+                //     }
 
-                    100% {
-                        transform: translate(330px, 0px);
-                    }
-                }
+                //     100% {
+                //         transform: translate(330px, 0px);
+                //     }
+                // }
 
                 @keyframes push {
                     0% {
