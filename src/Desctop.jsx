@@ -134,7 +134,7 @@ export default observer((props) => {
                         Staking
                     </div>
                 </div>
-                <div className='Desctop_link' onClick={async () => {
+                {/* <div className='Desctop_link' onClick={async () => {
                     if (!walletStore.wallet) {
                         await walletStore.connectWallet()
                     }
@@ -149,7 +149,7 @@ export default observer((props) => {
                     <div className='Desctop_link_text'>
                         Thimbles
                     </div>
-                </div>
+                </div> */}
                 <div className='Desctop_link' onClick={async () => {
                     if (!walletStore.wallet) {
                         await walletStore.connectWallet()
@@ -250,7 +250,7 @@ export default observer((props) => {
                     </div>
                 </div>
 
-                <div className='Desctop_link' onClick={async () => {
+                {/* <div className='Desctop_link' onClick={async () => {
                     if (!walletStore.wallet) {
                         await walletStore.connectWallet()
                     }
@@ -265,9 +265,9 @@ export default observer((props) => {
                     <div className='Desctop_link_text'>
                         Chat
                     </div>
-                </div>
+                </div> */}
 
-                <div className='Desctop_link' onClick={async () => {
+                {/* <div className='Desctop_link' onClick={async () => {
                     if (!walletStore.wallet) {
                         await walletStore.connectWallet()
                     }
@@ -282,7 +282,7 @@ export default observer((props) => {
                     <div className='Desctop_link_text'>
                         Giveaway Calendar
                     </div>
-                </div>
+                </div> */}
 
 
                 {/* <div className='Desctop_link' onClick={async () => {
